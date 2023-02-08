@@ -96,10 +96,12 @@ footer .nav {
 }
 
 footer p {
-    text-align: center;
     color: #61667c;
     font-size: 0.75rem;
     margin-bottom: 20px;
+}
+footer p.info-title {
+    font-weight: bold;
 }
 
 h1, h2 {
@@ -235,4 +237,91 @@ section {
     font-size: 1.25rem;
     font-weight: bold;
     color: #eeeff6;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgba(71, 101, 255, 1);
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.back-button svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.form {
+    color: rgba(213,217,236,0.48);
+    font-size: 0.875rem;
+}
+
+.form form {
+    display: grid;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+    margin-top: 20px;
+}
+.form .form-row {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-column-gap: 20px;
+}
+.form .form-col { 
+    display: grid;
+    grid-column-gap: 20px;
+}
+.form .form-col-3 {
+    grid-template-columns: repeat(1, 1fr);
+}
+@media screen and (min-width: 768px) {
+    .form .form-col-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.form .form-col-auto {
+    grid-template-columns: 100px auto;
+}
+
+.form label {
+    display: block;
+}
+
+.form .form-control {
+    background: none;
+    border: 2px solid rgba(71,101,255,0.15);
+    outline: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: rgba(213,217,236,0.48);
+}
+
+.form input:hover, .form input:focus, .form textarea:hover, .form textarea:focus {
+    border: 2px solid rgba(71,101,255,0.5);
+}
+
+.form input::placeholder, .form textarea::placeholder {
+    color: rgba(69,100,252,0.5);
+    font-weight: bold;
+}
+
+.form .checkbox {
+    font-size: 0.875rem;
+}
+
+.form button {
+    background: rgba(71,101,255,0.5);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: #eeeff6;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all .3s ease;
 }
