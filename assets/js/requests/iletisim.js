@@ -1,6 +1,6 @@
 const API_URL = "https://deprem-27jjydhzba-ew.a.run.app/";
 
-var form = document.querySelector("#enkazForm");
+var form = document.querySelector("#iletisimForm");
 
 form.onsubmit = function (e) {
     e.preventDefault();
@@ -16,7 +16,7 @@ form.onsubmit = function (e) {
 
     var json = JSON.stringify(object);
     
-    fetch(API_URL + "yardim", {
+    fetch(API_URL + "iletisim", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
