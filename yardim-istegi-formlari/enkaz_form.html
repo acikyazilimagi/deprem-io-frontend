@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Deprem.io | Ben / Tandığım Enkaz Altında</title>
+    </head>
+    <body>
+        <h3>Ben / Tandığım Enkaz Altında</h3>
+        <small>* İle başlayan alanlar zorunludur.</small>
+        
+        <form action="/" method="POST">
+            <label for="isim">* İsim & Soyisim:</label><br>
+            <input type="text" id="isim" name="isim" placeholder="* İsim & Soyisim" required><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="Email"><br>
+            <label for="telefon">Telefon:</label><br>
+            <input type="tel" id="telefon" name="telefon" placeholder="Telefon"><br>
+            <label for="kisi-sayisi">Kişi Sayısı:</label><br>
+            <input type="text" id="kisi-sayisi" name="kisi-sayisi" placeholder="Kişi Sayısı"><br>
+            <label for="adres">* Adres:</label><br>
+            <input type="text" id="adres" name="adres" placeholder="* Adres" required><br>
+            <label for="adres-tarifi">Adres Tarifi:</label><br>
+            <input type="text" id="adres-tarifi" name="adres-tarifi" placeholder="Adres Tarifi"><br>
+            <label for="fiziki-durum">* Fiziki Durum Hakkında Bilgi:</label><br>
+            <input type="text" id="fiziki-durum" name="fiziki-durum" placeholder="* Fiziki Durum" required><br>
+            <input type="radio" id="kritik" name="fiziki-durum-kategori" value="Kritik">
+            <label for="kritik">Kritik</label><br>
+            <input type="radio" id="orta" name="fiziki-durum-kategori" value="Orta">
+            <label for="orta">Orta</label><br>
+            <input type="radio" id="normal" name="fiziki-durum-kategori" value="Normal">
+            <label for="normal">Normal</label><br>
+            <label for="tweet">Tweet Linki:</label><br>
+            <input type="text" id="tweet" name="tweet" placeholder="Tweet Linki"><br>
+            <input type="submit" value="Gönder">
+        </form>
+    </body>
+</html>
