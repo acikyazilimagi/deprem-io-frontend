@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gıda İhtiyaç Formu | Deprem İmece Platformu</title>
+    <title>İletişim | Deprem İmece Platformu</title>
     <link rel="stylesheet" href="/assets/css/app.css?v=1">
 </head>
 <style>
@@ -52,7 +52,7 @@
                         <p style="margin-left: 30px; margin-top: -20px;">Lütfen bu formdan yardım isteği göndermeyiniz. Yalnızca platform ile ilgili mesajlara geri dönüş yapılacaktır. Yardım isteği için <a href="/">ana sayfaya</a> gidiniz.</p>
                      </div>
 
-                    <form action="https://deprem-27jjydhzba-ew.a.run.app/yardim" method="POST">
+                    <form>
                         <div class="form-row form-col-3">
                             <div class="form-col">
                                 <label for="isim">* İsim & Soyisim:</label>
@@ -76,7 +76,7 @@
                       
                         <div class="form-row">
                             <label for="kvkk" class="checkbox">
-                                <input type="checkbox" id="kvkk" name="kvkk" required>
+                                <input type="checkbox" id="kvkk" name="fields-kvkk" required>
                                 * Form dolduran kişiden hukuki beyan: Enkaz, yıkım, yardım ve destek ihtiyaçları konusunda verdiğim bilgilerin doğru ve teyit edilmiş olduğunu, bilgi kirliliği ve yanlış uygulamalara yol açmamak için gerekli tüm önlem ve tedbirleri aldığımı, vermiş olduğum bilgilerde meydana gelen değişiklik ve güncellemeleri bildireceğimi kabul ve beyan ederim.
                             </label>
                         </div>
@@ -146,6 +146,29 @@
         </div>
     </footer>
     <script src="assets/js/app.js?v=1"></script>
+        <script>
+            var form = document.getElementById('iletisimForm');
+            form.onsubmit = function (event) {
+                var xhr = new XMLHttpRequest();
+                var formData = new FormData(form);
+                //open the request
+                xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/iletisim')
+                xhr.setRequestHeader("Content-Type", "application/json");
+
+                //send the form data
+                xhr.send(JSON.stringify(Object.fromEntries(formData)));
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == XMLHttpRequest.DONE) {
+                        form.reset(); //reset form after AJAX success or do something else
+                    }
+                }
+                // window.location.href = "/";
+                //Fail the onsubmit to avoid page refresh.
+                return false;
+            }
+        </script>
+
 </body>
 
 </html>
