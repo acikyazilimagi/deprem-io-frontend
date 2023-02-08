@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <title>
+        Deprem.io | Enkaz Altında Olanlar
+    </title>
+</head>
+
+<body>
+    <h3>Enkaz Altında Olanlar</h3>
+    <div>
+        <form action="/" method="GET">
+            <label for="isim">* İsim & Soyisim:</label><br>
+            <input type="text" id="isim" name="isim" placeholder="* İsim & Soyisim" required><br>
+            <select name="yardim-durumu" id="yardim-durumu">
+                <option value=""></option>
+                <option value="yardim-bekleniyor">Yardım Bekleniyor</option>
+                <option value="yardim-edildi">Yardım Edildi</option>
+                <option value="yetersiz-bilgi">Yetersiz Bilgi</option>
+            </select>
+            <select name="aciliyet" id="aciliyet">
+                <option value=""></option>
+                <option value="kritik">Kritik</option>
+                <option value="orta">Orta</option>
+                <option value="normal">Normal</option>
+            </select>
+            <select name="arac" id="arac">
+                <option value=""></option>
+                <option value="arac-var">Aracım Var</option>
+                <option value="arac-yok">Aracım Yok</option>
+            </select>
+            <input type="submit" value="Filtrele">
+        </form>
+    </div>
+    <div>
+        <div>
+            Yardım Bekleniyor - Kritik
+            isim
+            numara
+            <a href="#">Detaya Git</a>
+            Adres
+            tarih
+            id
+        </div>
+    </div>
+</body>
+
+</html>
