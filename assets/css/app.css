@@ -621,6 +621,27 @@ section {
     margin-right: 10px;
 }
 
+.list-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(44,46,60, .3);
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.list-link a {
+    color: rgba(71, 101, 255, 1);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.list-link a:hover {
+    text-decoration: underline;
+}
+
 .icon {
     width: 15px;
     height: 15px;
@@ -674,3 +695,8 @@ section {
 .share-menu-wrapper li {
     margin: 0 !important;
 }
+
+.alert-gray{
+    margin-top: 30px;
+    margin-bottom: 30px;
+} 

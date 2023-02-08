@@ -65,6 +65,7 @@
                     <li>
                         <a href="/iletisim.html">İletişim</a>
                     </li>
+                   
                 </ul>
             </nav>
         </div>
@@ -86,6 +87,7 @@
                     <small>* İle başlayan alanlar zorunludur.</small>
 
                     <form id="konaklamaForm">
+                        <input type="text" name="yardimTipi" value="konaklama" style="display: none;" readonly>
                         <div class="form-row form-col-3">
                             <div class="form-col">
                                 <label for="isim">* İsim & Soyisim:</label>
@@ -110,7 +112,7 @@
 
                         <div class="form-row">
                             <label for="kvkk" class="checkbox">
-                                <input type="checkbox" id="kvkk" name="kvkk" required>
+                                <input type="checkbox" id="kvkk" name="fields-kvkk" required>
                                 * Form dolduran kişiden hukuki beyan: Enkaz, yıkım, yardım ve destek ihtiyaçları
                                 konusunda verdiğim bilgilerin doğru ve teyit edilmiş olduğunu, bilgi kirliliği ve yanlış
                                 uygulamalara yol açmamak için gerekli tüm önlem ve tedbirleri aldığımı, vermiş olduğum
@@ -139,6 +141,15 @@
                     <li>
                         <a href="/iletisim.html">İletişim</a>
                     </li>
+                    <li>
+                        <a href="/legal/cerez-politikasi.html">Çerez Politikası</a>
+                    </li>
+                    <li>
+                        <a href="/legal/gizlilik-sozlesmesi.html">Gizlilik Sözleşmesi</a>
+                    </li>
+                    <li>
+                        <a href="/legal/aydinlatma-ve-acik-riza-metni.html">Aydınlatma Metni</a>
+                    </li> 
                 </ul>
             </nav>
             <p class="info-title">
@@ -192,7 +203,7 @@
                     form.reset(); //reset form after AJAX success or do something else
                 }
             }
-            window.location.href = "/";
+            // window.location.href = "/";
             //Fail the onsubmit to avoid page refresh.
             return false;
         }

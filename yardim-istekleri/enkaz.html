@@ -65,6 +65,7 @@
                     <li>
                         <a href="/iletisim.html">İletişim</a>
                     </li>
+                   
                 </ul>
             </nav>
         </div>
@@ -120,7 +121,7 @@
                                     <span id="pagination-current-page">1</span>/<span
                                         id="pagination-total-page">255</span>
                                 </span>
-                                <button id="pagination-prev">
+                                <button id="pagination-next">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="rgba(69,100,252,0.5)" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -138,8 +139,12 @@
                                         placeholder="* İsim & Soyisim" required>
                                 </div>
                                 <div class="filter">
-                                    <select name="" id="" class="form-control">
-                                        <option value="">Yardım Durumu</option>
+                                    <select name="" id="filter-help-type" class="form-control">
+                                        <option disabled>Yardım Durumu</option>
+                                        <option value="">Tümü</option>
+                                        <option value="enkaz">Enkaz</option>
+                                        <option value="gida">Gıda</option>
+                                        <option value="ilac">İlaç</option>
                                     </select>
                                 </div>
                                 <div class="filter">
@@ -156,7 +161,7 @@
                                         </path>
                                     </svg>
                                 </button>
-                                <button class="btn-filter">
+                                <button id="filter-button" class="btn-filter">
                                     <span>
                                         Filtrele
                                     </span>
@@ -312,6 +317,15 @@
                     <li>
                         <a href="/iletisim.html">İletişim</a>
                     </li>
+                    <li>
+                        <a href="/legal/cerez-politikasi.html">Çerez Politikası</a>
+                    </li>
+                    <li>
+                        <a href="/legal/gizlilik-sozlesmesi.html">Gizlilik Sözleşmesi</a>
+                    </li>
+                    <li>
+                        <a href="/legal/aydinlatma-ve-acik-riza-metni.html">Aydınlatma Metni</a>
+                    </li> 
                 </ul>
             </nav>
             <p class="info-title">
@@ -347,7 +361,7 @@
             </p>
         </div>
     </footer>
-    <script src="assets/js/app.js?v=1"></script>
+    <script src="../assets/js/lists/enkaz.js"></script>
 </body>
 
 </html>
