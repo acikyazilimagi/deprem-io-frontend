@@ -98,6 +98,9 @@ function parseTime(input) {
     const daysAgo = Math.floor(minutesAgo / 60 / 24);
 
     if (minutesAgo < 60) {
+        if (minutesAgo < 1) {
+            return "az önce";
+        }
         return `${minutesAgo} dakika önce`;
     } else if (daysAgo < 1) {
         return `${hour}:${minute}`;
