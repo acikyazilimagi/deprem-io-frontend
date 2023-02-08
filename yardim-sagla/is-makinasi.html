@@ -1,26 +1,138 @@
-<html>
-    <head>
-        <title>Deprem.io | İş Makinesi Yardımı Sağla</title>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
 
-    <body>
-        <h3>İş Makinesi Yardımı Sağla</h3>
-        <small>
-            * İle başlayan alanlar zorunludur. Lütfen açık adres bilginizi yazmayın. Yardıma ihtiyacı olanların iletişime geçebilmesi için doğru telefon numarası
-            vermeye dikkat edin.
-        </small>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İş Makinası Yardımı Formu | Deprem İmece Platformu</title>
+    <link rel="stylesheet" href="/assets/css/app.css?v=1">
+</head>
 
-        <form action="/" method="POST">
-            <label for="isim">* İsim & Soyisim:</label><br>
-            <input type="text" id="isim" name="isim" placeholder="* İsim & Soyisim" required><br>
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" placeholder="Email"><br>
-            <label for="telefon">Telefon:</label><br>
-            <input type="tel" id="telefon" name="telefon" placeholder="Telefon" required><br>
-            <!-- sehirler eklenecek -->
-            <label for="yardim-bilgi">* Yardımın Hakkında Bilgi:</label><br>
-            <input type="text" id="yardim-bilgi" name="yardim-bilgi" placeholder="* Yardımın Hakkında Bilgi" required><br>
-            <input type="submit" value="Gönder">
-        </form>
-    </body>
+<body>
+    <header>
+        <div class="container">
+            <a href="/" class="logo" title="Deprem İmece Platformu">
+                <img src="/assets/images/logo.svg" alt="Deprem İmece Platformu" width="150">
+            </a>
+            <nav class="nav">
+                <ul>
+                    <li>
+                        <a href="/yararli-linkler.html">Yararlı Linkler</a>
+                    </li>
+                    <li>
+                        <a href="/iletisim.html">İletişim</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section>
+                <a href="/" class="back-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="rgba(71, 101, 255, 1)" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18">
+                        </path>
+                    </svg>
+                    Geri
+                </a>
+                <h1>İş Makinası Yardımı Formu</h1>
+                <div class="form">
+                    <small>* İle başlayan alanlar zorunludur.</small>
+
+                    <form action="/" method="POST">
+                        <div class="form-row form-col-3">
+                            <div class="form-col">
+                                <label for="isim">* İsim & Soyisim:</label>
+                                <input type="text" class="form-control" id="isim" name="isim"
+                                    placeholder="* İsim & Soyisim" required>
+                            </div>
+                            <div class="form-col">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                            </div>
+                            <div class="form-col">
+                                <label for="telefon">Telefon:</label>
+                                <input type="tel" class="form-control" id="telefon" name="telefon"
+                                    placeholder="Telefon">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label for="yardim-bilgi">* Yardımın Hakkında Bilgi:</label>
+                            <input type="text" class="form-control" id="yardim-bilgi" name="yardim-bilgi"
+                                placeholder="* Yardımın Hakkında Bilgi">
+                        </div>
+                       
+                        <div class="form-row">
+                            <label for="kvkk" class="checkbox">
+                                <input type="checkbox" id="kvkk" name="kvkk" required>
+                                * Form dolduran kişiden hukuki beyan: Enkaz, yıkım, yardım ve destek ihtiyaçları
+                                konusunda verdiğim bilgilerin doğru ve teyit edilmiş olduğunu, bilgi kirliliği ve yanlış
+                                uygulamalara yol açmamak için gerekli tüm önlem ve tedbirleri aldığımı, vermiş olduğum
+                                bilgilerde meydana gelen değişiklik ve güncellemeleri bildireceğimi kabul ve beyan
+                                ederim.
+                            </label>
+                        </div>
+                        <div>
+                            <button type="submit">
+                                Gönder
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <nav class="nav">
+                <ul>
+                    <li>
+                        <a href="/yararli-linkler.html">Yararlı Linkler</a>
+                    </li>
+                    <li>
+                        <a href="/iletisim.html">İletişim</a>
+                    </li>
+                </ul>
+            </nav>
+            <p class="info-title">
+                Kişisel Verilerin İşlenmesine İlişkin Aydınlatma:
+            </p>
+            <p>
+                Bu uygulama, 6 Şubat 2023 tarihinde Türkiye’de meydana gelen büyük deprem felaketinde, arama kurtarma
+                çalışmaları ile yardım ve destek taleplerini ortak bir veri tabanında toplayarak yetkili kurum ve
+                kuruluşlara aktarmak amacı ile bilişim teknolojileri alanında çalışan gönüllüler tarafından
+                oluşturulmuştur.
+                Yardım ya da desteğe ihtiyacı olduğunu belirttiğiniz kişilerin kişisel verileri ‘’Fiili imkânsızlık
+                nedeniyle rızasını açıklayamayacak durumda bulunan veya rızasına hukuki geçerlilik tanınmayan kişinin
+                kendisinin ya da bir başkasının hayatı veya beden bütünlüğünün korunması için zorunlu olması’’ hukuki
+                sebebine dayanarak, otomatik yollarla işlenecektir. Tarafınıza ait kişisel veriler, ‘’Bir hakkın tesisi,
+                kullanılması veya korunması için veri işlemenin zorunlu olması’’ hukuki sebebine dayanarak işlenecektir.
+            </p>
+            <p>
+                Paylaşacağınız yardım, destek taleplerinde yer alan isim, soy isim, telefon ve adres gibi kişisel
+                veriler, veli, vasi, temsilci bilgisi, medeni durum ve sağlık bilgileri tarafımızca oluşturulan ve
+                sunucuları yurtiçi ve yurtdışında bulunan veri tabanında toplanarak, Afad, Akut, Kızılay gibi yetkili
+                arama kurtarma kuruluşlarının yanı sıra destek ve yardım taleplerini karşılayabilecek sivil toplum
+                kuruluşları ile kişisel veri işleme amacı ile sınırlı olarak paylaşılacaktır.
+            </p>
+            <p>
+                Bu platform kar amacı gütmeden imece usulu bilgi paylaşımı için geliştirildi, hiçbir kurum ve kuruluşla
+                ilişiği yoktur.
+            </p>
+            <p>
+                Gerektiğinde yetkili merci ve kurumlara bilgi sağlanabilir ve işbirliği yapılabilir.
+            </p>
+            <p>
+                Deprem İmece Platformu © 2023
+            </p>
+        </div>
+    </footer>
+    <script src="assets/js/app.js?v=1"></script>
+</body>
+
 </html>
