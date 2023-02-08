@@ -53,6 +53,7 @@
                     <small>* İle başlayan alanlar zorunludur.</small>
 
                     <form id="konaklamaForm">
+                        <input type="text" name="yardimTipi" value="konaklama" style="display: none;" readonly>
                         <div class="form-row form-col-3">
                             <div class="form-col">
                                 <label for="isim">* İsim & Soyisim:</label>
@@ -159,7 +160,7 @@
                     form.reset(); //reset form after AJAX success or do something else
                 }
             }
-            window.location.href = "/";
+            // window.location.href = "/";
             //Fail the onsubmit to avoid page refresh.
             return false;
         }
