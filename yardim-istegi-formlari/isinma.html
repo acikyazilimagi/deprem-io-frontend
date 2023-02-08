@@ -43,13 +43,13 @@
                 <div class="form">
                     <small>* İle başlayan alanlar zorunludur.</small>
 
-                    <form action="https://deprem-27jjydhzba-ew.a.run.app/yardim" method="POST">
+                    <form id="isinmaForm">
                         <input type="text" name="yardimTipi" value="gida" style="display: none;" readonly>
                         <input type="text" name="yardimDurumu" value="bekleniyor" style="display: none;" readonly>
                         <div class="form-row form-col-3">
                             <div class="form-col">
-                                <label for="isim">* İsim & Soyisim:</label>
-                                <input type="text" class="form-control" id="isim" name="isim"
+                                <label for="adSoyad">* İsim & Soyisim:</label>
+                                <input type="text" class="form-control" id="adSoyad" name="adSoyad"
                                     placeholder="* İsim & Soyisim" required>
                             </div>
                             <div class="form-col">
@@ -63,8 +63,8 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <label for="kisi-sayisi">Kişi Sayısı:</label>
-                            <input type="text" class="form-control" id="kisi-sayisi" name="kisi-sayisi"
+                            <label for="kisiSayisi">Kişi Sayısı:</label>
+                            <input type="text" class="form-control" id="kisiSayisi" name="kisiSayisi"
                                 placeholder="Kişi Sayısı">
                         </div>
                         <div class="form-row">
@@ -86,43 +86,43 @@
                                 </div>
                                 <div class="form-row">
                                     <label for="kritik">
-                                        <input type="radio" id="kritik" name="fiziki-durum-kategori" value="Kritik">
+                                        <input type="radio" id="kritik" name="acilDurum" value="kritik">
                                         Kritik
                                     </label>
                                 </div>
                                 <div class="form-row">
                                     <label for="orta">
-                                        <input type="radio" id="orta" name="fiziki-durum-kategori" value="Orta" checked>
+                                        <input type="radio" id="orta" name="acilDurum" value="orta" checked>
                                         Orta
                                     </label>
                                 </div>
                                 <div class="form-row">
                                     <label for="normal">
-                                        <input type="radio" id="normal" name="fiziki-durum-kategori" value="Normal">
+                                        <input type="radio" id="normal" name="acilDurum" value="normal">
                                         Normal
                                     </label>
                                 </div>
                             </div>
                             <div class="form-col">
-                                <label for="fiziki-durum">* Fiziki Durum Hakkında Bilgi:</label>
-                                <textarea class="form-control" name="fiziki-durum" id="fiziki-durum" cols="30" rows="4"
+                                <label for="fizikiDurum">* Fiziki Durum Hakkında Bilgi:</label>
+                                <textarea class="form-control" name="fizikiDurum" id="fizikiDurum" cols="30" rows="4"
                                     placeholder="* Fiziki Durum Hakkında Bilgi" required></textarea>
                             </div>
                         </div>
                         <div class="form-row">
-                            <label for="tweet">Tweet Linki:</label>
-                            <input type="text" class="form-control" id="tweet" name="tweet" placeholder="Tweet Linki">
+                            <label for="tweetLink">Tweet Linki:</label>
+                            <input type="text" class="form-control" id="tweetLink" name="tweetLink" placeholder="Tweet Linki">
                         </div>
                         <div class="form-col">
                             <div class="form-row">
                                 <label for="arac-var">
-                                    <input type="radio" id="arac-var" name="arac-durumu" value="arac-var">
+                                    <input type="radio" id="arac-var" name="aracDurumu" value="arac-var">
                                     Aracım var, yardımı kendim teslim alabilirim.
                                 </label>
                             </div>
                             <div class="form-row">
                                 <label for="arac-yok">
-                                    <input type="radio" id="arac-yok" name="arac-durumu" value="arac-yok" checked>
+                                    <input type="radio" id="arac-yok" name="aracDurumu" value="arac-yok" checked>
                                     Aracım yok, yardımın teslim edilmesi gerek.
                                 </label>
                             </div>
@@ -194,6 +194,28 @@
         </div>
     </footer>
     <script src="assets/js/app.js?v=1"></script>
+        <script>
+            var form = document.getElementById('isinmaForm');
+            form.onsubmit = function (event) {
+                var xhr = new XMLHttpRequest();
+                var formData = new FormData(form);
+                //open the request
+                xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/yardim')
+                xhr.setRequestHeader("Content-Type", "application/json");
+
+                //send the form data
+                xhr.send(JSON.stringify(Object.fromEntries(formData)));
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == XMLHttpRequest.DONE) {
+                        form.reset(); //reset form after AJAX success or do something else
+                    }
+                }
+                //Fail the onsubmit to avoid page refresh.
+                return false;
+            }
+        </script>
+
 </body>
 
 </html>

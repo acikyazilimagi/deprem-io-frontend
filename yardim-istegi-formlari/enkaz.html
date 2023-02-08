@@ -43,12 +43,12 @@
                 <div class="form">
                     <small>* İle başlayan alanlar zorunludur.</small>
 
-                    <form action="https://deprem-27jjydhzba-ew.a.run.app/yardim" method="POST">
+                    <form id='enkazForm'>
                         <input type="text" name="yardimTipi" value="enkaz" style="display: none;" readonly>
                         <input type="text" name="yardimDurumu" value="bekleniyor" style="display: none;" readonly>
                         <div class="form-row form-col-3">
                             <div class="form-col">
-                                <label for="adSoyad">* İsim & SoyadSoyad:</label>
+                                <label for="adSoyad">* İsim & Soyisim:</label>
                                 <input type="text" class="form-control" id="adSoyad" name="adSoyad" placeholder="* İsim & Soyisim" required>
                             </div>
                             <div class="form-col">
@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="form-row">
                                     <label for="kritik">
-                                        <input type="radio" id="kritik" name="acilDurum" value="Kritik">
+                                        <input type="radio" id="kritik" name="acilDurum" value="kritik">
                                         Kritik
                                     </label>
                                 </div>
@@ -93,7 +93,7 @@
                                 </div>
                                 <div class="form-row">
                                     <label for="normal">
-                                        <input type="radio" id="normal" name="acilDurum" value="Normal">
+                                        <input type="radio" id="normal" name="acilDurum" value="normal">
                                         Normal
                                     </label>
                                 </div>
@@ -159,6 +159,27 @@
         </div>
     </footer>
     <script src="assets/js/app.js?v=1"></script>
+    <script>
+        var form = document.getElementById('enkazForm');
+            form.onsubmit = function (event) {
+                var xhr = new XMLHttpRequest();
+                var formData = new FormData(form);
+                //open the request
+                xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/yardim')
+                xhr.setRequestHeader("Content-Type", "application/json");
+
+                //send the form data
+                xhr.send(JSON.stringify(Object.fromEntries(formData)));
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == XMLHttpRequest.DONE) {
+                        form.reset(); //reset form after AJAX success or do something else
+                    }
+                }
+                //Fail the onsubmit to avoid page refresh.
+                return false;
+            }
+    </script>
 </body>
 
 </html>
