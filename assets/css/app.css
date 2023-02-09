@@ -700,3 +700,8 @@ section {
     margin-top: 30px;
     margin-bottom: 30px;
 } 
+
+a:hover {
+    transition: background-color 0.5s ease;
+    background-color:  rgba(71, 101, 255, 0.1);
+  }
