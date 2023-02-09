@@ -701,7 +701,13 @@ section {
     margin-bottom: 30px;
 } 
 
-a:hover {
+.warning-link {
+    color: rgba(71, 101, 255, 1);
+     text-decoration: none; 
+     padding: 5px; 
+     border-radius: 5px;
+}
+.warning-link:hover {
     transition: background-color 0.5s ease;
     background-color:  rgba(71, 101, 255, 0.1);
-  }
+}
