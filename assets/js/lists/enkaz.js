@@ -68,9 +68,9 @@ function getRows(page, limit) {
     .then((items) => {
       // update total page value
       totalPage = items.totalPage;
-
+      console.log("STARTED");
       var listWrapper = document.querySelector(".list");
-
+      console.log("STARTED");
       // clear listWrapper html
       listWrapper.innerHTML = "";
 
