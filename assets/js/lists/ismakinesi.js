@@ -1,7 +1,12 @@
-const API_URL = "https://deprem-27jjydhzba-ew.a.run.app/";
+//const API_URL = "https://deprem-27jjydhzba-ew.a.run.app/";
+const API_URL = "http://localhost:8080/";
 
 const filterButton = document.querySelector("#filter-button");
 const filterHelpType = document.querySelector("#filter-help-type");
+const filterHelpQ = document.querySelector("#filter-help-q");
+const filterHelpStatus = document.querySelector("#filter-help-status");
+const filterLocation = document.querySelector("#filter-help-location");
+const filterDest = document.querySelector("#filter-dest");
 
 const paginationPrevButton = document.querySelector("#pagination-prev");
 const paginationNextButton = document.querySelector("#pagination-next");
@@ -25,7 +30,7 @@ ready(function () {
 filterButton.addEventListener("click", function (e) {
   e.preventDefault();
 
-  getRows();
+  getFilteredRows();
 });
 
 paginationNextButton.addEventListener("click", function (e) {
@@ -85,6 +90,52 @@ function getRows(page, limit) {
     });
 }
 
+function getFilteredRows(page, limit) {
+  page = page || 1;
+  limit = limit || 10;
+
+  var totalPage = 0;
+  var helpType = filterHelpType.value;
+  var helpQ = filterHelpQ.value;
+  var helpStatus = filterHelpStatus.value;
+  var location = "";
+  var dest = "";
+
+  if (filterLocation) {
+    location = filterLocation.value;
+  }
+
+  if (filterDest) {
+    dest = filterDest;
+  }
+
+  // get items
+  getData(API_URL + "ara-yardimet/", [
+    { key: "q", value: helpQ },
+    { key: "yardimDurumu", value: helpStatus },
+    { key: "yardimTipi", value: helpType },
+    { key: "sehir", value: location },
+    { key: "hedefSehir", value: dest },
+  ])
+    .then((items) => {
+      console.log(items);
+      // update total page value
+      totalPage = items.totalPage;
+      var listWrapper = document.querySelector(".list");
+      // clear listWrapper html
+      listWrapper.innerHTML = "";
+
+      items.forEach(function (item) {
+        listWrapper.innerHTML += getRowHtml(item);
+      });
+    })
+    .finally(() => {
+      // update pagination info in html
+      paginationCurrentPage.innerHTML = page;
+      paginationTotalPage.innerHTML = totalPage;
+    });
+}
+
 function parseTime(input) {
   const date = new Date(input);
   const year = date.getFullYear();
@@ -132,14 +183,26 @@ function getData(url, params) {
 }
 
 function getRowHtml(item) {
+  var classColor;
+  var durumMessage;
+  if (item.yardimDurumu === "bekleniyor") {
+    classColor = "status-ok";
+    durumMessage = "Yardıma Hazır";
+  } else if (item.yardimDurumu === "yolda") {
+    classColor = "status-waiting";
+  } else if (item.yardimDurumu === "yapildi") {
+    classColor = "status-unknown";
+    durumMessage = "Yardım Yapıldı";
+  }
+
   return `<div class="list-item">
     <div class="list-row">
         <div class="list-col">
             <div class="list-col">
-                <span class="status status-waiting">
-                    <i></i> ${item.yardimTipi} - <span class="emergency">${
-    item.acilDurum
-  }</span>
+                <span class="status ${classColor}">
+                    <i></i> ${
+                      item.yardimTipi
+                    } - <span class="emergency">${durumMessage}</span>
                 </span>
             </div>
             <div class="list-col">
