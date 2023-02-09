@@ -144,26 +144,25 @@
                         <form action="" class="form">
                             <div class="filters">
                                 <div class="form-col" style="display: none;">
-                                    <input type="text" class="form-control" id="filter-help-type" name="yardimDurumu" value="isinma">
+                                    <input type="text" class="form-control" id="filter-help-type" name="yardimDurumu" value="gida">
                                 </div>
                                 <div class="filter">
-                                    <input type="text" class="form-control" id="isim" name="isim"
-                                        placeholder="* İsim & Soyisim" required>
+                                    <input type="text" class="form-control" id="filter-help-q" name="isim" placeholder="* İsim & Soyisim" required>
                                 </div>
                                 <div class="filter">
-                                    <select name="" id="filter-help-type" class="form-control">
+                                    <select name="" id="filter-help-status" class="form-control">
                                         <option value="">Yardım Durumu</option>
-                                        <option value="enkaz">Yardım Bekleniyor</option>
-                                        <option value="gida">Yardım Edildi</option>
-                                        <option value="ilac">Yetersiz Bilgi</option>
+                                        <option value="bekleniyor">Bekleniyor</option>
+                                        <option value="yolda">Yolda</option>
+                                        <option value="yapildi">Yapıldı</option>
                                     </select>
                                 </div>
                                 <div class="filter">
-                                    <select name="" id="filter-help-type" class="form-control">
-                                        <option value="">Aciliyet</option>
-                                        <option value="enkaz">Kritik</option>
-                                        <option value="gida">Orta</option>
-                                        <option value="ilac">Normal</option>
+                                    <select name="" id="filter-help-emergence" class="form-control">
+                                        <option value="">Aciliyet Durumu</option>
+                                        <option value="kritik">Kritik</option>
+                                        <option value="orta">Orta</option>
+                                        <option value="normal">Normal</option>
                                     </select>
                                 </div>
                                 <div class="filter">
