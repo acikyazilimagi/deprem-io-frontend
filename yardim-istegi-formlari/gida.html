@@ -120,6 +120,14 @@
                                     placeholder="Telefon">
                             </div>
                         </div>
+                        <div class="form-row form-col-3" id="yedekTelefonlar" style="align-items: center;">
+                            <a href="javascript: void 0" id="ekTelefonLinki" onclick="addExtraPhone()" class="plus-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16" id="IconChangeColor">
+                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" id="plusIcon" fill="#4765ff" />
+                                </svg>
+                                Başka Telefon Ekle
+                            </a>
+                        </div>
                         <div class="form-row">
                             <label for="kisiSayisi">Kişi Sayısı:</label>
                             <input type="text" class="form-control" id="kisiSayisi" name="kisiSayisi"
@@ -273,8 +281,18 @@
             xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/yardim')
             xhr.setRequestHeader("Content-Type", "application/json");
 
+            // prepare the data
+            const postData = Object.fromEntries(formData);
+            postData.yedekTelefonlar = [];
+            Object.keys(postData).forEach(key => {
+                if (key.includes('yedekTelefon_')) {
+                    postData.yedekTelefonlar.push(postData[key]);
+                    delete postData[key];
+                }
+            });
+
             //send the form data
-            xhr.send(JSON.stringify(Object.fromEntries(formData)));
+            xhr.send(JSON.stringify(postData));
 
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -306,6 +324,26 @@
             };
 
             return false;
+        }
+
+        let extraPhoneCount = 0;
+        function addExtraPhone() {
+            ++extraPhoneCount;
+            const lnkEl = document.getElementById('ekTelefonLinki');
+
+            if (extraPhoneCount === 3) {
+                lnkEl.style.display = 'none';
+            } else if (extraPhoneCount > 3) {
+                return;
+            }
+
+            const div = document.createElement('div');
+            const inputId = 'yedekTelefon_' + extraPhoneCount;
+            div.className = 'form-col';
+            div.innerHTML = '<label for="' + inputId + '">Telefon (' + (extraPhoneCount + 1) + '):</label>' +
+                            '<input type="tel" class="form-control" id="' + inputId + '" name="' + inputId + '" placeholder="Telefon">';
+            document.getElementById('yedekTelefonlar').insertBefore(div, lnkEl);
+            document.getElementById(inputId).focus();
         }
     </script>
 </body>
