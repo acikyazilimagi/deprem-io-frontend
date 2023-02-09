@@ -1,52 +1,3 @@
-<html>
-
-<head>
-    <title>
-        Deprem.io | Isınma İhtiyacı Olanlar
-    </title>
-</head>
-
-<body>
-    <h3>Isınma İhtiyacı Olanlar</h3>
-    <div>
-        <form action="/" method="GET">
-            <input type="text" id="isim" name="isim" placeholder="Ad, soyad, il, ilçe, tel no..."><br>
-            <select name="yardim-durumu" id="yardim-durumu">
-                <option value=""></option>
-                <option value="yardim-bekleniyor">Yardım Bekleniyor</option>
-                <option value="yardim-edildi">Yardım Edildi</option>
-                <option value="yetersiz-bilgi">Yetersiz Bilgi</option>
-            </select>
-            <select name="aciliyet" id="aciliyet">
-                <option value=""></option>
-                <option value="kritik">Kritik</option>
-                <option value="orta">Orta</option>
-                <option value="normal">Normal</option>
-            </select>
-            <select name="arac" id="arac">
-                <option value=""></option>
-                <option value="arac-var">Aracım Var</option>
-                <option value="arac-yok">Aracım Yok</option>
-            </select>
-            <input type="submit" value="Filtrele">
-        </form>
-    </div>
-    <div>
-        <div>
-            Yardım Bekleniyor - Kritik
-            isim
-            numara
-            <a href="#">Detaya Git</a>
-            Adres
-            tarih
-            id
-        </div>
-    </div>
-</body>
-
-</html>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -163,9 +114,9 @@
                                         d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z">
                                     </path>
                                 </svg>
-                                <a href="/yardim-istekleri/enkaz.html" class="active">Enkaz</a>
+                                <a href="/yardim-istekleri/enkaz.html">Enkaz</a>
                                 <a href="/yardim-istekleri/gida.html">Gıda</a>
-                                <a href="/yardim-istekleri/isinma.html">Isınma</a>
+                                <a href="/yardim-istekleri/isinma.html" class="active">Isınma</a>
                             </div>
                             <div class="pagination">
                                 <button id="pagination-prev">
@@ -198,16 +149,26 @@
                                 </div>
                                 <div class="filter">
                                     <select name="" id="filter-help-type" class="form-control">
-                                        <option disabled>Yardım Durumu</option>
-                                        <option value="">Tümü</option>
-                                        <option value="enkaz">Enkaz</option>
-                                        <option value="gida">Gıda</option>
-                                        <option value="ilac">İlaç</option>
+                                        <option value="">Yardım Durumu</option>
+                                        <option value="enkaz">Yardım Bekleniyor</option>
+                                        <option value="gida">Yardım Edildi</option>
+                                        <option value="ilac">Yetersiz Bilgi</option>
                                     </select>
                                 </div>
                                 <div class="filter">
-                                    <input type="text" class="form-control" id="isim" name="isim"
-                                        placeholder="* İsim & Soyisim" required>
+                                    <select name="" id="filter-help-type" class="form-control">
+                                        <option value="">Aciliyet</option>
+                                        <option value="enkaz">Kritik</option>
+                                        <option value="gida">Orta</option>
+                                        <option value="ilac">Normal</option>
+                                    </select>
+                                </div>
+                                <div class="filter">
+                                    <select name="" id="filter-help-type" class="form-control">
+                                        <option value="">Araç Durumu</option>
+                                        <option value="enkaz">Aracım Var</option>
+                                        <option value="gida">Aracım Yok</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="filter-buttons">
