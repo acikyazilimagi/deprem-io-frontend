@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gıda Yardımı Sağlayanlar | Deprem İmece Platformu</title>
+    <link rel="stylesheet" href="/assets/css/app.css?v=1">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="/" class="logo" title="Deprem İmece Platformu">
+                <img src="/assets/images/logo.svg" alt="Deprem İmece Platformu" width="150">
+            </a>
+            <nav class="nav">
+                <ul>
+                    <li>
+                        <a href="/yararli-linkler.html">Yararlı Linkler</a>
+                    </li>
+                    <li>
+                        <a href="/iletisim.html">İletişim</a>
+                    </li>
+                    <li>
+                        <a href="/legal/cerez-politikasi.html">Çerez Politikası</a>
+                    </li>
+                    <li>
+                        <a href="/legal/gizlilik-sozlesmesi.html">Gizlilik Sözleşmesi</a>
+                    </li>
+                    <li>
+                        <a href="/legal/aydinlatma-ve-acik-riza-metni.html">Aydınlatma Metni</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section>
+                <div class="list-head">
+                    <div class="list-head-nav">
+                        <a href="/" class="back-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="rgba(71, 101, 255, 1)" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18">
+                                </path>
+                            </svg>
+                            Geri
+                        </a>
+
+                    </div>
+                    <div class="list-head-main">
+                        <h1>Gıda Yardımı Sağlayanlar</h1>
+                        <div class="list-head-main-right">
+                            <div class="cat-filters">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="rgba(69,100,252,0.5)" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z">
+                                    </path>
+                                </svg>
+                                <a href="/yardim-saglayanlar/gida-yardimlari-liste.html" class="active">Gıda</a>
+                                <a href="/yardim-saglayanlar/is-makinasi.html">İş Makinası</a>
+                                <a href="/yardim-saglayanlar/konaklama.html">Konaklama</a>
+                                <a href="/yardim-saglayanlar/yolcu-tasima.html">Yolcu Taşıma</a>
+                            </div>
+                            <div class="pagination">
+                                <button id="pagination-prev">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="rgba(69,100,252,0.5)" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15.75 19.5L8.25 12l7.5-7.5"></path>
+                                    </svg>
+                                </button>
+                                <span>
+                                    <span id="pagination-current-page">1</span>/<span
+                                        id="pagination-total-page">255</span>
+                                </span>
+                                <button id="pagination-next">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="rgba(69,100,252,0.5)" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-head-filters">
+                        <form action="" class="form">
+                            <div class="filters">
+                                <div class="filter">
+                                    <input type="text" class="form-control" id="adSoyad" name="adSoyad"
+                                        placeholder="* İsim" required>
+                                </div>
+                                <div class="filter">
+                                    <select name="sehir" id="filter-hedef-sehir" class="form-control">
+                                        <option value="">* Seçiniz</option>
+                                        <option value="Adana">Adana</option>
+                                        <option value="Adıyaman">Adıyaman</option>
+                                        <option value="Diyarbakır">Diyarbakır</option>
+                                        <option value="Gaziantep">Gaziantep</option>
+                                        <option value="Hatay">Hatay</option>
+                                        <option value="Kahramanmaraş">Kahramanmaraş</option>
+                                        <option value="Kilis">Kilis</option>
+                                        <option value="Malatya">Malatya</option>
+                                        <option value="Osmaniye">Osmaniye</option>
+                                        <option value="Sanliurfa">Şanlıurfa</option>
+                                    </select>
+                                </div>
+                                <div class="filter">
+                                    <input type="text" class="form-control" id="aciklama" name="aciklama"
+                                        placeholder="* Açıklama" required>
+                                </div>
+                            </div>
+                            <div class="filter-buttons">
+                                <button class="btn-refresh">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="rgba(71, 101, 255, 1)" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <button id="filter-button" class="btn-filter">
+                                    <span>
+                                        Filtrele
+                                    </span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="list-info">
+                    <span>
+                        Filtrelenen: <span id="list-info-filtered">0</span>
+                    </span>
+                </div>
+                <div class="list">
+              
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <nav class="nav">
+                <ul>
+                    <li>
+                        <a href="/yararli-linkler.html">Yararlı Linkler</a>
+                    </li>
+                    <li>
+                        <a href="/iletisim.html">İletişim</a>
+                    </li>
+                </ul>
+            </nav>
+            <p class="info-title">
+                Kişisel Verilerin İşlenmesine İlişkin Aydınlatma:
+            </p>
+            <p>
+                Bu uygulama, 6 Şubat 2023 tarihinde Türkiye’de meydana gelen büyük deprem felaketinde, arama kurtarma
+                çalışmaları ile yardım ve destek taleplerini ortak bir veri tabanında toplayarak yetkili kurum ve
+                kuruluşlara aktarmak amacı ile bilişim teknolojileri alanında çalışan gönüllüler tarafından
+                oluşturulmuştur.
+                Yardım ya da desteğe ihtiyacı olduğunu belirttiğiniz kişilerin kişisel verileri ‘’Fiili imkânsızlık
+                nedeniyle rızasını açıklayamayacak durumda bulunan veya rızasına hukuki geçerlilik tanınmayan kişinin
+                kendisinin ya da bir başkasının hayatı veya beden bütünlüğünün korunması için zorunlu olması’’ hukuki
+                sebebine dayanarak, otomatik yollarla işlenecektir. Tarafınıza ait kişisel veriler, ‘’Bir hakkın tesisi,
+                kullanılması veya korunması için veri işlemenin zorunlu olması’’ hukuki sebebine dayanarak işlenecektir.
+            </p>
+            <p>
+                Paylaşacağınız yardım, destek taleplerinde yer alan isim, soy isim, telefon ve adres gibi kişisel
+                veriler, veli, vasi, temsilci bilgisi, medeni durum ve sağlık bilgileri tarafımızca oluşturulan ve
+                sunucuları yurtiçi ve yurtdışında bulunan veri tabanında toplanarak, Afad, Akut, Kızılay gibi yetkili
+                arama kurtarma kuruluşlarının yanı sıra destek ve yardım taleplerini karşılayabilecek sivil toplum
+                kuruluşları ile kişisel veri işleme amacı ile sınırlı olarak paylaşılacaktır.
+            </p>
+            <p>
+                Bu platform kar amacı gütmeden imece usulu bilgi paylaşımı için geliştirildi, hiçbir kurum ve kuruluşla
+                ilişiği yoktur.
+            </p>
+            <p>
+                Gerektiğinde yetkili merci ve kurumlara bilgi sağlanabilir ve işbirliği yapılabilir.
+            </p>
+            <p>
+                Deprem İmece Platformu © 2023
+            </p>
+        </div>
+    </footer>
+    <script src="../assets/js/lists/gida-yardimlari-liste.js"></script>
+</body>
+
+</html>
