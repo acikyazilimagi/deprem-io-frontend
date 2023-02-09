@@ -173,6 +173,60 @@ main {
     padding: 20px 0;
 }
 
+.form-top {
+    display: block;
+    width: 100%;
+}
+
+.info-message{
+    display: flex;
+    float: right;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    border-left: 2px solid rgba(255,180,71,255);
+    padding: 8px 5px;
+    line-height: 17px;
+    margin-left: 15px;
+    margin-top: -55px;
+    margin-left: 10px;
+    width: 92%;
+}
+
+.info-message svg{
+    width: 30px;
+    height: 30px;
+    margin: 0px 10px 0px 5px;
+    float: left;
+}
+
+.info-message p{
+    font-size: 0.75rem;
+    margin-right: 0.5%;
+}
+
+.info-message a{
+    text-decoration: none;
+    color: rgba(71, 101, 255, 1);
+    font-size: 0.75rem;
+    font-weight: bold;
+    line-height: 16px;
+    padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .info-message{
+        width: 97%;
+        margin-top: -10px;
+        margin-bottom: 5px;
+    }
+
+    .info-message svg{
+        width: 50px;
+        height: 50px;
+    }
+}
+
 @media screen and (min-width: 768px) {
     main {
         margin: 40px 0;
