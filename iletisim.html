@@ -98,20 +98,23 @@
                                 href="/">ana sayfaya</a> gidiniz.</p>
                     </div>
 
-                    <form>
+                    <form id="iletisimForm">
                         <div class="form-col">
-                            <label for="isim">* İsim & Soyisim:</label>
-                            <input type="text" class="form-control" id="isim" name="isim"
+                            <label for="adSoyad">* İsim & Soyisim:</label>
+                            <input type="text" class="form-control" id="adSoyad" name="adSoyad"
                                 placeholder="* İsim & Soyisim" required>
                         </div>
                         <div class="form-col ">
                             <label for="email">Email:</label>
                             <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                         </div>
-
                         <div class="form-col">
-                            <label for="email">* Mesaj:</label>
-                            <textarea class="form-control" name="mesaj" id="mesaj cols=" 30" rows="4"
+                            <label for="telefon">Telefon:</label>
+                            <input type="tel" class="form-control" id="telefon" name="telefon" placeholder="Telefon">
+                        </div>
+                        <div class="form-col">
+                            <label for="mesaj">* Mesaj:</label>
+                            <textarea class="form-control" name="mesaj" id="mesaj cols="30" rows="4"
                                 placeholder="* Mesajınız" required></textarea>
                         </div>
 
@@ -191,7 +194,6 @@
         </div>
     </footer>
     <script src="assets/js/requests/iletisim.js"></script>
-
 </body>
 
 </html>

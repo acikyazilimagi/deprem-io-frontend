@@ -5,8 +5,8 @@ const filterButton = document.querySelector("#filter-button");
 const filterHelpType = document.querySelector("#filter-help-type");
 const filterHelpQ = document.querySelector("#filter-help-q");
 const filterHelpStatus = document.querySelector("#filter-help-status");
-const filterHelpEmergence = document.querySelector("#filter-help-emergence");
-const filterVehicle = document.querySelector("#filter-vehicle");
+const filterLocation = document.querySelector("#filter-help-location");
+const filterDest = document.querySelector("#filter-help-dest");
 
 const paginationPrevButton = document.querySelector("#pagination-prev");
 const paginationNextButton = document.querySelector("#pagination-next");
@@ -65,7 +65,7 @@ function getRows(page, limit) {
   var helpType = filterHelpType.value;
 
   // get items
-  getData(API_URL + "yardim", [
+  getData(API_URL + "yardimet", [
     { key: "page", value: page },
     { key: "limit", value: limit },
     { key: "yardimTipi", value: helpType },
@@ -73,9 +73,9 @@ function getRows(page, limit) {
     .then((items) => {
       // update total page value
       totalPage = items.totalPage;
-      console.log("STARTED");
+
       var listWrapper = document.querySelector(".list");
-      console.log("STARTED");
+
       // clear listWrapper html
       listWrapper.innerHTML = "";
 
@@ -98,20 +98,26 @@ function getFilteredRows(page, limit) {
   var helpType = filterHelpType.value;
   var helpQ = filterHelpQ.value;
   var helpStatus = filterHelpStatus.value;
-  var helpEmergence = filterHelpEmergence.value;
-  var helpVehicle = "";
+  var location = "";
+  var dest = "";
 
-  if (filterVehicle) {
-    helpVehicle = filterVehicle.value;
+  if (filterLocation) {
+    location = filterLocation.value;
   }
 
+  if (filterDest) {
+    dest = filterDest.value;
+  }
+
+  console.log(dest);
+
   // get items
-  getData(API_URL + "ara-yardim/", [
+  getData(API_URL + "ara-yardimet/", [
     { key: "q", value: helpQ },
     { key: "yardimDurumu", value: helpStatus },
     { key: "yardimTipi", value: helpType },
-    { key: "acilDurum", value: helpEmergence },
-    { key: "aracDurumu", value: helpVehicle },
+    { key: "sehir", value: location },
+    { key: "hedefSehir", value: dest },
   ])
     .then((items) => {
       console.log(items);
@@ -179,14 +185,16 @@ function getData(url, params) {
 }
 
 function getRowHtml(item) {
-  let classColor;
-
+  var classColor;
+  var durumMessage;
   if (item.yardimDurumu === "bekleniyor") {
-    classColor = "status-waiting";
-  } else if (item.yardimDurumu === "yolda") {
-    classColor = "status-unknown";
-  } else if (item.yardimDurumu === "yapildi") {
     classColor = "status-ok";
+    durumMessage = "Yardıma Hazır";
+  } else if (item.yardimDurumu === "yolda") {
+    classColor = "status-waiting";
+  } else if (item.yardimDurumu === "yapildi") {
+    classColor = "status-unknown";
+    durumMessage = "Yardım Yapıldı";
   }
 
   return `<div class="list-item">
@@ -194,9 +202,9 @@ function getRowHtml(item) {
         <div class="list-col">
             <div class="list-col">
                 <span class="status ${classColor}">
-                    <i></i> ${item.yardimTipi} - <span class="emergency">${
-    item.acilDurum
-  }</span>
+                    <i></i> ${
+                      item.yardimTipi
+                    } - <span class="emergency">${durumMessage}</span>
                 </span>
             </div>
             <div class="list-col">
@@ -228,11 +236,6 @@ function getRowHtml(item) {
                 <span class="icon-line">
                     <i class="icon icon-alarm blue"></i>
                     ${parseTime(item.updatedAt)}
-                </span>
-            </div>
-            <div class="list-col">
-                <span class="icon-line">
-                    #${item._id}
                 </span>
             </div>
         </div>
