@@ -61,7 +61,7 @@ function getRows(page, limit) {
     var targetCity = filterTargetCity.value;
 
     // get items
-    getData(API_URL + "yardim", [
+    getData(API_URL + "yardimet", [
         { key: "page", value: page },
         { key: "limit", value: limit },
         { key: "yardimTipi", value: "gidaSaglama" },
@@ -135,12 +135,13 @@ function getData(url, params) {
 }
 
 function getRowHtml(item) {
+    console.log(item);
     return `<div class="list-item">
     <div class="list-row">
         <div class="list-col">
             <div class="list-col">
-                <span class="status status-waiting">
-                    <i></i> ${item.yardimTipi} 
+                <span class="status status-waiting" style="text-transform: capitalize;">
+                    <i></i>Yardım ${item.yardimDurumu} 
                 </span>
             </div>
             <div class="list-col">
@@ -166,10 +167,10 @@ function getRowHtml(item) {
             <div class="list-col">
                 <span class="icon-line">
                     <i class="icon icon-pin blue"></i>
-                    ${item.hedefSehir} - ${item.adres}
+                    ${item.hedefSehir} - ${item.fields.adres}
                 </span>
                 <span class="icon-line">
-                <i class="icon icon-pin blue"></i>
+                <i class="icon icon-info blue"></i>
                 ${item.aciklama}
                 </span>
             </div>
