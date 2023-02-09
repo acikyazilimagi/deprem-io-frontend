@@ -95,7 +95,7 @@
                                 <input type="text" class="form-control" id="acilDurum" name="acilDurum" value="orta">
                             </div>
                             <div class="form-col" style="display: none;">
-                                <input type="text" class="form-control" id="acilDurum" name="yardimDurumu" value="bekleniyor">
+                                <input type="text" class="form-control" id="yardimDurumu" name="yardimDurumu" value="bekleniyor">
                             </div>
                             <div class="form-col" style="display: none;">
                                 <input type="text" class="form-control" id="hedefSehir" name="hedefSehir" value="Ankara">
@@ -123,15 +123,9 @@
                             <div class="form-col" style="display: none;">
                                 <input type="text" class="form-control" id="hedefSehir" name="hedefSehir" value="orta">
                             </div>
-                            <div class="form-col" style="display: none;">
-                                <input type="text" class="form-control" id="sehir" name="sehir" value="orta">
-                            </div>
-                            <div class="form-col" style="display: none;">
-                                <input type="text" class="form-control" id="yardimTipi" name="yardimTipi" value="orta">
-                            </div>
                         </div>
                         <div class="form-row">
-                            <select name="" id="filter-help-type" class="form-control" name="sehir"required>
+                            <select id="filter-help-type" class="form-control" name="sehir" required>
                                 <option class="dropdown-choice dropdown-placeholder" value="&quot;PLACEHOLDER_1427118222253&quot;"
                                     style="color: var(--color_primary_default); display: none;">* Yardım Vereceğin Şehir</option>
                                 <option class="dropdown-choice" value="Adana">Adana</option>
@@ -233,8 +227,10 @@
             var xhr = new XMLHttpRequest();
             var formData = new FormData(form);
             //open the request
-            xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/yardimet')
+            xhr.open('POST', 'http://localhost:8080/yardimet')
             xhr.setRequestHeader("Content-Type", "application/json");
+
+            console.log(formData);
 
             //send the form data
             xhr.send(JSON.stringify(Object.fromEntries(formData)));
