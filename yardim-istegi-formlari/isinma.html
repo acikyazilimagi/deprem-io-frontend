@@ -100,23 +100,14 @@
                                 <label for="email">Email:</label>
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                             </div>
-                        </div>
-                        <div class="form-row form-col-3">
                             <div class="form-col">
                                 <label for="telefon">Telefon:</label>
                                 <input type="tel" class="form-control" id="telefon" name="telefon"
                                     placeholder="Telefon">
                             </div>
-                            <div class="form-col">
-                                <label for="telefon">Telefon (Yedek 1):</label>
-                                <input type="tel" class="form-control" id="telefon_2" name="telefon_2"
-                                    placeholder="Telefon">
-                            </div>
-                            <div class="form-col">
-                                <label for="telefon">Telefon (Yedek 2):</label>
-                                <input type="tel" class="form-control" id="telefon_3" name="telefon_3"
-                                    placeholder="Telefon">
-                            </div>
+                        </div>
+                        <div class="form-row form-col-3" id="yedekTelefonlar" style="align-items: center;">
+                            <a href="javascript: void 0" id="ekTelefonLinki" onclick="addExtraPhone()" >+ Başka Telefon Ekle</a>
                         </div>
                         <div class="form-row">
                             <label for="kisiSayisi">Kişi Sayısı:</label>
@@ -272,8 +263,18 @@
             xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/yardim')
             xhr.setRequestHeader("Content-Type", "application/json");
 
+            // prepare the data
+            const postData = Object.fromEntries(formData);
+            postData.yedekTelefonlar = [];
+            Object.keys(postData).forEach(key => {
+                if (key.includes('yedekTelefon_')) {
+                    postData.yedekTelefonlar.push(postData[key]);
+                    delete postData[key];
+                }
+            });
+            
             //send the form data
-            xhr.send(JSON.stringify(Object.fromEntries(formData)));
+            xhr.send(JSON.stringify(postData));
 
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -305,6 +306,25 @@
             };
 
             return false;
+        }
+
+        let extraPhoneCount = 0;
+        function addExtraPhone() {
+            ++extraPhoneCount;
+            const lnkEl = document.getElementById('ekTelefonLinki');
+
+            if (extraPhoneCount === 3) {
+                lnkEl.style.display = 'none';
+            } else if (extraPhoneCount > 3) {
+                return;
+            }
+
+            const div = document.createElement('div');
+            const inputId = 'yedekTelefon_' + extraPhoneCount;
+            div.className = 'form-col';
+            div.innerHTML = '<label for="' + inputId + '">Telefon (' + (extraPhoneCount + 1) + '):</label>' +
+                            '<input type="tel" class="form-control" id="' + inputId + '" name="' + inputId + '" placeholder="Telefon">';
+            document.getElementById('yedekTelefonlar').insertBefore(div, lnkEl);
         }
     </script>
 
