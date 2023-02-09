@@ -1,145 +1,145 @@
-const API_URL = "https://deprem-27jjydhzba-ew.a.run.app/";
+import { API_URL } from "../API";
 
 const filterButton = document.querySelector("#filter-button");
 const filterHelpType = document.querySelector("#filter-help-type");
 
 const paginationPrevButton = document.querySelector("#pagination-prev");
 const paginationNextButton = document.querySelector("#pagination-next");
-const paginationCurrentPage = document.querySelector("#pagination-current-page");
+const paginationCurrentPage = document.querySelector(
+  "#pagination-current-page"
+);
 const paginationTotalPage = document.querySelector("#pagination-total-page");
 
-
 function ready(fn) {
-    if (document.readyState !== "loading") {
-        fn();
-    } else {
-        document.addEventListener("DOMContentLoaded", fn);
-    }
+  if (document.readyState !== "loading") {
+    fn();
+  } else {
+    document.addEventListener("DOMContentLoaded", fn);
+  }
 }
 
 ready(function () {
-    getRows();
+  getRows();
 });
 
 filterButton.addEventListener("click", function (e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    getRows();
+  getRows();
 });
 
-
 paginationNextButton.addEventListener("click", function (e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    var currentPage = parseInt(paginationCurrentPage.innerHTML);
+  var currentPage = parseInt(paginationCurrentPage.innerHTML);
 
-    if (currentPage >= parseInt(paginationTotalPage.innerHTML)) {
-        return;
-    }
+  if (currentPage >= parseInt(paginationTotalPage.innerHTML)) {
+    return;
+  }
 
-    getRows(currentPage + 1);
+  getRows(currentPage + 1);
 });
 
 paginationPrevButton.addEventListener("click", function (e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    var currentPage = parseInt(paginationCurrentPage.innerHTML);
+  var currentPage = parseInt(paginationCurrentPage.innerHTML);
 
-    if (currentPage <= 1) {
-        return;
-    }
+  if (currentPage <= 1) {
+    return;
+  }
 
-    getRows(currentPage - 1);
+  getRows(currentPage - 1);
 });
 
-
 function getRows(page, limit) {
-    page = page || 1;
-    limit = limit || 10;
+  page = page || 1;
+  limit = limit || 10;
 
-    var totalPage = 0;
-    var helpType = filterHelpType.value;
+  var totalPage = 0;
+  var helpType = filterHelpType.value;
 
-    // get items
-    getData(API_URL + "yardim", [
-        { key: "page", value: page },
-        { key: "limit", value: limit },
-        { key: "yardimTipi", value: helpType },
-    ]).then((items) => {
+  // get items
+  getData(API_URL + "yardim", [
+    { key: "page", value: page },
+    { key: "limit", value: limit },
+    { key: "yardimTipi", value: helpType },
+  ])
+    .then((items) => {
+      // update total page value
+      totalPage = items.totalPage;
 
-        // update total page value
-        totalPage = items.totalPage
+      var listWrapper = document.querySelector(".list");
 
-        var listWrapper = document.querySelector(".list");
+      // clear listWrapper html
+      listWrapper.innerHTML = "";
 
-        // clear listWrapper html
-        listWrapper.innerHTML = "";
-
-        items.data.forEach(function (item) {
-            listWrapper.innerHTML += getRowHtml(item);
-        });
-    }
-    ).finally(() => {
-        // update pagination info in html
-        paginationCurrentPage.innerHTML = page;
-        paginationTotalPage.innerHTML = totalPage;
+      items.data.forEach(function (item) {
+        listWrapper.innerHTML += getRowHtml(item);
+      });
+    })
+    .finally(() => {
+      // update pagination info in html
+      paginationCurrentPage.innerHTML = page;
+      paginationTotalPage.innerHTML = totalPage;
     });
 }
 
 function parseTime(input) {
-    const date = new Date(input);
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    const hour = date.getHours();
-    const minute = date.getMinutes().toString().padStart(2, "0");
+  const date = new Date(input);
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const hour = date.getHours();
+  const minute = date.getMinutes().toString().padStart(2, "0");
 
-    const minutesAgo = Math.floor((new Date() - date) / 1000 / 60);
-    const daysAgo = Math.floor(minutesAgo / 60 / 24);
+  const minutesAgo = Math.floor((new Date() - date) / 1000 / 60);
+  const daysAgo = Math.floor(minutesAgo / 60 / 24);
 
-    if (minutesAgo < 60) {
-        if (minutesAgo < 1) {
-            return "az önce";
-        }
-        return `${minutesAgo} dakika önce`;
-    } else if (daysAgo < 1) {
-        return `${hour}:${minute}`;
+  if (minutesAgo < 60) {
+    if (minutesAgo < 1) {
+      return "az önce";
     }
+    return `${minutesAgo} dakika önce`;
+  } else if (daysAgo < 1) {
+    return `${hour}:${minute}`;
+  }
 
-    return `${day}.${month}.${year} ${hour}:${minute}`;
+  return `${day}.${month}.${year} ${hour}:${minute}`;
 }
 
 function getData(url, params) {
+  if (params) {
+    url += "?";
+    params.forEach((param) => {
+      url += `${param.key}=${param.value}&`;
+    });
+  }
 
-    if (params) {
-        url += "?";
-        params.forEach((param) => {
-            url += `${param.key}=${param.value}&`;
-        });
-    }
-
-    return fetch(url, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        },
+  return fetch(url, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      return data;
     })
-        .then((response) => response.json())
-        .then((data) => {
-            return data;
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-        });
+    .catch((error) => {
+      console.error("Error:", error);
+    });
 }
 
 function getRowHtml(item) {
-    return `<div class="list-item">
+  return `<div class="list-item">
     <div class="list-row">
         <div class="list-col">
             <div class="list-col">
                 <span class="status status-waiting">
-                    <i></i> ${item.yardimTipi} - <span class="emergency">${item.acilDurum}</span>
+                    <i></i> ${item.yardimTipi} - <span class="emergency">${
+    item.acilDurum
+  }</span>
                 </span>
             </div>
             <div class="list-col">
