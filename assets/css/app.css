@@ -667,6 +667,7 @@ section {
 .share-button-wrapper {
     position: relative;
     cursor: pointer;
+    display: flex !important;
 }
 
 .share-button-wrapper .share-title {
