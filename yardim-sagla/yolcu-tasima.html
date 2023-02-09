@@ -213,6 +213,8 @@
                             title: responseBody.message || 'Yardım talebiniz başarıyla alındı',
                             showConfirmButton: false,
                             timer: 2500
+                        }).then(function() {
+                            window.location.href = "/yardim-saglayanlar/yolcu-tasima.html";
                         });
 
                         form.reset();
