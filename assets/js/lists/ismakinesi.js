@@ -6,7 +6,7 @@ const filterHelpType = document.querySelector("#filter-help-type");
 const filterHelpQ = document.querySelector("#filter-help-q");
 const filterHelpStatus = document.querySelector("#filter-help-status");
 const filterLocation = document.querySelector("#filter-help-location");
-const filterDest = document.querySelector("#filter-dest");
+const filterDest = document.querySelector("#filter-help-dest");
 
 const paginationPrevButton = document.querySelector("#pagination-prev");
 const paginationNextButton = document.querySelector("#pagination-next");
@@ -106,8 +106,10 @@ function getFilteredRows(page, limit) {
   }
 
   if (filterDest) {
-    dest = filterDest;
+    dest = filterDest.value;
   }
+
+  console.log(dest);
 
   // get items
   getData(API_URL + "ara-yardimet/", [
