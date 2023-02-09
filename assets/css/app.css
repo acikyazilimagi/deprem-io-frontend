@@ -787,11 +787,14 @@ section {
 
 }
 
-} 
 @media screen and (max-width: 600px) {
     footer>div>nav>ul{
         flex-direction: column;
         margin: 5px;
         font-size: 16px;
+    }
+
+    footer>div>nav>ul>li{
+       padding: 10px;
     }
 }
