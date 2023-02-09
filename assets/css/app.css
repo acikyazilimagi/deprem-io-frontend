@@ -133,14 +133,22 @@ table {
 /* //Reset CSS */
 
 body {
-  background: #000;
-  color: #eeeff6;
   /* font arial */
   font-family: Arial, Helvetica, sans-serif;
   /* font size 16px */
   font-size: 16px;
   /* line height 1.5 */
   line-height: 1.5;
+}
+
+.darkMode {
+  background: #000;
+  color: #eeeff6;
+}
+
+.lightMode {
+  background: #eeeff6;
+  color: #000;
 }
 
 .container {
@@ -175,7 +183,7 @@ header .logo {
 }
 
 .nav ul li a {
-  color: #eeeff6;
+  /* color: #eeeff6; */
   text-decoration: none;
 }
 
@@ -230,7 +238,7 @@ h2 {
   border: 1px solid rgba(155, 159, 179, 0.2);
   border-radius: 10px;
   padding: 10px 20px;
-  color: rgba(71, 101, 255, 1);
+  /* color: rgba(71, 101, 255, 1); */
   font-weight: bold;
   font-size: 1rem;
   text-decoration: none;
@@ -714,6 +722,10 @@ section {
   height: 10px;
   border-radius: 50%;
   margin-right: 10px;
+}
+
+a {
+  color: inherit;
 }
 
 .list-item .list-row .list-col .status.status-waiting {
