@@ -147,7 +147,7 @@ function getRowHtml(item) {
         <div class="list-col">
             <div class="list-col">
                 <span class="status ${classColor}">
-                    <i></i> ${item.yardimDurumu} - <span class="emergency">${
+                    <i></i> ${item.yardimTipi} - <span class="emergency">${
     item.acilDurum
   }</span>
                 </span>
