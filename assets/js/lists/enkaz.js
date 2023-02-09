@@ -1,7 +1,11 @@
-const API_URL = "https://deprem-27jjydhzba-ew.a.run.app/";
+//const API_URL = "https://deprem-27jjydhzba-ew.a.run.app/";
+const API_URL = "http://localhost:8080/";
 
 const filterButton = document.querySelector("#filter-button");
 const filterHelpType = document.querySelector("#filter-help-type");
+const filterHelpQ = document.querySelector("#filter-help-q");
+const filterHelpStatus = document.querySelector("#filter-help-status");
+const filterHelpEmergence = document.querySelector("#filter-help-emergence");
 
 const paginationPrevButton = document.querySelector("#pagination-prev");
 const paginationNextButton = document.querySelector("#pagination-next");
@@ -25,7 +29,7 @@ ready(function () {
 filterButton.addEventListener("click", function (e) {
   e.preventDefault();
 
-  getRows();
+  getFilteredRows();
 });
 
 paginationNextButton.addEventListener("click", function (e) {
@@ -75,6 +79,44 @@ function getRows(page, limit) {
       listWrapper.innerHTML = "";
 
       items.data.forEach(function (item) {
+        listWrapper.innerHTML += getRowHtml(item);
+      });
+    })
+    .finally(() => {
+      // update pagination info in html
+      paginationCurrentPage.innerHTML = page;
+      paginationTotalPage.innerHTML = totalPage;
+    });
+}
+
+function getFilteredRows(page, limit) {
+  page = page || 1;
+  limit = limit || 10;
+
+  var totalPage = 0;
+  var helpType = filterHelpType.value;
+  var helpQ = filterHelpQ.value;
+  var helpStatus = filterHelpStatus.value;
+  var helpEmergence = filterHelpEmergence.value;
+
+  console.log(helpEmergence);
+
+  // get items
+  getData(API_URL + "ara-yardim/", [
+    { key: "q", value: helpQ },
+    { key: "yardimDurumu", value: helpStatus },
+    { key: "yardimTipi", value: helpType },
+    { key: "acilDurum", value: helpEmergence },
+  ])
+    .then((items) => {
+      console.log(items);
+      // update total page value
+      totalPage = items.totalPage;
+      var listWrapper = document.querySelector(".list");
+      // clear listWrapper html
+      listWrapper.innerHTML = "";
+
+      items.forEach(function (item) {
         listWrapper.innerHTML += getRowHtml(item);
       });
     })
