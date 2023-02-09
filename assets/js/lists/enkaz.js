@@ -6,6 +6,7 @@ const filterHelpType = document.querySelector("#filter-help-type");
 const filterHelpQ = document.querySelector("#filter-help-q");
 const filterHelpStatus = document.querySelector("#filter-help-status");
 const filterHelpEmergence = document.querySelector("#filter-help-emergence");
+const filterVehicle = document.querySelector("#filter-vehicle");
 
 const paginationPrevButton = document.querySelector("#pagination-prev");
 const paginationNextButton = document.querySelector("#pagination-next");
@@ -98,8 +99,11 @@ function getFilteredRows(page, limit) {
   var helpQ = filterHelpQ.value;
   var helpStatus = filterHelpStatus.value;
   var helpEmergence = filterHelpEmergence.value;
+  var helpVehicle = "";
 
-  console.log(helpEmergence);
+  if (filterVehicle) {
+    helpVehicle = filterVehicle.value;
+  }
 
   // get items
   getData(API_URL + "ara-yardim/", [
@@ -107,6 +111,7 @@ function getFilteredRows(page, limit) {
     { key: "yardimDurumu", value: helpStatus },
     { key: "yardimTipi", value: helpType },
     { key: "acilDurum", value: helpEmergence },
+    { key: "aracDurumu", value: helpVehicle },
   ])
     .then((items) => {
       console.log(items);
