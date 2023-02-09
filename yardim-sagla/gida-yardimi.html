@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gıda Yardımı Formu | Deprem İmece Platformu</title>
+    <title>Gıda Yardımı Sağlama Formu | Deprem İmece Platformu</title>
     <link rel="stylesheet" href="/assets/css/app.css?v=1">
 </head>
 
@@ -31,7 +31,7 @@
                     </li>
                     <li>
                         <a href="/legal/aydinlatma-ve-acik-riza-metni.html">Aydınlatma Metni</a>
-                    </li> 
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -48,35 +48,130 @@
                     </svg>
                     Geri
                 </a>
-                <h1>Gıda Yardımı Formu</h1>
+                <h1>Gıda Yardımı Sağlama Formu</h1>
                 <div class="form">
                     <small>* İle başlayan alanlar zorunludur.</small>
 
                     <form id="gidaYardimiForm">
+                        <input type="text" name="yardimTipi" value="gidaSaglama" style="display: none;" readonly>
+                        <input type="text" name="yardimDurumu" value="bekleniyor" style="display: none;" readonly>
                         <div class="form-row form-col-3">
                             <div class="form-col">
-                                <label for="isim">* İsim & Soyisim:</label>
-                                <input type="text" class="form-control" id="isim" name="isim"
+                                <label for="adSoyad">* İsim & Soyisim:</label>
+                                <input type="text" class="form-control" id="adSoyad" name="adSoyad"
                                     placeholder="* İsim & Soyisim" required>
                             </div>
                             <div class="form-col">
-                                <label for="email">Email:</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                <label for="email">* Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="* Email"
+                                    required>
                             </div>
                             <div class="form-col">
-                                <label for="telefon">Telefon:</label>
-                                <input type="tel" class="form-control" id="telefon" name="telefon"
-                                    placeholder="Telefon">
+                                <label for="telefon">* Telefon:</label>
+                                <input type="tel" value="+90" class="form-control" id="telefon" name="telefon"
+                                    placeholder="* Telefon" required>
                             </div>
                         </div>
                         <div class="form-col">
-                            <select id="filter-help-type" class="form-control">
+                            <label for="sehir">* Şehir:</label>
+                            <select name="sehir" id="sehir" class="form-control" required>
+                                <option value="Adana">Adana</option>
                                 <option value="Adıyaman">Adıyaman</option>
-                                <option value="Gaziantep">Gaziantep</option>
-                                <option value="Kahramanmaraş">Kahramanmaraş</option>
-                                <option value="Malatya">Malatya</option>
+                                <option value="Afyonkarahisar">Afyonkarahisar</option>
+                                <option value="Ağrı">Ağrı</option>
+                                <option value="Amasya">Amasya</option>
+                                <option value="Ankara">Ankara</option>
+                                <option value="Antalya">Antalya</option>
+                                <option value="Artvin">Artvin</option>
+                                <option value="Aydın">Aydın</option>
+                                <option value="Balıkesir">Balıkesir</option>
+                                <option value="Bilecik">Bilecik</option>
+                                <option value="Bingöl">Bingöl</option>
+                                <option value="Bitlis">Bitlis</option>
+                                <option value="Bolu">Bolu</option>
+                                <option value="Burdur">Burdur</option>
+                                <option value="Bursa">Bursa</option>
+                                <option value="Çanakkale">Çanakkale</option>
+                                <option value="Çankırı">Çankırı</option>
+                                <option value="Çorum">Çorum</option>
+                                <option value="Denizli">Denizli</option>
                                 <option value="Diyarbakır">Diyarbakır</option>
+                                <option value="Edirne">Edirne</option>
+                                <option value="Elazığ">Elazığ</option>
+                                <option value="Erzincan">Erzincan</option>
+                                <option value="Erzurum">Erzurum</option>
+                                <option value="Eskişehir">Eskişehir</option>
+                                <option value="Gaziantep">Gaziantep</option>
+                                <option value="Giresun">Giresun</option>
+                                <option value="Gümüşhane">Gümüşhane</option>
+                                <option value="Hakkâri">Hakkâri</option>
                                 <option value="Hatay">Hatay</option>
+                                <option value="Isparta">Isparta</option>
+                                <option value="Mersin">Mersin</option>
+                                <option value="İstanbul">İstanbul</option>
+                                <option value="İzmir">İzmir</option>
+                                <option value="Kars">Kars</option>
+                                <option value="Kastamonu">Kastamonu</option>
+                                <option value="Kayseri">Kayseri</option>
+                                <option value="Kırklareli">Kırklareli</option>
+                                <option value="Kırşehir">Kırşehir</option>
+                                <option value="Kocaeli">Kocaeli</option>
+                                <option value="Konya">Konya</option>
+                                <option value="Kütahya">Kütahya</option>
+                                <option value="Malatya">Malatya</option>
+                                <option value="Manisa">Manisa</option>
+                                <option value="Kahramanmaraş">Kahramanmaraş</option>
+                                <option value="Mardin">Mardin</option>
+                                <option value="Muğla">Muğla</option>
+                                <option value="Muş">Muş</option>
+                                <option value="Nevşehir">Nevşehir</option>
+                                <option value="Niğde">Niğde</option>
+                                <option value="Ordu">Ordu</option>
+                                <option value="Rize">Rize</option>
+                                <option value="Sakarya">Sakarya</option>
+                                <option value="Samsun">Samsun</option>
+                                <option value="Siirt">Siirt</option>
+                                <option value="Sinop">Sinop</option>
+                                <option value="Sivas">Sivas</option>
+                                <option value="Tekirdağ">Tekirdağ</option>
+                                <option value="Tokat">Tokat</option>
+                                <option value="Trabzon">Trabzon</option>
+                                <option value="Tunceli">Tunceli</option>
+                                <option value="Şanlıurfa">Şanlıurfa</option>
+                                <option value="Uşak">Uşak</option>
+                                <option value="Van">Van</option>
+                                <option value="Yozgat">Yozgat</option>
+                                <option value="Zonguldak">Zonguldak</option>
+                                <option value="Aksaray">Aksaray</option>
+                                <option value="Bayburt">Bayburt</option>
+                                <option value="Karaman">Karaman</option>
+                                <option value="Kırıkkale">Kırıkkale</option>
+                                <option value="Batman">Batman</option>
+                                <option value="Şırnak">Şırnak</option>
+                                <option value="Bartın">Bartın</option>
+                                <option value="Ardahan">Ardahan</option>
+                                <option value="Iğdır">Iğdır</option>
+                                <option value="Yalova">Yalova</option>
+                                <option value="Karabük">Karabük</option>
+                                <option value="Kilis">Kilis</option>
+                                <option value="Osmaniye">Osmaniye</option>
+                                <option value="Düzce">Düzce</option>
+                            </select>
+                        </div>
+                        <div class="form-col">
+                            <label for="hedefSehir">* Hedef Şehir:</label>
+                            <select name="hedefSehir" id="hedefSehir" class="form-control" required>
+                                <option value="">* Seçiniz</option>
+                                <option value="Adana">Adana</option>
+                                <option value="Adıyaman">Adıyaman</option>
+                                <option value="Diyarbakır">Diyarbakır</option>
+                                <option value="Gaziantep">Gaziantep</option>
+                                <option value="Hatay">Hatay</option>
+                                <option value="Kahramanmaraş">Kahramanmaraş</option>
+                                <option value="Kilis">Kilis</option>
+                                <option value="Malatya">Malatya</option>
+                                <option value="Osmaniye">Osmaniye</option>
+                                <option value="Sanliurfa">Şanlıurfa</option>
                             </select>
                         </div>
                         <div class="form-row">
@@ -85,13 +180,13 @@
                                 required>
                         </div>
                         <div class="form-row">
-                            <label for="yardim-bilgi">* Yardımın Hakkında Bilgi:</label>
-                            <input type="text" class="form-control" id="yardim-bilgi" name="yardim-bilgi"
+                            <label for="aciklama">* Yardımın Hakkında Bilgi:</label>
+                            <input type="text" class="form-control" id="aciklama" name="aciklama"
                                 placeholder="* Yardımın Hakkında Bilgi">
                         </div>
                         <div class="form-row">
                             <label for="kvkk" class="checkbox">
-                                <input type="checkbox" id="kvkk" name="kvkk" required>
+                                <input type="checkbox" id="kvkk" name="fields-kvkk" required>
                                 * Form dolduran kişiden hukuki beyan: Enkaz, yıkım, yardım ve destek ihtiyaçları
                                 konusunda verdiğim bilgilerin doğru ve teyit edilmiş olduğunu, bilgi kirliliği ve yanlış
                                 uygulamalara yol açmamak için gerekli tüm önlem ve tedbirleri aldığımı, vermiş olduğum
@@ -155,13 +250,14 @@
             </p>
         </div>
     </footer>
-    <script src="assets/js/app.js?v=1"></script>
+    <!-- <script src="assets/js/app.js?v=1"></script> -->
     <script>
         var form = document.getElementById('gidaYardimiForm');
         form.onsubmit = function (event) {
+            event.preventDefault();
             var xhr = new XMLHttpRequest();
             var formData = new FormData(form);
-            //open the request
+            // //open the request
             xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/yardimet')
             xhr.setRequestHeader("Content-Type", "application/json");
 
@@ -173,9 +269,9 @@
                     form.reset(); //reset form after AJAX success or do something else
                 }
             }
-            window.location.href = "/";
-            //Fail the onsubmit to avoid page refresh.
-            return false;
+            // window.location.href = "/";
+            // // Fail the onsubmit to avoid page refresh.
+            // return false;
         }
     </script>
 </body>
