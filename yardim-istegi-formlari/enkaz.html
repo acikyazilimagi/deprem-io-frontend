@@ -83,6 +83,21 @@
                 </a>
                 <h1>Depremzede Bildirim Formu</h1>
                 <div class="form">
+                    <div style="background-color: #2C2E3C4D;  padding: 10px; border-radius: 10px;">
+                        <div style="display: inline-flex; align-items: center; justify-content: space-between;">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="rgba(255, 181, 70, 1)" style="width: 30px; height: 30px; flex-shrink: 0;"> 
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/>
+                          </svg>
+                            <small style="margin-left: 10px; color: white;">
+                                Eğer bu yardım talebini daha önce gönderdiysen lütfen tekrar gönderme. 
+                                Kayıtlarda kopya bilgi olması kurtarma operasyonlarını olumsuz etkiler.
+                            </small>
+                            <div>
+                                <a href="/yardim-istekleri/enkaz.html" class="warning-link">Mevcut&nbsp;Kayıtlar</a>
+                            </div>
+                        </div>
+                      </div>                      
+                    <br>
                     <small>* İle başlayan alanlar zorunludur.</small>
 
                     <form id='enkazForm'>
@@ -103,6 +118,14 @@
                                 <input type="tel" class="form-control" id="telefon" name="telefon"
                                     placeholder="Telefon">
                             </div>
+                        </div>
+                        <div class="form-row form-col-3" id="yedekTelefonlar" style="align-items: center;">
+                            <a href="javascript: void 0" id="ekTelefonLinki" onclick="addExtraPhone()" class="plus-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16" id="IconChangeColor">
+                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" id="plusIcon" fill="#4765ff" />
+                                </svg>
+                                Başka Telefon Ekle
+                            </a>
                         </div>
                         <div class="form-row">
                             <label for="kisiSayisi">Kişi Sayısı:</label>
@@ -233,47 +256,77 @@
     <script src="/assets/js/formstyle.js"></script>
     <script>
         var form = document.getElementById('enkazForm');
-        form.onsubmit = function (event) {
-            var xhr = new XMLHttpRequest();
-            var formData = new FormData(form);
-            //open the request
-            xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/yardim')
-            xhr.setRequestHeader("Content-Type", "application/json");
+            form.onsubmit = function (event) {
+                var xhr = new XMLHttpRequest();
+                var formData = new FormData(form);
+                //open the request
+                xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/yardim')
+                xhr.setRequestHeader("Content-Type", "application/json");
 
-            //send the form data
-            xhr.send(JSON.stringify(Object.fromEntries(formData)));
-
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    var status = xhr.status;
-                    var responseBody = (JSON.parse(xhr.responseText) || {});
-
-                    // The request has been completed successfully
-                    if (status === 0 || (status >= 200 && status < 400)) {
-                        Swal.fire({
-                            position: 'center',
-                            icon: 'success',
-                            title: responseBody.message || 'Yardım talebiniz başarıyla alındı',
-                            showConfirmButton: false,
-                            timer: 2500
-                        }).then(function () {
-                            window.location.href = "/yardim-istekleri/enkaz.html";
-                        });
-
-                        form.reset();
-                    } else {
-                        Swal.fire({
-                            title: 'Hata!',
-                            text: responseBody.error || 'Hata Oluştu Tekrar deneyiniz !',
-                            icon: 'error',
-                            confirmButtonText: 'Tamam'
-                        });
+                // prepare the data
+                const postData = Object.fromEntries(formData);
+                postData.yedekTelefonlar = [];
+                Object.keys(postData).forEach(key => {
+                    if (key.includes('yedekTelefon_')) {
+                        postData.yedekTelefonlar.push(postData[key]);
+                        delete postData[key];
                     }
-                }
-            };
+                });
 
-            return false;
-        }
+                //send the form data
+                xhr.send(JSON.stringify(postData));
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        var status = xhr.status;
+                        var responseBody = (JSON.parse(xhr.responseText) || {});
+
+                        // The request has been completed successfully
+                        if (status === 0 || (status >= 200 && status < 400)) {
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: responseBody.message || 'Yardım talebiniz başarıyla alındı',
+                                showConfirmButton: false,
+                                timer: 2500
+                            }).then(function () {
+                                window.location.href = "/yardim-istekleri/enkaz.html";
+                            });
+
+                            form.reset();
+                        } else {
+                            Swal.fire({
+                                title: 'Hata!',
+                                text: responseBody.error || 'Hata Oluştu Tekrar deneyiniz !',
+                                icon: 'error',
+                                confirmButtonText: 'Tamam'
+                            });
+                        }
+                    }
+                };
+
+                return false;
+            }
+
+            let extraPhoneCount = 0;
+            function addExtraPhone() {
+                ++extraPhoneCount;
+                const lnkEl = document.getElementById('ekTelefonLinki');
+
+                if (extraPhoneCount === 3) {
+                    lnkEl.style.display = 'none';
+                } else if (extraPhoneCount > 3) {
+                    return;
+                }
+
+                const div = document.createElement('div');
+                const inputId = 'yedekTelefon_' + extraPhoneCount;
+                div.className = 'form-col';
+                div.innerHTML = '<label for="' + inputId + '">Telefon (' + (extraPhoneCount + 1) + '):</label>' +
+                                '<input type="tel" class="form-control" id="' + inputId + '" name="' + inputId + '" placeholder="Telefon">';
+                document.getElementById('yedekTelefonlar').insertBefore(div, lnkEl);
+                document.getElementById(inputId).focus();
+            }
     </script>
 </body>
 
