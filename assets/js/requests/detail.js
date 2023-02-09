@@ -10,9 +10,18 @@ const kisiSayisi = document
   .getElementsByTagName("input")[0];
 const adres = document.getElementById("adres");
 const adresTarifi = document.getElementById("adresTarifi");
-const googleMapLink = document.getElementById("googleMap");
-const aciklama = document.getElementById("aciklama");
-const tweeterLink = document.getElementById("tweetLink");
+const googleMapLink = document
+  .getElementById("googleMap")
+  .getElementsByTagName("a")[0];
+const aciklama = document
+  .getElementById("aciklama")
+  .getElementsByTagName("textarea")[0];
+const tweeterLink = document
+  .getElementById("tweetLink")
+  .getElementsByTagName("input")[0];
+
+const sehir = document.getElementById("sehir");
+const hedefSehir = document.getElementById("hedefSehir");
 
 function ready(fn) {
   if (document.readyState !== "loading") {
@@ -32,7 +41,17 @@ function getItem() {
   });
   let type = params.type;
   const id = params.id;
-  if (type === "yardimet") {
+  if (type === "yardimet/") {
+    document.getElementById("kisiSayisi").style.display = "none";
+    document.getElementById("googleMap").style.display = "none";
+    document
+      .getElementsByClassName("acilDurumRadioWrapper")[0]
+      .setAttribute("style", "display:none !important");
+    document.getElementById("aciklama").style.display = "none";
+    document
+      .getElementsByClassName("arabaDurum")[0]
+      .setAttribute("style", "display:none !important");
+    document.getElementById("tweetLink").style.display = "none";
   }
 
   // get items
@@ -53,6 +72,11 @@ function getItem() {
       document.getElementById("normal").checked = true;
     }
 
+    if (item.yardimTipi === "yolcuTasima") {
+      document.getElementById("addressField").style.display = "none";
+      document.getElementById("cityField").style.display = "grid";
+    }
+
     title.innerHTML = item.yardimTipi + " Yardımı Detay";
     adSoyad.value = item.adSoyad ? item.adSoyad : "";
     email.value = item.email ? item.email : "";
@@ -63,6 +87,11 @@ function getItem() {
     googleMapLink.href = item.googleMapLink ? item.googleMapLink : "";
     aciklama.value = item.aciklama ? item.aciklama : "";
     tweeterLink.value = item.tweetLink ? item.tweetLink : "";
+
+    if (sehir) {
+      sehir.value = item.sehir ? item.sehir : "";
+      hedefSehir.value = item.hedefSehir ? item.hedefSehir : "";
+    }
   });
 }
 
