@@ -133,6 +133,7 @@ table {
 /* //Reset CSS */
 
 body {
+  background: #eeeff6;
   /* font arial */
   font-family: Arial, Helvetica, sans-serif;
   /* font size 16px */
@@ -256,13 +257,14 @@ h2 {
 
 .button.important {
   font-weight: 1.125rem;
-  background-color: rgba(44, 46, 60, 0.3);
+  box-shadow: 0 5px 12px -2px rgb(52 59 111 / 25%);
+  color: rgba(71, 101, 255, 1);
 }
 
 .button.important svg {
   width: 35px;
   height: 35px;
-  background-color: rgba(44, 46, 60, 0.3);
+  /* background-color: rgba(44, 46, 60, 0.3); */
 }
 
 .button:hover {
