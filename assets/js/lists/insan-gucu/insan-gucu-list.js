@@ -1,4 +1,4 @@
-const API_URL = "https://deprem-27jjydhzba-ew.a.run.app/";
+const API_URL = "http://localhost:8080/";
 
 const filterButton = document.querySelector("#filter-button");
 const filterHelpType = document.querySelector("#filter-help-type");
@@ -60,10 +60,9 @@ function getRows(page, limit) {
   var helpType = filterHelpType.value;
 
   // get items
-  getData(API_URL + "yardimet", [
+  getData(API_URL + "collabration", [
     { key: "page", value: page },
     { key: "limit", value: limit },
-    { key: "yardimTipi", value: helpType },
   ])
     .then((items) => {
       // update total page value
@@ -132,39 +131,31 @@ function getData(url, params) {
 }
 
 function getRowHtml(item) {
-  return `<div class="list-item">
-    <div class="list-row">
+  return `<div class="list-item row">
+
+    <div class="list-row col-lg-6">
         <div class="list-col">
             <div class="list-col">
                 <span class="status status-waiting">
-                    <i></i> ${item.yardimTipi} - <span class="emergency">${
-    item.acilDurum
-  }</span>
+                    <i></i> ${item.institutionName} - <span class="emergency">${item.emergencyStatus ? "Acil" : ""}</span>
                 </span>
             </div>
+          
             <div class="list-col">
                 <span >
-                    ${item.adSoyad}
-                </span>
-            </div>
-            <div class="list-col">
-                <span >
-                    ${item.telefon}
                 </span>
             </div>
         </div>
         <div class="list-col btn-detail-wrap">
-            <a href="#" class="btn-detail">
-                Detaya Git
-            </a>
+          ${item?.locationUrl && `<a class='btn-detail' target='_blank' href='${item?.locationUrl}'>Adrese Git</a>`}    
         </div>
     </div>
-    <div class="list-row">
+    <div class="list-row col-lg-6">
         <div class="list-col">
             <div class="list-col">
                 <span class="icon-line">
                     <i class="icon icon-pin blue"></i>
-                    ${item.adres} - ${item.adresTarifi}
+                    ${item.location}
                 </span>
             </div>
             <div class="list-col">
@@ -174,6 +165,10 @@ function getRowHtml(item) {
                 </span>
             </div>
         </div>
+    </div>
+    <div class="col-lg-12 btn-detail-wrap">
+    <hr/>
+    ${item?.note}
     </div>
 </div>`;
 }
