@@ -1,0 +1,90 @@
+const API_URL = "https://deprem-27jjydhzba-ew.a.run.app/";
+
+const title = document.getElementById("title");
+const status = document.getElementById("status");
+const adSoyad = document.getElementById("adSoyad");
+const email = document.getElementById("email");
+const tel = document.getElementById("telefon");
+const kisiSayisi = document
+  .getElementById("kisiSayisi")
+  .getElementsByTagName("input")[0];
+const adres = document.getElementById("adres");
+const adresTarifi = document.getElementById("adresTarifi");
+const googleMapLink = document.getElementById("googleMap");
+const aciklama = document.getElementById("aciklama");
+const tweeterLink = document.getElementById("tweetLink");
+
+function ready(fn) {
+  if (document.readyState !== "loading") {
+    fn();
+  } else {
+    document.addEventListener("DOMContentLoaded", fn);
+  }
+}
+
+ready(function () {
+  getItem();
+});
+
+function getItem() {
+  const params = new Proxy(new URLSearchParams(window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop),
+  });
+  let type = params.type;
+  const id = params.id;
+  if (type === "yardimet") {
+  }
+
+  // get items
+  getData(API_URL + type + id).then((item) => {
+    const acilDurum = item.acilDurum;
+
+    if (acilDurum === "kritik") {
+      document.getElementById("kritik").checked = true;
+      document.getElementById("orta").disabled = true;
+      document.getElementById("normal").disabled = true;
+    } else if (acilDurum === "orta") {
+      document.getElementById("kritik").disabled = true;
+      document.getElementById("orta").checked = true;
+      document.getElementById("normal").disabled = true;
+    } else {
+      document.getElementById("kritik").disabled = true;
+      document.getElementById("orta").disabled = true;
+      document.getElementById("normal").checked = true;
+    }
+
+    title.innerHTML = item.yardimTipi + " Yardımı Detay";
+    adSoyad.value = item.adSoyad ? item.adSoyad : "";
+    email.value = item.email ? item.email : "";
+    tel.value = item.telefon ? item.telefon : "";
+    kisiSayisi.value = item.kisiSayisi ? item.kisiSayisi : "";
+    adres.value = item.adres ? item.adres : "";
+    adresTarifi.value = item.adresTarifi ? item.adresTarifi : "";
+    googleMapLink.href = item.googleMapLink ? item.googleMapLink : "";
+    aciklama.value = item.aciklama ? item.aciklama : "";
+    tweeterLink.value = item.tweetLink ? item.tweetLink : "";
+  });
+}
+
+function getData(url, params) {
+  if (params) {
+    url += "?";
+    params.forEach((param) => {
+      url += `${param.key}=${param.value}&`;
+    });
+  }
+
+  return fetch(url, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
