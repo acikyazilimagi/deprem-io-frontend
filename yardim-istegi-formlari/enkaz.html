@@ -228,6 +228,8 @@
         </div>
     </footer>
     <script src="assets/js/app.js?v=1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css" rel="stylesheet">
     <script>
         var form = document.getElementById('enkazForm');
             form.onsubmit = function (event) {
@@ -241,12 +243,32 @@
                 xhr.send(JSON.stringify(Object.fromEntries(formData)));
 
                 xhr.onreadystatechange = function () {
-                    if (xhr.readyState == XMLHttpRequest.DONE) {
-                        form.reset(); //reset form after AJAX success or do something else
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        var status = xhr.status;
+                        var responseBody = (JSON.parse(xhr.responseText) || {});
+
+                        // The request has been completed successfully
+                        if (status === 0 || (status >= 200 && status < 400)) {
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: responseBody.message || 'Yardım talebiniz başarıyla alındı',
+                                showConfirmButton: false,
+                                timer: 2500
+                            });
+
+                            form.reset();
+                        } else {
+                            Swal.fire({
+                                title: 'Hata!',
+                                text: responseBody.error || 'Hata Oluştu Tekrar deneyiniz !',
+                                icon: 'error',
+                                confirmButtonText: 'Tamam'
+                            });
+                        }
                     }
-                }
-                window.location.href = "/";
-                //Fail the onsubmit to avoid page refresh.
+                };
+
                 return false;
             }
     </script>
