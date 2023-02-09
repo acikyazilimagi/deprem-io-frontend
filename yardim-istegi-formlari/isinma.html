@@ -107,7 +107,12 @@
                             </div>
                         </div>
                         <div class="form-row form-col-3" id="yedekTelefonlar" style="align-items: center;">
-                            <a href="javascript: void 0" id="ekTelefonLinki" onclick="addExtraPhone()" >+ Başka Telefon Ekle</a>
+                            <a href="javascript: void 0" id="ekTelefonLinki" onclick="addExtraPhone()" class="plus-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16" id="IconChangeColor">
+                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" id="plusIcon" fill="#4765ff" />
+                                </svg>
+                                Başka Telefon Ekle
+                            </a>
                         </div>
                         <div class="form-row">
                             <label for="kisiSayisi">Kişi Sayısı:</label>
@@ -325,6 +330,7 @@
             div.innerHTML = '<label for="' + inputId + '">Telefon (' + (extraPhoneCount + 1) + '):</label>' +
                             '<input type="tel" class="form-control" id="' + inputId + '" name="' + inputId + '" placeholder="Telefon">';
             document.getElementById('yedekTelefonlar').insertBefore(div, lnkEl);
+            document.getElementById(inputId).focus();
         }
     </script>
 
