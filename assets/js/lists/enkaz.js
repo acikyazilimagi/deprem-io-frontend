@@ -132,11 +132,21 @@ function getData(url, params) {
 }
 
 function getRowHtml(item) {
+  let classColor;
+
+  if (item.yardimDurumu === "bekleniyor") {
+    classColor = "status-waiting";
+  } else if (item.yardimDurumu === "yolda") {
+    classColor = "status-unknown";
+  } else if (item.yardimDurumu === "yapildi") {
+    classColor = "status-ok";
+  }
+
   return `<div class="list-item">
     <div class="list-row">
         <div class="list-col">
             <div class="list-col">
-                <span class="status status-waiting">
+                <span class="status ${classColor}">
                     <i></i> ${item.yardimTipi} - <span class="emergency">${
     item.acilDurum
   }</span>
@@ -171,6 +181,11 @@ function getRowHtml(item) {
                 <span class="icon-line">
                     <i class="icon icon-alarm blue"></i>
                     ${parseTime(item.updatedAt)}
+                </span>
+            </div>
+            <div class="list-col">
+                <span class="icon-line">
+                    #${item._id}
                 </span>
             </div>
         </div>

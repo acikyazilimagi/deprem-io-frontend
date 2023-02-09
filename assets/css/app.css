@@ -711,6 +711,7 @@ section {
 .share-button-wrapper {
     position: relative;
     cursor: pointer;
+    display: flex !important;
 }
 
 .share-button-wrapper .share-title {
@@ -738,12 +739,13 @@ section {
 }
 
 .share-menu-wrapper li {
-    margin: 0 !important;
+    margin: 0 !important;  
 }
 
 .alert-gray {
     margin-top: 30px;
     margin-bottom: 30px;
+
 }
 
 .aid-link {
@@ -783,4 +785,13 @@ section {
     width: 100%;
     align-items: center;
 
+}
+
+} 
+@media screen and (max-width: 600px) {
+    footer>div>nav>ul{
+        flex-direction: column;
+        margin: 5px;
+        font-size: 16px;
+    }
 }
