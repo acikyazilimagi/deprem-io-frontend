@@ -26,4 +26,4 @@ jobs:
           aws-region: ${{ secrets.LAB_AWS_SELECTED_REGION }}
 
       - name: Deploy to S3
-        run: aws s3 sync ./ s3://deprem-io-bucket --exclude '.git*/*' --exclude 'LICENCE' --exclude '*.md'
+        run: aws s3 sync ./ s3://dev.thechainlist.io --exclude '.git*/*' --exclude 'LICENCE' --exclude '*.md'
