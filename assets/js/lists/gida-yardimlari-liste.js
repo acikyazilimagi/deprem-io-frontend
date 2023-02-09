@@ -139,8 +139,8 @@ function getRowHtml(item) {
     <div class="list-row">
         <div class="list-col">
             <div class="list-col">
-                <span class="status status-waiting">
-                    <i></i> ${item.yardimTipi} 
+                <span class="status status-waiting" style="text-transform: capitalize;">
+                    <i></i>Yardım ${item.yardimDurumu} 
                 </span>
             </div>
             <div class="list-col">
@@ -166,11 +166,11 @@ function getRowHtml(item) {
             <div class="list-col">
                 <span class="icon-line">
                     <i class="icon icon-pin blue"></i>
-                    ${item.hedefSehir} - ${item.adres}
+                    ${item.hedefSehir} - ${item.fields.adres}
                 </span>
                 <span class="icon-line">
                 <svg style="margin-right: 4px;" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill='rgba(71, 101, 255)' viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>               
-             ${item.aciklama}
+                ${item.aciklama}
                 </span>
             </div>
             <div class="list-col">
