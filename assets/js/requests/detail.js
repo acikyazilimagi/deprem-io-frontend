@@ -23,6 +23,13 @@ const tweeterLink = document
 const sehir = document.getElementById("sehir");
 const hedefSehir = document.getElementById("hedefSehir");
 
+const updatedDate = document.getElementById("updatedDate");
+const createdDate = document.getElementById("createdDate");
+
+const alert = "rgba(255, 181, 70, 1)";
+const blue = "rgba(71, 101, 255, 1)";
+const red = "rgb(255, 87, 97)";
+
 function ready(fn) {
   if (document.readyState !== "loading") {
     fn();
@@ -57,19 +64,34 @@ function getItem() {
   // get items
   getData(API_URL + type + id).then((item) => {
     const acilDurum = item.acilDurum;
+    const yardimDurum = item.yardimDurumu;
 
+    status.getElementsByTagName("p")[0].innerHTML =
+      yardimDurum + " - " + acilDurum;
     if (acilDurum === "kritik") {
       document.getElementById("kritik").checked = true;
       document.getElementById("orta").disabled = true;
       document.getElementById("normal").disabled = true;
+
+      status.setAttribute("style", `border: 1px solid ${red}`);
+      status.getElementsByTagName("span")[0].style.backgroundColor = red;
+      status.getElementsByTagName("p")[0].style.color = red;
     } else if (acilDurum === "orta") {
       document.getElementById("kritik").disabled = true;
       document.getElementById("orta").checked = true;
       document.getElementById("normal").disabled = true;
+
+      status.setAttribute("style", `border: 1px solid ${alert}`);
+      status.getElementsByTagName("span")[0].style.backgroundColor = alert;
+      status.getElementsByTagName("p")[0].style.color = alert;
     } else {
       document.getElementById("kritik").disabled = true;
       document.getElementById("orta").disabled = true;
       document.getElementById("normal").checked = true;
+
+      status.setAttribute("style", `border: 1px solid ${blue}`);
+      status.getElementsByTagName("span")[0].style.backgroundColor = blue;
+      status.getElementsByTagName("p")[0].style.color = blue;
     }
 
     if (item.yardimTipi === "yolcuTasima") {
@@ -92,6 +114,9 @@ function getItem() {
       sehir.value = item.sehir ? item.sehir : "";
       hedefSehir.value = item.hedefSehir ? item.hedefSehir : "";
     }
+
+    updatedDate.innerHTML = "Son Güncelleme " + parseTime(item.updatedAt);
+    createdDate.innerHTML = "Oluşturulma Tarihi " + parseTime(item.createdAt);
   });
 }
 
@@ -116,4 +141,27 @@ function getData(url, params) {
     .catch((error) => {
       console.error("Error:", error);
     });
+}
+
+function parseTime(input) {
+  const date = new Date(input);
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const hour = date.getHours();
+  const minute = date.getMinutes().toString().padStart(2, "0");
+
+  const minutesAgo = Math.floor((new Date() - date) / 1000 / 60);
+  const daysAgo = Math.floor(minutesAgo / 60 / 24);
+
+  if (minutesAgo < 60) {
+    if (minutesAgo < 1) {
+      return "az önce";
+    }
+    return `${minutesAgo} dakika önce`;
+  } else if (daysAgo < 1) {
+    return `${hour}:${minute}`;
+  }
+
+  return `${day}.${month}.${year} ${hour}:${minute}`;
 }

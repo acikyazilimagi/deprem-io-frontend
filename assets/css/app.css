@@ -959,23 +959,49 @@ footer>div>nav>ul>li {
     padding: 10px;
 }
 
+.title-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.title-wrapper p {
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    color: rgba(213, 217, 236, 0.48);
+
+}
+
 .detail-title {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .detail-title h1 {
     text-transform: capitalize;
+    margin-bottom: 5px;
 }
 
 .detail-title #status {
     display: flex;
-    gap: 20px;
+    gap: 10px;
+    padding: 5px;
+    align-items: center;
+    border-radius: 5px;
 }
 
 .detail-title #status span {
     border-radius: 50%;
+    width: 10px;
+    height: 10px;
 }
+
+.detail-title #status p {
+    text-transform: capitalize;
+}
+
 
 .detail-form .form-row .form-col {
     display: flex;
