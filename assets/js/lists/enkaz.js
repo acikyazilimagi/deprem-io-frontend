@@ -1,4 +1,4 @@
-import { API_URL } from "../API";
+const API_URL = "https://deprem-27jjydhzba-ew.a.run.app/";
 
 const filterButton = document.querySelector("#filter-button");
 const filterHelpType = document.querySelector("#filter-help-type");
