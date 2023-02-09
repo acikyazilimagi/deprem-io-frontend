@@ -89,9 +89,32 @@
                     <form id="isMakinasiForm">
                         <input type="text" name="yardimTipi" value="isMakinasi" style="display: none;" readonly>
                         <div class="form-row form-col-3">
+                            <div class="form-col" style="display: none;">
+                                <input type="text" class="form-control" id="yardimTipi" name="yardimTipi" value="ulaşım">
+                            </div>
+                            <div class="form-col" style="display: none;">
+                                <input type="text" class="form-control" id="acilDurum" name="acilDurum" value="orta">
+                            </div>
+                            <div class="form-col" style="display: none;">
+                                <input type="text" class="form-control" id="acilDurum" name="yardimDurumu" value="bekleniyor">
+                            </div>
+                            <div class="form-col" style="display: none;">
+                                <input type="text" class="form-control" id="hedefSehir" name="hedefSehir" value="Ankara">
+                            </div>
+                            <div class="form-col" style="display: none;">
+                                <input type="text" class="form-control" id="adres" name="adres" value="adres">
+                            </div>
+
+
+
+
+
+
+
+
                             <div class="form-col">
                                 <label for="isim">* İsim & Soyisim:</label>
-                                <input type="text" class="form-control" id="isim" name="isim"
+                                <input type="text" class="form-control" id="adSoyad" name="adSoyad"
                                     placeholder="* İsim & Soyisim" required>
                             </div>
                             <div class="form-col">
@@ -103,6 +126,31 @@
                                 <input type="tel" class="form-control" id="telefon" name="telefon"
                                     placeholder="Telefon">
                             </div>
+                            <div class="form-col" style="display: none;">
+                                <input type="text" class="form-control" id="acilDurum" name="acilDurum" value="orta">
+                            </div>
+                            <div class="form-col" style="display: none;">
+                                <input type="text" class="form-control" id="hedefSehir" name="hedefSehir" value="orta">
+                            </div>
+                            <div class="form-col" style="display: none;">
+                                <input type="text" class="form-control" id="sehir" name="sehir" value="orta">
+                            </div>
+                            <div class="form-col" style="display: none;">
+                                <input type="text" class="form-control" id="yardimTipi" name="yardimTipi" value="orta">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <select name="" id="filter-help-type" class="form-control" name="sehir"required>
+                                <option class="dropdown-choice dropdown-placeholder" value="&quot;PLACEHOLDER_1427118222253&quot;"
+                                    style="color: var(--color_primary_default); display: none;">* Yardım Vereceğin Şehir</option>
+                                <option class="dropdown-choice" value="Adana">Adana</option>
+                                <option class="dropdown-choice" value="Adana">Adıyaman</option>
+                                <option class="dropdown-choice" value="Adana">Diyarbakır</option>
+                                <option class="dropdown-choice" value="Adana">Hatay</option>
+                                <option class="dropdown-choice" value="Adana">Kahramanmaraş</option>
+                                <option class="dropdown-choice" value="Adana">Kayseri</option>
+                                <option class="dropdown-choice" value="Adana">Mersin</option>
+                            </select>
                         </div>
                         <div class="form-row">
                             <label for="yardim-bilgi">* Yardımın Hakkında Bilgi:</label>
