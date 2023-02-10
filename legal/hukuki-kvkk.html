@@ -1,289 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Deprem İmece Platformu</title>
     <link rel="stylesheet" href="/assets/css/app.css?v=1" />
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <div class="container">
-            <a href="/" class="logo" title="Deprem İmece Platformu">
-                <img src="/assets/images/logo.svg" alt="Deprem İmece Platformu" width="150" />
-            </a>
-            <nav class="nav">
-                <ul>
+      <div class="container">
+        <a href="/" class="logo" title="Deprem İmece Platformu">
+          <img src="/assets/images/logo.svg" alt="Deprem İmece Platformu" width="150" />
+        </a>
+        <nav class="nav">
+          <ul>
+            <li>
+              <div class="share-button-wrapper">
+                <div class="share-title">Paylaş</div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="rgba(44, 46, 60, 1)"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <div class="share-menu-wrapper">
+                  <ul>
                     <li>
-                        <div class="share-button-wrapper">
-                            <div class="share-title">Paylaş</div>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="rgba(44, 46, 60, 1)"
-                                aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <div class="share-menu-wrapper">
-                                <ul>
-                                    <li>
-                                        <a target="_blank"
-                                            href="https://www.addtoany.com/add_to/email?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote=">
-                                            <img src="/assets/images/share/mail.svg" alt="deprem-io-mail" />
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank" rel="nofollow noopener"
-                                            onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeprem.io&t=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&quote=', 'newwindow', 'width=300,height=250'); return false;">
-                                            <img src="/assets/images/share/facebook.svg" alt="deprem-io-facebook" />
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank"
-                                            onclick="window.open('https://twitter.com/intent/tweet?text=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io%20https%3A%2F%2Fdeprem.io&related=AddToAny,micropat', 'newwindow', 'width=300,height=250'); return false;">
-                                            <img src="/assets/images/share/twitter.svg" alt="deprem-io-twitter" />
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank"
-                                            onclick="window.open('https://www.addtoany.com/add_to/linkedin?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote=', 'newwindow', 'width=300,height=250'); return false;">
-                                            <img src="/assets/images/share/linkedin.svg" alt="deprem-io-linkedin" />
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank"
-                                            onclick="window.open('https://www.addtoany.com/add_to/tumblr?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote=', 'newwindow', 'width=300,height=250'); return false;">
-                                            <img src="/assets/images/share/tumblr.svg" alt="deprem-io-tumblr" />
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank"
-                                            href="https://www.reddit.com/submit?url=https%3A%2F%2Fdeprem.io&title=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io">
-                                            <img src="/assets/images/share/reddit.svg" alt="deprem-io-reddit" />
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                      <a
+                        target="_blank"
+                        href="https://www.addtoany.com/add_to/email?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote="
+                      >
+                        <img src="/assets/images/share/mail.svg" alt="deprem-io-mail" />
+                      </a>
                     </li>
                     <li>
-                        <a href="/yararli-linkler.html">Yararlı Linkler</a>
+                      <a
+                        target="_blank"
+                        rel="nofollow noopener"
+                        onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeprem.io&t=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&quote=', 'newwindow', 'width=300,height=250'); return false;"
+                      >
+                        <img src="/assets/images/share/facebook.svg" alt="deprem-io-facebook" />
+                      </a>
                     </li>
                     <li>
-                        <a href="/iletisim.html">İletişim</a>
+                      <a
+                        target="_blank"
+                        onclick="window.open('https://twitter.com/intent/tweet?text=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io%20https%3A%2F%2Fdeprem.io&related=AddToAny,micropat', 'newwindow', 'width=300,height=250'); return false;"
+                      >
+                        <img src="/assets/images/share/twitter.svg" alt="deprem-io-twitter" />
+                      </a>
                     </li>
-                </ul>
-            </nav>
-        </div>
+                    <li>
+                      <a
+                        target="_blank"
+                        onclick="window.open('https://www.addtoany.com/add_to/linkedin?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote=', 'newwindow', 'width=300,height=250'); return false;"
+                      >
+                        <img src="/assets/images/share/linkedin.svg" alt="deprem-io-linkedin" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        target="_blank"
+                        onclick="window.open('https://www.addtoany.com/add_to/tumblr?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote=', 'newwindow', 'width=300,height=250'); return false;"
+                      >
+                        <img src="/assets/images/share/tumblr.svg" alt="deprem-io-tumblr" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        target="_blank"
+                        href="https://www.reddit.com/submit?url=https%3A%2F%2Fdeprem.io&title=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io"
+                      >
+                        <img src="/assets/images/share/reddit.svg" alt="deprem-io-reddit" />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="/yararli-linkler.html">Yararlı Linkler</a>
+            </li>
+            <li>
+              <a href="/iletisim.html">İletişim</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
-        <div class="container">
-            <section>
-                <a href="/" class="back-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="rgba(71, 101, 255, 1)" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18">
-                        </path>
-                    </svg>
-                    Geri
-                </a>
-                <h1>KİŞİSEL VERİLERİN KORUNMASI VE İŞLENMESİ HAKKINDA AYDINLATMA VE RIZA METNİ</h1>
-                <div class="form">
-                    <div class="kvkk">
-                        <ul style="list-style-type:disc;list-style-position: inside; color: rgba(238, 239, 246, 1);">
-                            <li>deprem.io tarafından verilecek hizmetlerin gerektiği
-                                şekilde ve güvenle sunulabilmesi
-                                için
-                                6698 sayılı Kanun kapsamında kimliğinizi belirli veya belirlenebilir kılan adınız,
-                                soyadınız, konumunuz, veli ve vasi bilgisi, medeni hal, sağlık bilgisi ve mevcut
-                                durumunuz
-                                kişisel veri olarak aşağıda belirtilen kapsamda, veri sorumlusu sıfatıyla bu maddede
-                                anılan
-                                platformumuz tarafından işlenmekte olup, kişisel verilerin elde edilmesi kaydedilmesi,
-                                depolanması, muhafaza edilmesi, değiştirilmesi, yeniden düzenlenmesi, açıklanması,
-                                aktarılması, devralınması, elde edilebilir hâle getirilmesi, sınıflandırılması ya da
-                                kullanmasının engellenmesi işlenmesi ve üçüncü kişilere aktarılması vb.
-                                gerekebilmektedir.
-                            </li>
-                            <li>
-                                6698 sayılı Kişisel Verilerin Korunması Kanunu hükümlerine uygun olarak, iş bu
-                                bilgilendirme
-                                formunda belirtilen hüküm ve koşullar kapsamında işlenecek olan kişisel veriler; veri
-                                sahiplerine ait ad, soyadı, konum, veli ve vasi bilgisi, sağlık durumu bilgisi ve mevcut
-                                durumunuza ait bilgiyi kapsayacaktır.
-                            </li>
-                            <li>
-                                Kişisel verilerin işlenmesi ve aktarılması 6698 sayılı Kişisel Verilerin Korunması
-                                Kanunu hükümlerine uygun olarak gerçekleştirilecektir. Bu kapsamda, kişisel verilerin
-                                hukuka ve dürüstlük kuralına uygun, doğru ve güncel şekilde, belirli, açık ve meşru
-                                amaçlar doğrultusunda işlenmesi ve aktarılması için her türlü tedbir alınmaktadır.
-                            </li>
-                            <li>
-                                Platformumuz , veri sahiplerine ait kişisel verilerin hukuka uygun olarak toplanması,
-                                saklanması, işlenmesi ve gerekmesi durumunda paylaşılması sırasında gizliliği korumak
-                                amacıyla mümkün olan en üst seviyede güvenlik tedbirlerini almaktadır.
-                            </li>
-                            <li>
-                                Platformumuz amacı; ilgilisi tarafından alenileştirilmiş veya tarafımıza “deprem.io”
-                                adlı uygulamamız üzerinden ya da başka yollarla bildirilmiş veri sahiplerine ait
-                                yukarıda sayılan kişisel verilerin toplanma şekilleri, işlenme amaçları, işlemenin
-                                hukuki nedenleri ve hakları konularında veri sahiplerini ve 06.02.2023 günü meydana
-                                gelen deprem afeti kapsamında ilgili kamu kurum ve kuruluşlarını en şeffaf şekilde
-                                bilgilendirmektir.
-                            </li>
-                            <li>
-                                6698 sayılı Kişisel Verilerin Korunması Kanunu uyarınca veri sahiplerine ait kişisel
-                                veriler, veri sorumlusu tarafından açıklanan kapsamda toplanacak ve işlenebilecektir. Bu
-                                itibarla yukarıda sayılan kişisel verileriniz, ilgili afetzedelerin sağlık, konum ve
-                                benzeri durumlarının hızlı bir şekilde tespit edilerek yardım ulaştırılabilmesi amacıyla
-                                6698 sayılı Kanun’un 5. ve 6. maddelerinde belirtilen kişisel veri işleme şartları ve
-                                amaçları dahilinde işlenecektir. Platformumuza iletmiş olduğunuz veya platformumuzca
-                                edinilen kişisel verilerinizin 6698 sayılı Kanun’un ilgili maddeleri uyarınca işlenmesi
-                                hususunda platformumuza rıza vermiş sayılmaktasınız. Verisi işlenen ilgililerin
-                                tarafımızla paylaştıkları bilgilerin doğru olmasının ve güncel bir şekilde muhafaza
-                                edilmesinin 6698 sayılı Kanun anlamında kişisel verileri üzerinde sahip oldukları
-                                hakları kullanabilmeleri ve ilgili diğer mevzuat açısından önemli olduğunu bildiklerini
-                                ve yanlış bilgi verilmesinden doğacak sorumlulukların tamamen kendilerine ait olacağını
-                                kabul ve beyan etmişlerdir.
-                            </li>
-                            <li>
-                                6698 sayılı Kişisel Verileri Koruma Kanunu'nun 5. ve 6.maddeleri kapsamında yer alan ve
-                                özel nitelikli kişisel veri olarak kabul edilen tüm veriler platformumuz tarafından
-                                ancak veri sahiplerinin açık rızası ile ve iş bu metnin 5. maddesinde belirtilen
-                                amaçlarla sınırlı olmak kaydıyla işlenebilir. Tarafımızca işlenen yukarıda açıklanan
-                                kişisel veriler 6698 sayılı KVKK’ nın 7. Maddesinde belirtildiği şekilde, ilgili verinin
-                                işlenmesini gerektiren sebeplerin ortadan kalkması hâlinde kişisel veriler resen veya
-                                ilgili kişinin talebi üzerine veri sorumlusu tarafından silinecektir.
-                            </li>
-                            <li>
-                                Veri sahiplerine ait yukarıda sayılan kişisel veriler; kanunen yetkili ve ilgili kamu
-                                kurum ve kuruluşları ile kanunen yetkili özel kuruluş/şirketlere 6698 sayılı Kişisel
-                                Verilerin Korunması Kanunu’nun kişisel verilerin aktarılmasına ilişkin 8. maddesi ve
-                                kişisel verilerin yurt dışına aktarılmasına ilişkin 9. maddesinde belirtilen kişisel
-                                veri işleme şartları ve amaçları çerçevesinde aktarılabilecektir.
-                            </li>
-                            <li>
-                                Veri sahiplerine ait kişisel veriler; ilgili mevzuatın ve yapılan anlaşmaların izin
-                                verdiği ölçüde ve çizdiği sınırlar dahilinde, alenileştirilmiş veya kanunun 5/2
-                                maddesinin b bendinde belirtilen haller hariç olmak üzere hukuken zorunlu olduğu
-                                durumlarda veri sahiplerinin onayı da alınmak suretiyle toplanacaktır. Bu yöntemle
-                                toplanan kişisel veriler, 6698 sayılı Kişisel Verilerin Korunması Kanunu’nun 5. ve 6.
-                                maddelerinde belirtilen kişisel veri işleme şartları ve amaçları kapsamında ve yine iş
-                                bu bilgilendirmenin 5.maddesinde belirtilen amaçlar dahilinde işlenebilecektir.
-                            </li>
-                            <li>
-                                6698 Sayılı Kişisel Verilerin Korunması Kanunu’nun 11. maddesindeki düzenlemeye göre
-                                kişisel veri sahipleri; “Kişisel verilerinin işlenip işlenmediğini öğrenme, kişisel
-                                verileri işlenmişse buna ilişkin bilgi talep etme, kişisel verilerinin işlenme amacını
-                                ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme, yurt içinde veya yurt
-                                dışında kişisel verilerinin aktarıldığı üçüncü kişileri bilme, kişisel verilerinin eksik
-                                veya yanlış işlenmiş olması hâlinde bunların düzeltilmesini isteme ve bu kapsamda
-                                yapılan işlemin kişisel verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme,
-                                6698 sayılı Kişisel Verilerin Korunması Kanunu ve ilgili diğer kanun hükümlerine uygun
-                                olarak işlenmiş olmasına rağmen, işlenmesini gerektiren sebeplerin ortadan kalkması
-                                halinde kişisel verilerinin silinmesini, yok edilmesini veya anonim hâle getirilmesini
-                                isteme ve bu kapsamda yapılan işlemin kişisel verilerinin aktarıldığı üçüncü kişilere
-                                bildirilmesini isteme, işlenen verilerinin münhasıran otomatik sistemler vasıtasıyla
-                                analiz edilmesi suretiyle aleyhine bir sonucun ortaya çıktığını düşünüyor ise buna
-                                itiraz etme, kişisel verilerinin kanuna aykırı olarak işlenmesi sebebiyle zarara
-                                uğramaları halinde zararlarının giderilmesini talep etme hakları bulunmaktadır.
-                            </li>
-                            <li>
-                                Veri sahipleri yukarıda bahsi geçen haklarını kullanmak üzere aşağıda belirtilen
-                                usullerle deprem.io adresimize ulaştırabilecekleri gibi yazılı başvurularını kendileri
-                                oluşturarak yine aşağıda belirtilen usullerle deprem.io adresine ulaştırarak
-                                kullanabilirler. Başvurular, ilgili veri sahibinin kimliğini tespit edecek belgelerle
-                                birlikte, formun/başvurunun ıslak imzalı bir kopyasının elden veya noter aracılığıyla ya
-                                da 6698 sayılı Kişisel Verileri Koruma Kanunu'nda belirtilen diğer yöntemler ile
-                                yukarıda anılan platform adresine iletilmesi veya 5070 sayılı Elektronik İmza Kanunu
-                                kapsamında düzenlenen güvenli elektronik imza ile imzalanarak yukarıda anılan e-mail
-                                adresine elektronik posta gönderimi ile gerçekleştirilebilmektedir. Kişisel Verileri
-                                Koruma Kurulu tarafından bahsi geçen yöntemler dışında bir yöntem öngörülmesi halinde
-                                başvurular bu yöntemle de iletilebilecektir. Yukarıda belirtilen yöntemlerden biri ile
-                                iletilen veri sahibi talepleri, platformumuz tarafından azami otuz gün içerisinde
-                                değerlendirilmekte ve cevaplanmaktadır. Tarafımız özellikle başvuru sahibinin ilgili
-                                veri sahibi olup olmadığının değerlendirilmesi amacıyla başvuru sahibinden ek bilgi ve
-                                belge talep etme hakkını saklı tutmaktadır. Veri sahibi başvuruları kural olarak
-                                platformumuz tarafından ücretsiz olarak değerlendirilmektedir. Ancak Kişisel Verileri
-                                Koruma Kurulu tarafından veri sahibinin talebine ilişkin bir ücret belirlenmiş ise
-                                platformumuz bu ücret üzerinden ödeme talep etme hakkı saklıdır.
-                            </li>
-                            <li>
-                                Kimlik tespiti için gerekli bilgiler, cevap için tarafınıza ulaşabileceğimiz telefon
-                                numarası, adres, e-posta adresiniz, platformumuz ile olan ilişkiniz ve kapsamı, talep
-                                konunuz ve hangi yollarla tarafınıza dönüş yapılmasını istediğinize yönelik
-                                bilgilendirmeniz platformumuza yukarıda anılan yollarla ulaştırıldıktan sonra ek kısa
-                                sürede ve en geç 30 gün içerisinde tarafınıza cevap verilecektir.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-        </div>
+      <div class="container">
+        <section>
+          <a href="/" class="back-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="rgba(71, 101, 255, 1)"
+              aria-hidden="true"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
+            </svg>
+            Geri
+          </a>
+          <h1>KİŞİSEL VERİLERİN KORUNMASI VE İŞLENMESİ HAKKINDA AYDINLATMA VE RIZA METNİ</h1>
+          <div class="form">
+            <div class="kvkk">
+              <ul style="list-style-type: disc; list-style-position: inside; color: rgba(238, 239, 246, 1)">
+                <li>
+                  deprem.io tarafından verilecek hizmetlerin gerektiği şekilde ve güvenle sunulabilmesi için 6698 sayılı
+                  Kanun kapsamında kimliğinizi belirli veya belirlenebilir kılan adınız, soyadınız, konumunuz, veli ve
+                  vasi bilgisi, medeni hal, sağlık bilgisi ve mevcut durumunuz kişisel veri olarak aşağıda belirtilen
+                  kapsamda, veri sorumlusu sıfatıyla bu maddede anılan platformumuz tarafından işlenmekte olup, kişisel
+                  verilerin elde edilmesi kaydedilmesi, depolanması, muhafaza edilmesi, değiştirilmesi, yeniden
+                  düzenlenmesi, açıklanması, aktarılması, devralınması, elde edilebilir hâle getirilmesi,
+                  sınıflandırılması ya da kullanmasının engellenmesi işlenmesi ve üçüncü kişilere aktarılması vb.
+                  gerekebilmektedir.
+                </li>
+                <li>
+                  6698 sayılı Kişisel Verilerin Korunması Kanunu hükümlerine uygun olarak, iş bu bilgilendirme formunda
+                  belirtilen hüküm ve koşullar kapsamında işlenecek olan kişisel veriler; veri sahiplerine ait ad,
+                  soyadı, konum, veli ve vasi bilgisi, sağlık durumu bilgisi ve mevcut durumunuza ait bilgiyi
+                  kapsayacaktır.
+                </li>
+                <li>
+                  Kişisel verilerin işlenmesi ve aktarılması 6698 sayılı Kişisel Verilerin Korunması Kanunu hükümlerine
+                  uygun olarak gerçekleştirilecektir. Bu kapsamda, kişisel verilerin hukuka ve dürüstlük kuralına uygun,
+                  doğru ve güncel şekilde, belirli, açık ve meşru amaçlar doğrultusunda işlenmesi ve aktarılması için
+                  her türlü tedbir alınmaktadır.
+                </li>
+                <li>
+                  Platformumuz , veri sahiplerine ait kişisel verilerin hukuka uygun olarak toplanması, saklanması,
+                  işlenmesi ve gerekmesi durumunda paylaşılması sırasında gizliliği korumak amacıyla mümkün olan en üst
+                  seviyede güvenlik tedbirlerini almaktadır.
+                </li>
+                <li>
+                  Platformumuz amacı; ilgilisi tarafından alenileştirilmiş veya tarafımıza “deprem.io” adlı uygulamamız
+                  üzerinden ya da başka yollarla bildirilmiş veri sahiplerine ait yukarıda sayılan kişisel verilerin
+                  toplanma şekilleri, işlenme amaçları, işlemenin hukuki nedenleri ve hakları konularında veri
+                  sahiplerini ve 06.02.2023 günü meydana gelen deprem afeti kapsamında ilgili kamu kurum ve
+                  kuruluşlarını en şeffaf şekilde bilgilendirmektir.
+                </li>
+                <li>
+                  6698 sayılı Kişisel Verilerin Korunması Kanunu uyarınca veri sahiplerine ait kişisel veriler, veri
+                  sorumlusu tarafından açıklanan kapsamda toplanacak ve işlenebilecektir. Bu itibarla yukarıda sayılan
+                  kişisel verileriniz, ilgili afetzedelerin sağlık, konum ve benzeri durumlarının hızlı bir şekilde
+                  tespit edilerek yardım ulaştırılabilmesi amacıyla 6698 sayılı Kanun’un 5. ve 6. maddelerinde
+                  belirtilen kişisel veri işleme şartları ve amaçları dahilinde işlenecektir. Platformumuza iletmiş
+                  olduğunuz veya platformumuzca edinilen kişisel verilerinizin 6698 sayılı Kanun’un ilgili maddeleri
+                  uyarınca işlenmesi hususunda platformumuza rıza vermiş sayılmaktasınız. Verisi işlenen ilgililerin
+                  tarafımızla paylaştıkları bilgilerin doğru olmasının ve güncel bir şekilde muhafaza edilmesinin 6698
+                  sayılı Kanun anlamında kişisel verileri üzerinde sahip oldukları hakları kullanabilmeleri ve ilgili
+                  diğer mevzuat açısından önemli olduğunu bildiklerini ve yanlış bilgi verilmesinden doğacak
+                  sorumlulukların tamamen kendilerine ait olacağını kabul ve beyan etmişlerdir.
+                </li>
+                <li>
+                  6698 sayılı Kişisel Verileri Koruma Kanunu'nun 5. ve 6.maddeleri kapsamında yer alan ve özel nitelikli
+                  kişisel veri olarak kabul edilen tüm veriler platformumuz tarafından ancak veri sahiplerinin açık
+                  rızası ile ve iş bu metnin 5. maddesinde belirtilen amaçlarla sınırlı olmak kaydıyla işlenebilir.
+                  Tarafımızca işlenen yukarıda açıklanan kişisel veriler 6698 sayılı KVKK’ nın 7. Maddesinde
+                  belirtildiği şekilde, ilgili verinin işlenmesini gerektiren sebeplerin ortadan kalkması hâlinde
+                  kişisel veriler resen veya ilgili kişinin talebi üzerine veri sorumlusu tarafından silinecektir.
+                </li>
+                <li>
+                  Veri sahiplerine ait yukarıda sayılan kişisel veriler; kanunen yetkili ve ilgili kamu kurum ve
+                  kuruluşları ile kanunen yetkili özel kuruluş/şirketlere 6698 sayılı Kişisel Verilerin Korunması
+                  Kanunu’nun kişisel verilerin aktarılmasına ilişkin 8. maddesi ve kişisel verilerin yurt dışına
+                  aktarılmasına ilişkin 9. maddesinde belirtilen kişisel veri işleme şartları ve amaçları çerçevesinde
+                  aktarılabilecektir.
+                </li>
+                <li>
+                  Veri sahiplerine ait kişisel veriler; ilgili mevzuatın ve yapılan anlaşmaların izin verdiği ölçüde ve
+                  çizdiği sınırlar dahilinde, alenileştirilmiş veya kanunun 5/2 maddesinin b bendinde belirtilen haller
+                  hariç olmak üzere hukuken zorunlu olduğu durumlarda veri sahiplerinin onayı da alınmak suretiyle
+                  toplanacaktır. Bu yöntemle toplanan kişisel veriler, 6698 sayılı Kişisel Verilerin Korunması
+                  Kanunu’nun 5. ve 6. maddelerinde belirtilen kişisel veri işleme şartları ve amaçları kapsamında ve
+                  yine iş bu bilgilendirmenin 5.maddesinde belirtilen amaçlar dahilinde işlenebilecektir.
+                </li>
+                <li>
+                  6698 Sayılı Kişisel Verilerin Korunması Kanunu’nun 11. maddesindeki düzenlemeye göre kişisel veri
+                  sahipleri; “Kişisel verilerinin işlenip işlenmediğini öğrenme, kişisel verileri işlenmişse buna
+                  ilişkin bilgi talep etme, kişisel verilerinin işlenme amacını ve bunların amacına uygun kullanılıp
+                  kullanılmadığını öğrenme, yurt içinde veya yurt dışında kişisel verilerinin aktarıldığı üçüncü
+                  kişileri bilme, kişisel verilerinin eksik veya yanlış işlenmiş olması hâlinde bunların düzeltilmesini
+                  isteme ve bu kapsamda yapılan işlemin kişisel verilerin aktarıldığı üçüncü kişilere bildirilmesini
+                  isteme, 6698 sayılı Kişisel Verilerin Korunması Kanunu ve ilgili diğer kanun hükümlerine uygun olarak
+                  işlenmiş olmasına rağmen, işlenmesini gerektiren sebeplerin ortadan kalkması halinde kişisel
+                  verilerinin silinmesini, yok edilmesini veya anonim hâle getirilmesini isteme ve bu kapsamda yapılan
+                  işlemin kişisel verilerinin aktarıldığı üçüncü kişilere bildirilmesini isteme, işlenen verilerinin
+                  münhasıran otomatik sistemler vasıtasıyla analiz edilmesi suretiyle aleyhine bir sonucun ortaya
+                  çıktığını düşünüyor ise buna itiraz etme, kişisel verilerinin kanuna aykırı olarak işlenmesi sebebiyle
+                  zarara uğramaları halinde zararlarının giderilmesini talep etme hakları bulunmaktadır.
+                </li>
+                <li>
+                  Veri sahipleri yukarıda bahsi geçen haklarını kullanmak üzere aşağıda belirtilen usullerle deprem.io
+                  adresimize ulaştırabilecekleri gibi yazılı başvurularını kendileri oluşturarak yine aşağıda belirtilen
+                  usullerle deprem.io adresine ulaştırarak kullanabilirler. Başvurular, ilgili veri sahibinin kimliğini
+                  tespit edecek belgelerle birlikte, formun/başvurunun ıslak imzalı bir kopyasının elden veya noter
+                  aracılığıyla ya da 6698 sayılı Kişisel Verileri Koruma Kanunu'nda belirtilen diğer yöntemler ile
+                  yukarıda anılan platform adresine iletilmesi veya 5070 sayılı Elektronik İmza Kanunu kapsamında
+                  düzenlenen güvenli elektronik imza ile imzalanarak yukarıda anılan e-mail adresine elektronik posta
+                  gönderimi ile gerçekleştirilebilmektedir. Kişisel Verileri Koruma Kurulu tarafından bahsi geçen
+                  yöntemler dışında bir yöntem öngörülmesi halinde başvurular bu yöntemle de iletilebilecektir. Yukarıda
+                  belirtilen yöntemlerden biri ile iletilen veri sahibi talepleri, platformumuz tarafından azami otuz
+                  gün içerisinde değerlendirilmekte ve cevaplanmaktadır. Tarafımız özellikle başvuru sahibinin ilgili
+                  veri sahibi olup olmadığının değerlendirilmesi amacıyla başvuru sahibinden ek bilgi ve belge talep
+                  etme hakkını saklı tutmaktadır. Veri sahibi başvuruları kural olarak platformumuz tarafından ücretsiz
+                  olarak değerlendirilmektedir. Ancak Kişisel Verileri Koruma Kurulu tarafından veri sahibinin talebine
+                  ilişkin bir ücret belirlenmiş ise platformumuz bu ücret üzerinden ödeme talep etme hakkı saklıdır.
+                </li>
+                <li>
+                  Kimlik tespiti için gerekli bilgiler, cevap için tarafınıza ulaşabileceğimiz telefon numarası, adres,
+                  e-posta adresiniz, platformumuz ile olan ilişkiniz ve kapsamı, talep konunuz ve hangi yollarla
+                  tarafınıza dönüş yapılmasını istediğinize yönelik bilgilendirmeniz platformumuza yukarıda anılan
+                  yollarla ulaştırıldıktan sonra ek kısa sürede ve en geç 30 gün içerisinde tarafınıza cevap
+                  verilecektir.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
 
     <footer>
-        <div class="container">
-            <nav class="nav">
-                <ul>
-                    <li>
-                        <a href="/yararli-linkler.html">Yararlı Linkler</a>
-                    </li>
-                    <li>
-                        <a href="/iletisim.html">İletişim</a>
-                    </li>
-                    <li>
-                        <a href="/legal/cerez-politikasi.html">Çerez Politikası</a>
-                    </li>
-                    <li>
-                        <a href="/legal/gizlilik-sozlesmesi.html">Gizlilik Sözleşmesi</a>
-                    </li>
-                    <li>
-                        <a href="/legal/aydinlatma-ve-acik-riza-metni.html">Aydınlatma Metni</a>
-                    </li>
-                </ul>
-            </nav>
-            <p class="info-title">
-                Kişisel Verilerin İşlenmesine İlişkin Aydınlatma:
-            </p>
-            <p>
-                Bu uygulama, 6 Şubat 2023 tarihinde Türkiye’de meydana gelen büyük
-                deprem felaketinde, arama kurtarma çalışmaları ile yardım ve destek
-                taleplerini ortak bir veri tabanında toplayarak yetkili kurum ve
-                kuruluşlara aktarmak amacı ile bilişim teknolojileri alanında çalışan
-                gönüllüler tarafından oluşturulmuştur. Yardım ya da desteğe ihtiyacı
-                olduğunu belirttiğiniz kişilerin kişisel verileri ‘’Fiili imkânsızlık
-                nedeniyle rızasını açıklayamayacak durumda bulunan veya rızasına
-                hukuki geçerlilik tanınmayan kişinin kendisinin ya da bir başkasının
-                hayatı veya beden bütünlüğünün korunması için zorunlu olması’’ hukuki
-                sebebine dayanarak, otomatik yollarla işlenecektir. Tarafınıza ait
-                kişisel veriler, ‘’Bir hakkın tesisi, kullanılması veya korunması için
-                veri işlemenin zorunlu olması’’ hukuki sebebine dayanarak
-                işlenecektir.
-            </p>
-            <p>
-                Paylaşacağınız yardım, destek taleplerinde yer alan isim, soy isim,
-                telefon ve adres gibi kişisel veriler, veli, vasi, temsilci bilgisi,
-                medeni durum ve sağlık bilgileri tarafımızca oluşturulan ve sunucuları
-                yurtiçi ve yurtdışında bulunan veri tabanında toplanarak, Afad, Akut,
-                Kızılay gibi yetkili arama kurtarma kuruluşlarının yanı sıra destek ve
-                yardım taleplerini karşılayabilecek sivil toplum kuruluşları ile
-                kişisel veri işleme amacı ile sınırlı olarak paylaşılacaktır.
-            </p>
-            <p>
-                Bu platform kar amacı gütmeden imece usulu bilgi paylaşımı için
-                geliştirildi, hiçbir kurum ve kuruluşla ilişiği yoktur.
-            </p>
-            <p>
-                Gerektiğinde yetkili merci ve kurumlara bilgi sağlanabilir ve
-                işbirliği yapılabilir.
-            </p>
-            <p>Deprem İmece Platformu © 2023</p>
-        </div>
+      <div class="container">
+        <nav class="nav">
+          <ul>
+            <li>
+              <a href="/yararli-linkler.html">Yararlı Linkler</a>
+            </li>
+            <li>
+              <a href="/iletisim.html">İletişim</a>
+            </li>
+            <li>
+              <a href="/legal/cerez-politikasi.html">Çerez Politikası</a>
+            </li>
+            <li>
+              <a href="/legal/gizlilik-sozlesmesi.html">Gizlilik Sözleşmesi</a>
+            </li>
+            <li>
+              <a href="/legal/hukuki-kvkk.html">Aydınlatma Metni</a>
+            </li>
+          </ul>
+        </nav>
+        <p class="info-title">Kişisel Verilerin İşlenmesine İlişkin Aydınlatma:</p>
+        <p>
+          Bu uygulama, 6 Şubat 2023 tarihinde Türkiye’de meydana gelen büyük deprem felaketinde, arama kurtarma
+          çalışmaları ile yardım ve destek taleplerini ortak bir veri tabanında toplayarak yetkili kurum ve kuruluşlara
+          aktarmak amacı ile bilişim teknolojileri alanında çalışan gönüllüler tarafından oluşturulmuştur. Yardım ya da
+          desteğe ihtiyacı olduğunu belirttiğiniz kişilerin kişisel verileri ‘’Fiili imkânsızlık nedeniyle rızasını
+          açıklayamayacak durumda bulunan veya rızasına hukuki geçerlilik tanınmayan kişinin kendisinin ya da bir
+          başkasının hayatı veya beden bütünlüğünün korunması için zorunlu olması’’ hukuki sebebine dayanarak, otomatik
+          yollarla işlenecektir. Tarafınıza ait kişisel veriler, ‘’Bir hakkın tesisi, kullanılması veya korunması için
+          veri işlemenin zorunlu olması’’ hukuki sebebine dayanarak işlenecektir.
+        </p>
+        <p>
+          Paylaşacağınız yardım, destek taleplerinde yer alan isim, soy isim, telefon ve adres gibi kişisel veriler,
+          veli, vasi, temsilci bilgisi, medeni durum ve sağlık bilgileri tarafımızca oluşturulan ve sunucuları yurtiçi
+          ve yurtdışında bulunan veri tabanında toplanarak, Afad, Akut, Kızılay gibi yetkili arama kurtarma
+          kuruluşlarının yanı sıra destek ve yardım taleplerini karşılayabilecek sivil toplum kuruluşları ile kişisel
+          veri işleme amacı ile sınırlı olarak paylaşılacaktır.
+        </p>
+        <p>
+          Bu platform kar amacı gütmeden imece usulu bilgi paylaşımı için geliştirildi, hiçbir kurum ve kuruluşla
+          ilişiği yoktur.
+        </p>
+        <p>Gerektiğinde yetkili merci ve kurumlara bilgi sağlanabilir ve işbirliği yapılabilir.</p>
+        <p>Deprem İmece Platformu © 2023</p>
+      </div>
     </footer>
-</body>
-
+  </body>
 </html>
