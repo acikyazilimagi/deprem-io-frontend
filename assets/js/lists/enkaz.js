@@ -1,7 +1,12 @@
+//const API_URL = "https://deprem-27jjydhzba-ew.a.run.app/";
 const API_URL = "https://deprem-27jjydhzba-ew.a.run.app/";
 
 const filterButton = document.querySelector("#filter-button");
 const filterHelpType = document.querySelector("#filter-help-type");
+const filterHelpQ = document.querySelector("#filter-help-q");
+const filterHelpStatus = document.querySelector("#filter-help-status");
+const filterHelpEmergence = document.querySelector("#filter-help-emergence");
+const filterVehicle = document.querySelector("#filter-vehicle");
 
 const paginationPrevButton = document.querySelector("#pagination-prev");
 const paginationNextButton = document.querySelector("#pagination-next");
@@ -25,7 +30,7 @@ ready(function () {
 filterButton.addEventListener("click", function (e) {
   e.preventDefault();
 
-  getRows();
+  getFilteredRows();
 });
 
 paginationNextButton.addEventListener("click", function (e) {
@@ -85,6 +90,48 @@ function getRows(page, limit) {
     });
 }
 
+function getFilteredRows(page, limit) {
+  page = page || 1;
+  limit = limit || 10;
+
+  var totalPage = 0;
+  var helpType = filterHelpType.value;
+  var helpQ = filterHelpQ.value;
+  var helpStatus = filterHelpStatus.value;
+  var helpEmergence = filterHelpEmergence.value;
+  var helpVehicle = "";
+
+  if (filterVehicle) {
+    helpVehicle = filterVehicle.value;
+  }
+
+  // get items
+  getData(API_URL + "ara-yardim/", [
+    { key: "q", value: helpQ },
+    { key: "yardimDurumu", value: helpStatus },
+    { key: "yardimTipi", value: helpType },
+    { key: "acilDurum", value: helpEmergence },
+    { key: "aracDurumu", value: helpVehicle },
+  ])
+    .then((items) => {
+      console.log(items);
+      // update total page value
+      totalPage = items.totalPage;
+      var listWrapper = document.querySelector(".list");
+      // clear listWrapper html
+      listWrapper.innerHTML = "";
+
+      items.forEach(function (item) {
+        listWrapper.innerHTML += getRowHtml(item);
+      });
+    })
+    .finally(() => {
+      // update pagination info in html
+      paginationCurrentPage.innerHTML = page;
+      paginationTotalPage.innerHTML = totalPage;
+    });
+}
+
 function parseTime(input) {
   const date = new Date(input);
   const year = date.getFullYear();
@@ -132,11 +179,21 @@ function getData(url, params) {
 }
 
 function getRowHtml(item) {
+  let classColor;
+
+  if (item.yardimDurumu === "bekleniyor") {
+    classColor = "status-waiting";
+  } else if (item.yardimDurumu === "yolda") {
+    classColor = "status-unknown";
+  } else if (item.yardimDurumu === "yapildi") {
+    classColor = "status-ok";
+  }
+
   return `<div class="list-item">
     <div class="list-row">
         <div class="list-col">
             <div class="list-col">
-                <span class="status status-waiting">
+                <span class="status ${classColor}">
                     <i></i> ${item.yardimTipi} - <span class="emergency">${
     item.acilDurum
   }</span>
@@ -154,7 +211,7 @@ function getRowHtml(item) {
             </div>
         </div>
         <div class="list-col btn-detail-wrap">
-            <a href="#" class="btn-detail">
+            <a href="../../../yardim-detay/detay.html?id=${item._id}&type=yardim/" class="btn-detail">
                 Detaya Git
             </a>
         </div>
@@ -171,6 +228,11 @@ function getRowHtml(item) {
                 <span class="icon-line">
                     <i class="icon icon-alarm blue"></i>
                     ${parseTime(item.updatedAt)}
+                </span>
+            </div>
+            <div class="list-col">
+                <span class="icon-line">
+                    #${item._id}
                 </span>
             </div>
         </div>

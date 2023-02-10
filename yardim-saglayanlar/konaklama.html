@@ -94,7 +94,7 @@
                             </svg>
                             Geri
                         </a>
-                        <a href="/yardim-istekleri/enkaz-harita.html" class="map-view-button">
+                        <!--<a href="/yardim-istekleri/enkaz-harita.html" class="map-view-button">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="rgba(71, 101, 255, 1)" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -102,7 +102,7 @@
                                 </path>
                             </svg>
                             Harita Görünümü
-                        </a>
+                        </a>-->
                     </div>
                     <div class="list-head-main">
                         <h1>Konaklama Sağlayanlar</h1>
@@ -140,30 +140,39 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="list-head-filters">
-                        <form action="/" method="GET" class="form">
+                        <form action="" class="form">
                             <div class="filters">
-                                <div class="filter">
-                                    <input type="text" class="form-control" id="isim" name="isim"
-                                        placeholder="* İsim & Soyisim" required>
+                                <div class="form-col" style="display: none;">
+                                    <input type="text" class="form-control" id="filter-help-type" name="yardimTipi" value="konaklama">
                                 </div>
                                 <div class="filter">
-                                    <input type="text" class="form-control" id="isim" name="isim" placeholder="* Şehir" required>
+                                    <input type="text" class="form-control" id="filter-help-q" name="isim" placeholder="* İsim & Soyisim">
                                 </div>
                                 <div class="filter">
-                                    <select name="" id="filter-help-type" class="form-control">
+                                    <select name="" id="filter-help-status" class="form-control">
                                         <option value="">Yardım Durumu</option>
-                                        <option value="enkaz">Yardıma Hazır</option>
-                                        <option value="gida">Yardım Etti</option>
+                                        <option value="bekleniyor">Bekleniyor</option>
+                                        <option value="yolda">Yolda</option>
+                                        <option value="yapildi">Yapıldı</option>
+                                    </select>
+                                </div>
+                                <div class="filter">
+                                    <select name="" id="filter-help-emergence" class="form-control">
+                                        <option value="">Aciliyet Durumu</option>
+                                        <option value="kritik">Kritik</option>
+                                        <option value="orta">Orta</option>
+                                        <option value="normal">Normal</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="filter-buttons">
                                 <button class="btn-refresh">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="rgba(71, 101, 255, 1)" aria-hidden="true">
+                                         stroke-width="1.5" stroke="rgba(71, 101, 255, 1)" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3">
+                                              d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3">
                                         </path>
                                     </svg>
                                 </button>
@@ -175,6 +184,7 @@
                             </div>
                         </form>
                     </div>
+
                 </div>
                 <div class="list-info">
                     <span>
@@ -241,7 +251,7 @@
             </p>
         </div>
     </footer>
-    <script src="../assets/js/lists/enkaz.js"></script>
+    <script src="../assets/js/lists/konaklama.js"></script>
 </body>
 
 </html>
