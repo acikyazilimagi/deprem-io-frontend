@@ -1,199 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>İletişim | Deprem İmece Platformu</title>
-    <link rel="stylesheet" href="/assets/css/app.css?v=1">
-</head>
+    <link rel="stylesheet" href="/assets/css/app.css?v=1" />
+  </head>
 
-<body>
+  <body>
     <header>
-        <div class="container">
-            <a href="/" class="logo" title="Deprem İmece Platformu">
-                <img src="/assets/images/logo.svg" alt="Deprem İmece Platformu" width="150">
-            </a>
-            <nav class="nav">
-                <ul>
+      <div class="container">
+        <a href="/" class="logo" title="Deprem İmece Platformu">
+          <img src="/assets/images/logo.svg" alt="Deprem İmece Platformu" width="150" />
+        </a>
+        <nav class="nav">
+          <ul>
+            <li>
+              <div class="share-button-wrapper">
+                <div class="share-title">Paylaş</div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="rgba(44, 46, 60, 1)"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <div class="share-menu-wrapper">
+                  <ul>
                     <li>
-                        <div class="share-button-wrapper">
-                            <div class="share-title">Paylaş</div>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="rgba(44, 46, 60, 1)" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"></path>
-                            </svg>
-                            <div class="share-menu-wrapper">
-                                <ul>
-                                    <li>
-                                        <a target="_blank" href="https://www.addtoany.com/add_to/email?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote=">
-                                            <img src="/assets/images/share/mail.svg" alt="deprem-io-mail">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank" rel="nofollow noopener" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeprem.io&t=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&quote=', 'newwindow', 'width=300,height=250'); return false;">
-                                            <img src="/assets/images/share/facebook.svg" alt="deprem-io-facebook">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank" onclick="window.open('https://twitter.com/intent/tweet?text=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io%20https%3A%2F%2Fdeprem.io&related=AddToAny,micropat', 'newwindow', 'width=300,height=250'); return false;">
-                                            <img src="/assets/images/share/twitter.svg" alt="deprem-io-twitter">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank" onclick="window.open('https://www.addtoany.com/add_to/linkedin?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote=', 'newwindow', 'width=300,height=250'); return false;">
-                                            <img src="/assets/images/share/linkedin.svg" alt="deprem-io-linkedin">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank" onclick="window.open('https://www.addtoany.com/add_to/tumblr?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote=', 'newwindow', 'width=300,height=250'); return false;">
-                                            <img src="/assets/images/share/tumblr.svg" alt="deprem-io-tumblr">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank" href="https://www.reddit.com/submit?url=https%3A%2F%2Fdeprem.io&title=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io">
-                                            <img src="/assets/images/share/reddit.svg" alt="deprem-io-reddit">
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                      <a
+                        target="_blank"
+                        href="https://www.addtoany.com/add_to/email?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote="
+                      >
+                        <img src="/assets/images/share/mail.svg" alt="deprem-io-mail" />
+                      </a>
                     </li>
                     <li>
-                        <a href="/yararli-linkler.html">Yararlı Linkler</a>
+                      <a
+                        target="_blank"
+                        rel="nofollow noopener"
+                        onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeprem.io&t=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&quote=', 'newwindow', 'width=300,height=250'); return false;"
+                      >
+                        <img src="/assets/images/share/facebook.svg" alt="deprem-io-facebook" />
+                      </a>
                     </li>
                     <li>
-                        <a href="/iletisim.html">İletişim</a>
+                      <a
+                        target="_blank"
+                        onclick="window.open('https://twitter.com/intent/tweet?text=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io%20https%3A%2F%2Fdeprem.io&related=AddToAny,micropat', 'newwindow', 'width=300,height=250'); return false;"
+                      >
+                        <img src="/assets/images/share/twitter.svg" alt="deprem-io-twitter" />
+                      </a>
                     </li>
-                </ul>
-            </nav>
-        </div>
+                    <li>
+                      <a
+                        target="_blank"
+                        onclick="window.open('https://www.addtoany.com/add_to/linkedin?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote=', 'newwindow', 'width=300,height=250'); return false;"
+                      >
+                        <img src="/assets/images/share/linkedin.svg" alt="deprem-io-linkedin" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        target="_blank"
+                        onclick="window.open('https://www.addtoany.com/add_to/tumblr?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote=', 'newwindow', 'width=300,height=250'); return false;"
+                      >
+                        <img src="/assets/images/share/tumblr.svg" alt="deprem-io-tumblr" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        target="_blank"
+                        href="https://www.reddit.com/submit?url=https%3A%2F%2Fdeprem.io&title=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io"
+                      >
+                        <img src="/assets/images/share/reddit.svg" alt="deprem-io-reddit" />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="/yararli-linkler.html">Yararlı Linkler</a>
+            </li>
+            <li>
+              <a href="/iletisim.html">İletişim</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
-        <div class="container">
-            <section>
-                <a href="/" class="back-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="rgba(71, 101, 255, 1)" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18">
-                        </path>
-                    </svg>
-                    Geri
-                </a>
-                <h1>İletişim Formu</h1>
-                <div class="form">
-                    <div class="alert-gray">
-                        <div class="bubble-element 1618916043803x877032991371296800-AAI"
-                            style="align-self: flex-start; min-width: 24px; max-width: 24px; order: 1; min-height: 24px; max-height: 24px; width: 24px; flex-grow: 1; height: 24px; margin: 0px; z-index: 36; border-radius: 0px;">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="rgba(71, 101, 255, 1)" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z">
-                                </path>
-                            </svg>
-                        </div>
-                        <p style="margin-left: 30px; margin-top: -20px;">Lütfen bu formdan yardım isteği göndermeyiniz.
-                            Yalnızca platform ile ilgili mesajlara geri dönüş yapılacaktır. Yardım isteği için <a
-                                href="/">ana sayfaya</a> gidiniz.</p>
-                    </div>
+      <div class="container">
+        <section>
+          <a href="/" class="back-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="rgba(71, 101, 255, 1)"
+              aria-hidden="true"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
+            </svg>
+            Geri
+          </a>
+          <h1>İletişim Formu</h1>
+          <div class="form">
+            <div class="alert-gray">
+              <div
+                class="bubble-element 1618916043803x877032991371296800-AAI"
+                style="
+                  align-self: flex-start;
+                  min-width: 24px;
+                  max-width: 24px;
+                  order: 1;
+                  min-height: 24px;
+                  max-height: 24px;
+                  width: 24px;
+                  flex-grow: 1;
+                  height: 24px;
+                  margin: 0px;
+                  z-index: 36;
+                  border-radius: 0px;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="rgba(71, 101, 255, 1)"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+                  ></path>
+                </svg>
+              </div>
+              <p style="margin-left: 30px; margin-top: -20px">
+                Lütfen bu formdan yardım isteği göndermeyiniz. Yalnızca platform ile ilgili mesajlara geri dönüş
+                yapılacaktır. Yardım isteği için
+                <a href="/">ana sayfaya</a> gidiniz.
+              </p>
+            </div>
 
-                    <form id="iletisimForm">
-                        <div class="form-col">
-                            <label for="adSoyad">* İsim & Soyisim:</label>
-                            <input type="text" class="form-control" id="adSoyad" name="adSoyad"
-                                placeholder="* İsim & Soyisim" required>
-                        </div>
-                        <div class="form-col ">
-                            <label for="email">Email:</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                        </div>
-                        <div class="form-col">
-                            <label for="telefon">Telefon:</label>
-                            <input type="tel" class="form-control" id="telefon" name="telefon" placeholder="Telefon">
-                        </div>
-                        <div class="form-col">
-                            <label for="mesaj">* Mesaj:</label>
-                            <textarea class="form-control" name="mesaj" id="mesaj cols="30" rows="4"
-                                placeholder="* Mesajınız" required></textarea>
-                        </div>
+            <form id="iletisimForm">
+              <div class="form-col">
+                <label for="adSoyad">* İsim & Soyisim:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="adSoyad"
+                  name="adSoyad"
+                  placeholder="* İsim & Soyisim"
+                  required
+                />
+              </div>
+              <div class="form-col">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email" />
+              </div>
+              <div class="form-col">
+                <label for="telefon">Telefon:</label>
+                <input type="tel" class="form-control" id="telefon" name="telefon" placeholder="Telefon" />
+              </div>
+              <div class="form-col">
+                <label for="mesaj">* Mesaj:</label>
+                <textarea
+                  class="form-control"
+                  name="mesaj"
+                  id="mesaj"
+                  cols="30"
+                  rows="4"
+                  placeholder="* Mesajınız"
+                  required
+                ></textarea>
+              </div>
 
-                        <div class="form-row">
-                            <label for="kvkk" class="checkbox">
-                                <input type="checkbox" id="kvkk" name="fields-kvkk" required>
-                                * Form dolduran kişiden hukuki beyan: Enkaz, yıkım, yardım ve destek ihtiyaçları
-                                konusunda verdiğim bilgilerin doğru ve teyit edilmiş olduğunu, bilgi kirliliği ve yanlış
-                                uygulamalara yol açmamak için gerekli tüm önlem ve tedbirleri aldığımı, vermiş olduğum
-                                bilgilerde meydana gelen değişiklik ve güncellemeleri bildireceğimi kabul ve beyan
-                                ederim.
-                            </label>
-                        </div>
-                        <div>
-                            <button type="submit">
-                                Gönder
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </section>
-        </div>
+              <div class="form-row">
+                <label for="kvkk" class="checkbox">
+                  <input type="checkbox" id="kvkk" name="fields-kvkk" required />
+                  * Form dolduran kişiden hukuki beyan: Enkaz, yıkım, yardım ve destek ihtiyaçları konusunda verdiğim
+                  bilgilerin doğru ve teyit edilmiş olduğunu, bilgi kirliliği ve yanlış uygulamalara yol açmamak için
+                  gerekli tüm önlem ve tedbirleri aldığımı, vermiş olduğum bilgilerde meydana gelen değişiklik ve
+                  güncellemeleri bildireceğimi kabul ve beyan ederim.
+                </label>
+              </div>
+              <div>
+                <button type="submit">Gönder</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
     </main>
 
     <footer>
-        <div class="container">
-            <nav class="nav">
-                <ul>
-                    <li>
-                        <a href="/yararli-linkler.html">Yararlı Linkler</a>
-                    </li>
-                    <li>
-                        <a href="/iletisim.html">İletişim</a>
-                    </li>
-                    <li>
-                        <a href="/legal/cerez-politikasi.html">Çerez Politikası</a>
-                    </li>
-                    <li>
-                        <a href="/legal/gizlilik-sozlesmesi.html">Gizlilik Sözleşmesi</a>
-                    </li>
-                    <li>
-                        <a href="/legal/aydinlatma-ve-acik-riza-metni.html">Aydınlatma Metni</a>
-                    </li>
-                </ul>
-            </nav>
-            <p class="info-title">
-                Kişisel Verilerin İşlenmesine İlişkin Aydınlatma:
-            </p>
-            <p>
-                Bu uygulama, 6 Şubat 2023 tarihinde Türkiye’de meydana gelen büyük deprem felaketinde, arama kurtarma
-                çalışmaları ile yardım ve destek taleplerini ortak bir veri tabanında toplayarak yetkili kurum ve
-                kuruluşlara aktarmak amacı ile bilişim teknolojileri alanında çalışan gönüllüler tarafından
-                oluşturulmuştur.
-                Yardım ya da desteğe ihtiyacı olduğunu belirttiğiniz kişilerin kişisel verileri ‘’Fiili imkânsızlık
-                nedeniyle rızasını açıklayamayacak durumda bulunan veya rızasına hukuki geçerlilik tanınmayan kişinin
-                kendisinin ya da bir başkasının hayatı veya beden bütünlüğünün korunması için zorunlu olması’’ hukuki
-                sebebine dayanarak, otomatik yollarla işlenecektir. Tarafınıza ait kişisel veriler, ‘’Bir hakkın tesisi,
-                kullanılması veya korunması için veri işlemenin zorunlu olması’’ hukuki sebebine dayanarak işlenecektir.
-            </p>
-            <p>
-                Paylaşacağınız yardım, destek taleplerinde yer alan isim, soy isim, telefon ve adres gibi kişisel
-                veriler, veli, vasi, temsilci bilgisi, medeni durum ve sağlık bilgileri tarafımızca oluşturulan ve
-                sunucuları yurtiçi ve yurtdışında bulunan veri tabanında toplanarak, Afad, Akut, Kızılay gibi yetkili
-                arama kurtarma kuruluşlarının yanı sıra destek ve yardım taleplerini karşılayabilecek sivil toplum
-                kuruluşları ile kişisel veri işleme amacı ile sınırlı olarak paylaşılacaktır.
-            </p>
-            <p>
-                Bu platform kar amacı gütmeden imece usulu bilgi paylaşımı için geliştirildi, hiçbir kurum ve kuruluşla
-                ilişiği yoktur.
-            </p>
-            <p>
-                Gerektiğinde yetkili merci ve kurumlara bilgi sağlanabilir ve işbirliği yapılabilir.
-            </p>
-            <p>
-                Deprem İmece Platformu © 2023
-            </p>
-        </div>
+      <div class="container">
+        <nav class="nav">
+          <ul>
+            <li>
+              <a href="/yararli-linkler.html">Yararlı Linkler</a>
+            </li>
+            <li>
+              <a href="/iletisim.html">İletişim</a>
+            </li>
+            <li>
+              <a href="/legal/cerez-politikasi.html">Çerez Politikası</a>
+            </li>
+            <li>
+              <a href="/legal/gizlilik-sozlesmesi.html">Gizlilik Sözleşmesi</a>
+            </li>
+            <li>
+              <a href="/legal/aydinlatma-ve-acik-riza-metni.html">Aydınlatma Metni</a>
+            </li>
+          </ul>
+        </nav>
+        <p class="info-title">Kişisel Verilerin İşlenmesine İlişkin Aydınlatma:</p>
+        <p>
+          Bu uygulama, 6 Şubat 2023 tarihinde Türkiye’de meydana gelen büyük deprem felaketinde, arama kurtarma
+          çalışmaları ile yardım ve destek taleplerini ortak bir veri tabanında toplayarak yetkili kurum ve kuruluşlara
+          aktarmak amacı ile bilişim teknolojileri alanında çalışan gönüllüler tarafından oluşturulmuştur. Yardım ya da
+          desteğe ihtiyacı olduğunu belirttiğiniz kişilerin kişisel verileri ‘’Fiili imkânsızlık nedeniyle rızasını
+          açıklayamayacak durumda bulunan veya rızasına hukuki geçerlilik tanınmayan kişinin kendisinin ya da bir
+          başkasının hayatı veya beden bütünlüğünün korunması için zorunlu olması’’ hukuki sebebine dayanarak, otomatik
+          yollarla işlenecektir. Tarafınıza ait kişisel veriler, ‘’Bir hakkın tesisi, kullanılması veya korunması için
+          veri işlemenin zorunlu olması’’ hukuki sebebine dayanarak işlenecektir.
+        </p>
+        <p>
+          Paylaşacağınız yardım, destek taleplerinde yer alan isim, soy isim, telefon ve adres gibi kişisel veriler,
+          veli, vasi, temsilci bilgisi, medeni durum ve sağlık bilgileri tarafımızca oluşturulan ve sunucuları yurtiçi
+          ve yurtdışında bulunan veri tabanında toplanarak, Afad, Akut, Kızılay gibi yetkili arama kurtarma
+          kuruluşlarının yanı sıra destek ve yardım taleplerini karşılayabilecek sivil toplum kuruluşları ile kişisel
+          veri işleme amacı ile sınırlı olarak paylaşılacaktır.
+        </p>
+        <p>
+          Bu platform kar amacı gütmeden imece usulu bilgi paylaşımı için geliştirildi, hiçbir kurum ve kuruluşla
+          ilişiği yoktur.
+        </p>
+        <p>Gerektiğinde yetkili merci ve kurumlara bilgi sağlanabilir ve işbirliği yapılabilir.</p>
+        <p>Deprem İmece Platformu © 2023</p>
+      </div>
     </footer>
     <script src="assets/js/requests/iletisim.js"></script>
-</body>
-
+  </body>
 </html>

@@ -1,162 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Deprem İmece Platformu</title>
-    <link rel="stylesheet" href="../assets/css/app.css?v=1">
-</head>
-<style>
-h2{
-    margin-top: 5px;
-    margin-left: 10px;
-    font-size: 20px;
-
-}
-p{
-    margin: 13px;
-}
-</style>
-<body>
-<header>
-    <div class="container">
+    <link rel="stylesheet" href="../assets/css/app.css?v=1" />
+  </head>
+  <style>
+    h2 {
+      margin-top: 5px;
+      margin-left: 10px;
+      font-size: 20px;
+    }
+    p {
+      margin: 13px;
+    }
+  </style>
+  <body>
+    <header>
+      <div class="container">
         <a href="/" class="logo" title="Deprem İmece Platformu">
-            <img src="/assets/images/logo.svg" alt="Deprem İmece Platformu" width="150">
+          <img src="/assets/images/logo.svg" alt="Deprem İmece Platformu" width="150" />
         </a>
         <nav class="nav">
-            <ul>
-                <li>
-                    <div class="share-button-wrapper">
-                        <div class="share-title">Paylaş</div>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="rgba(44, 46, 60, 1)" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"></path>
-                        </svg>
-                        <div class="share-menu-wrapper">
-                            <ul>
-                                <li>
-                                    <a target="_blank" href="https://www.addtoany.com/add_to/email?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote=">
-                                        <img src="/assets/images/share/mail.svg" alt="deprem-io-mail">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a target="_blank" rel="nofollow noopener" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeprem.io&t=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&quote=', 'newwindow', 'width=300,height=250'); return false;">
-                                        <img src="/assets/images/share/facebook.svg" alt="deprem-io-facebook">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a target="_blank" onclick="window.open('https://twitter.com/intent/tweet?text=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io%20https%3A%2F%2Fdeprem.io&related=AddToAny,micropat', 'newwindow', 'width=300,height=250'); return false;">
-                                        <img src="/assets/images/share/twitter.svg" alt="deprem-io-twitter">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a target="_blank" onclick="window.open('https://www.addtoany.com/add_to/linkedin?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote=', 'newwindow', 'width=300,height=250'); return false;">
-                                        <img src="/assets/images/share/linkedin.svg" alt="deprem-io-linkedin">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a target="_blank" onclick="window.open('https://www.addtoany.com/add_to/tumblr?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote=', 'newwindow', 'width=300,height=250'); return false;">
-                                        <img src="/assets/images/share/tumblr.svg" alt="deprem-io-tumblr">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a target="_blank" href="https://www.reddit.com/submit?url=https%3A%2F%2Fdeprem.io&title=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io">
-                                        <img src="/assets/images/share/reddit.svg" alt="deprem-io-reddit">
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="/yararli-linkler.html">Yararlı Linkler</a>
-                </li>
-                <li>
-                    <a href="/iletisim.html">İletişim</a>
-                </li>
-            </ul>
+          <ul>
+            <li>
+              <div class="share-button-wrapper">
+                <div class="share-title">Paylaş</div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="rgba(44, 46, 60, 1)"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <div class="share-menu-wrapper">
+                  <ul>
+                    <li>
+                      <a
+                        target="_blank"
+                        href="https://www.addtoany.com/add_to/email?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote="
+                      >
+                        <img src="/assets/images/share/mail.svg" alt="deprem-io-mail" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        target="_blank"
+                        rel="nofollow noopener"
+                        onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeprem.io&t=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&quote=', 'newwindow', 'width=300,height=250'); return false;"
+                      >
+                        <img src="/assets/images/share/facebook.svg" alt="deprem-io-facebook" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        target="_blank"
+                        onclick="window.open('https://twitter.com/intent/tweet?text=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io%20https%3A%2F%2Fdeprem.io&related=AddToAny,micropat', 'newwindow', 'width=300,height=250'); return false;"
+                      >
+                        <img src="/assets/images/share/twitter.svg" alt="deprem-io-twitter" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        target="_blank"
+                        onclick="window.open('https://www.addtoany.com/add_to/linkedin?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote=', 'newwindow', 'width=300,height=250'); return false;"
+                      >
+                        <img src="/assets/images/share/linkedin.svg" alt="deprem-io-linkedin" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        target="_blank"
+                        onclick="window.open('https://www.addtoany.com/add_to/tumblr?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote=', 'newwindow', 'width=300,height=250'); return false;"
+                      >
+                        <img src="/assets/images/share/tumblr.svg" alt="deprem-io-tumblr" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        target="_blank"
+                        href="https://www.reddit.com/submit?url=https%3A%2F%2Fdeprem.io&title=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io"
+                      >
+                        <img src="/assets/images/share/reddit.svg" alt="deprem-io-reddit" />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="/yararli-linkler.html">Yararlı Linkler</a>
+            </li>
+            <li>
+              <a href="/iletisim.html">İletişim</a>
+            </li>
+          </ul>
         </nav>
-    </div>
-</header>
+      </div>
+    </header>
 
     <main>
-        <div class="container">
-            <section>
-                <h1>GİZLİLİK POLİTİKASI</h1>
+      <div class="container">
+        <section>
+          <h1>GİZLİLİK POLİTİKASI</h1>
 
-                <p>
-                    İşbu Kişisel Verilerin Korunması ve Gizlilik Politikası (“Politika”), kişisel verilerin ... APP tarafından toplanması, kullanılması, paylaşması ve saklanması süreçleri ve prensipleri hakkında sizleri bilgilendirmek amacıyla hazırlanmıştır. Amacımız depremden etkilenenlere gerekli yardım ve desteği sağlamaktır ve yardım sağlamak amacıyla bilgileri devlet kurumları ve sivil toplum kuruluşları (STK'lar) ile paylaşabiliriz.
-                </p>
-                <p>
-                    Kişisel bilgilerinizin gizliliğini korumayı ve 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK” veya “Kanun”) ve ilgili mevzuat kapsamında ilgili tüm yasalara uymayı taahhüt ediyoruz. Bu politika, kişisel bilgilerinizin toplanması, kullanılması, saklanması ve paylaşılmasına ilişkin haklarınızı ve yükümlülüklerimizi ortaya koymaktadır. İşbu metin ile, veri sorumlusu sıfatıyla KVKK’nın 10. maddesinde belirtilen aydınlatma yükümlülüğünü yerine getirmekte ve böylelikle, <afetharita.com> aracılığıyla erişilen (“İnternet Sitesi”) üzerinden gerçekleştirdiğiniz faaliyetler özelinde işlemiş olduğumuz kişisel verilerinizin işlenme süreçleri hakkında siz ziyaretçilerimizi detaylıca bilgilendirmeyi hedeflemekteyiz.
+          <p>
+            İşbu Kişisel Verilerin Korunması ve Gizlilik Politikası (“Politika”), kişisel verilerin ... APP tarafından
+            toplanması, kullanılması, paylaşması ve saklanması süreçleri ve prensipleri hakkında sizleri bilgilendirmek
+            amacıyla hazırlanmıştır. Amacımız depremden etkilenenlere gerekli yardım ve desteği sağlamaktır ve yardım
+            sağlamak amacıyla bilgileri devlet kurumları ve sivil toplum kuruluşları (STK'lar) ile paylaşabiliriz.
+          </p>
+          <p>
+            Kişisel bilgilerinizin gizliliğini korumayı ve 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK” veya
+            “Kanun”) ve ilgili mevzuat kapsamında ilgili tüm yasalara uymayı taahhüt ediyoruz. Bu politika, kişisel
+            bilgilerinizin toplanması, kullanılması, saklanması ve paylaşılmasına ilişkin haklarınızı ve
+            yükümlülüklerimizi ortaya koymaktadır. İşbu metin ile, veri sorumlusu sıfatıyla KVKK’nın 10. maddesinde
+            belirtilen aydınlatma yükümlülüğünü yerine getirmekte ve böylelikle, 'afetharita.com' aracılığıyla erişilen
+            (“İnternet Sitesi”) üzerinden gerçekleştirdiğiniz faaliyetler özelinde işlemiş olduğumuz kişisel
+            verilerinizin işlenme süreçleri hakkında siz ziyaretçilerimizi detaylıca bilgilendirmeyi hedeflemekteyiz.
+          </p>
+          <h2>Hangi Verileri Topluyoruz?</h2>
+          <p>
+            Uygulamamıza depremzede olarak kaydolan kullanıcılardan ad, soyad, telefon numarası ve konum verilerini
+            topluyoruz. Bu veriler yardım ve kaynakların ihtiyaç sahiplerine dağıtılmasına yardımcı olmak amacıyla
+            toplanmaktadır. Bu veriler, depremden etkilenen kişilerin yerini ve sayısını belirlememize ve yardımları
+            buna göre dağıtmamıza yardımcı olur.
+          </p>
+          <h2>Kişisel Veri Toplamanın Yöntemi ve Hukuki Sebepler</h2>
+          <p>
+            Kişisel verileriniz yardım ve kaynakların ihtiyaç sahiplerine dağıtılmasına yardımcı olmak için
+            kullanılacaktır ve yalnızca aşağıda belirtilen sebepler doğrultusunda toplanacaktır; • KVKK Madde 5/2- b,
+            uyarınca fiili imkânsızlık nedeniyle rızasını açıklayamayacak durumda bulunan veya rızasına hukuki
+            geçerlilik tanınmayan kişinin kendisinin ya da bir başkasının hayatı veya beden bütünlüğünün korunması için
+            zorunlu olması, • KVKK Madde 5/2- e. uyarınca bir hakkın tesisi, kullanılması veya korunması için veri
+            işlemenin zorunlu olmasına dayanmaktadır. • KVKK Madde 5/2(d) uyarınca ilgili kişinin kendisi tarafından
+            alenileştirilmiş olması, • KVKK Madde 28/1-(ç) uyarınca, kişisel verilerin millî savunmayı, millî güvenliği,
+            kamu güvenliğini, kamu düzenini veya ekonomik güvenliği sağlamaya yönelik olarak kanunla görev ve yetki
+            verilmiş kamu kurum ve kuruluşları tarafından yürütülen önleyici, koruyucu ve istihbarı faaliyetler
+            kapsamında işlenmesi, • KVKK Madde 28/2-(b) uyarınca, ilgili kişinin kendisi tarafından alenileştirilmiş
+            kişisel verilerin işlenmesi, hukuki sebeplerine dayanılarak islenecektir.
+          </p>
 
-                </p>
-              <h2>Hangi Verileri Topluyoruz?</h2>
-              <p>
-                Uygulamamıza depremzede olarak kaydolan kullanıcılardan ad, soyad, telefon numarası ve konum verilerini topluyoruz. Bu veriler yardım ve kaynakların ihtiyaç sahiplerine dağıtılmasına yardımcı olmak amacıyla toplanmaktadır. Bu veriler, depremden etkilenen kişilerin yerini ve sayısını belirlememize ve yardımları buna göre dağıtmamıza yardımcı olur.
-              </p>
-              <h2>Kişisel Veri Toplamanın Yöntemi ve Hukuki Sebepler</h2>
-              <p>
-                Kişisel verileriniz yardım ve kaynakların ihtiyaç sahiplerine dağıtılmasına yardımcı olmak için kullanılacaktır ve yalnızca aşağıda belirtilen sebepler doğrultusunda toplanacaktır;
-
-                •	KVKK Madde 5/2- b, uyarınca fiili imkânsızlık nedeniyle rızasını açıklayamayacak durumda bulunan veya rızasına hukuki geçerlilik tanınmayan kişinin kendisinin ya da bir başkasının hayatı veya beden bütünlüğünün korunması için zorunlu olması,
-                •	KVKK Madde 5/2- e. uyarınca bir hakkın tesisi, kullanılması veya korunması için veri işlemenin zorunlu olmasına dayanmaktadır.
-                •	KVKK Madde 5/2(d) uyarınca ilgili kişinin kendisi tarafından alenileştirilmiş olması,
-                •	KVKK Madde 28/1-(ç) uyarınca, kişisel verilerin millî savunmayı, millî güvenliği, kamu güvenliğini, kamu düzenini veya ekonomik güvenliği sağlamaya yönelik olarak kanunla görev ve yetki verilmiş kamu kurum ve kuruluşları tarafından yürütülen önleyici, koruyucu ve istihbarı faaliyetler kapsamında işlenmesi,
-                •	KVKK Madde 28/2-(b) uyarınca, ilgili kişinin kendisi tarafından alenileştirilmiş kişisel verilerin işlenmesi, hukuki sebeplerine dayanılarak islenecektir.
-              </p>
-
-              <h2>Verilerin Aktarımı</h2>
-              <p>
-                Uygulamamız aracılığıyla toplanan kişisel verileri, deprem mağdurlarına yardım ve destek sağlamak amacıyla ilgili devlet kurumları ve STK'larla paylaşabiliriz. Kişisel verilerin tüm alıcıları, bilgileri bu gizlilik bildirimine ve KVKK dahil olmak üzere ilgili veri koruma yasalarına uygun olarak kullanmakla yükümlüdür. Deprem mağdurlarına yardım ve destek sağlama amacına ulaşmak için yalnızca gerekli olan minimum miktarda kişisel bilgiyi paylaşacağız. Bazı durumlarda, gizliliği korumak için tarafımızca topladığımız kişisel veriler anonimleştirilebilir veya toplanabilir.
-              </p>
-              <h2>Veri Güvenliği</h2>
-              <p>
-                Kişisel verileri yetkisiz erişime, kullanıma veya ifşaya karşı korumak için gerekli idari ve teknik önlemleri almaktayız. Bu önlemler, şifreleme ve güvenli depolama gibi uygun teknik ve organizasyonel önlemlerin uygulanmasını içerir. Ancak, internet üzerinden hiçbir veri aktarımının tamamen güvenli olduğu garanti edilemez. Kişisel verilerin güvenliğini garanti edememekle beraber, korumak için elimizden geleni yapacağız.
-              </p>
-              <h2>İlgili Kişi Hakları</h2>
-              <p>
-                KVKK’nin ilgili kişinin haklarını düzenleyen 11. maddesi kapsamındaki taleplerinizi, “Veri Sorumlusuna Başvuru Usul ve Esasları Hakkında Tebliğ’e göre Kisisel <legal@afetharitasi.com>  adresine yazılı olarak iletebilirsiniz.
-              </p>
-              <h2>Değişiklikler</h2>
-              <p>
-                Uygulamalarımızdaki değişiklikleri yansıtmak için bu gizlilik bildirimini zaman zaman güncelleyebiliriz. Güncellenmiş bildirimi uygulamamızda yayınlayarak ve bu bildirimin sonundaki "Son Güncelleme Tarihi "ni güncelleyerek her türlü değişikliği size bildireceğiz.
-
-              </p>
-              <h2>İletişim Bilgileri</h2>
-              <p>
-                Bu politika veya kişisel verilerinizi nasıl işlediğimiz hakkında herhangi bir sorunuz veya endişeniz varsa, lütfen <legal@afetharitasi.com> adresinden bizimle iletişime geçin. Ekibimiz size yardımcı olmaktan ve sorularınızı yanıtlamaktan mutluluk duyacaktır.
-              </p>
-              <p>Son Güncelleme Tarihi: 7 Şubat 2023</p>
-
-            </section>
-        </div>
+          <h2>Verilerin Aktarımı</h2>
+          <p>
+            Uygulamamız aracılığıyla toplanan kişisel verileri, deprem mağdurlarına yardım ve destek sağlamak amacıyla
+            ilgili devlet kurumları ve STK'larla paylaşabiliriz. Kişisel verilerin tüm alıcıları, bilgileri bu gizlilik
+            bildirimine ve KVKK dahil olmak üzere ilgili veri koruma yasalarına uygun olarak kullanmakla yükümlüdür.
+            Deprem mağdurlarına yardım ve destek sağlama amacına ulaşmak için yalnızca gerekli olan minimum miktarda
+            kişisel bilgiyi paylaşacağız. Bazı durumlarda, gizliliği korumak için tarafımızca topladığımız kişisel
+            veriler anonimleştirilebilir veya toplanabilir.
+          </p>
+          <h2>Veri Güvenliği</h2>
+          <p>
+            Kişisel verileri yetkisiz erişime, kullanıma veya ifşaya karşı korumak için gerekli idari ve teknik
+            önlemleri almaktayız. Bu önlemler, şifreleme ve güvenli depolama gibi uygun teknik ve organizasyonel
+            önlemlerin uygulanmasını içerir. Ancak, internet üzerinden hiçbir veri aktarımının tamamen güvenli olduğu
+            garanti edilemez. Kişisel verilerin güvenliğini garanti edememekle beraber, korumak için elimizden geleni
+            yapacağız.
+          </p>
+          <h2>İlgili Kişi Hakları</h2>
+          <p>
+            KVKK’nin ilgili kişinin haklarını düzenleyen 11. maddesi kapsamındaki taleplerinizi, “Veri Sorumlusuna
+            Başvuru Usul ve Esasları Hakkında Tebliğ’e göre Kisisel legal@afetharitasi.com adresine yazılı olarak
+            iletebilirsiniz.
+          </p>
+          <h2>Değişiklikler</h2>
+          <p>
+            Uygulamalarımızdaki değişiklikleri yansıtmak için bu gizlilik bildirimini zaman zaman güncelleyebiliriz.
+            Güncellenmiş bildirimi uygulamamızda yayınlayarak ve bu bildirimin sonundaki "Son Güncelleme Tarihi "ni
+            güncelleyerek her türlü değişikliği size bildireceğiz.
+          </p>
+          <h2>İletişim Bilgileri</h2>
+          <p>
+            Bu politika veya kişisel verilerinizi nasıl işlediğimiz hakkında herhangi bir sorunuz veya endişeniz varsa,
+            lütfen 'legal@afetharitasi.com' adresinden bizimle iletişime geçin. Ekibimiz size yardımcı olmaktan ve
+            sorularınızı yanıtlamaktan mutluluk duyacaktır.
+          </p>
+          <p>Son Güncelleme Tarihi: 7 Şubat 2023</p>
+        </section>
+      </div>
     </main>
 
     <footer>
-        <div class="container">
-            <nav class="nav">
-                <ul>
-                    <li>
-                        <a href="">Yararlı Linkler</a>
-                    </li>
-                    <li>
-                        <a href="">İletişim</a>
-                    </li>
-                </ul>
-            </nav>
-            <p class="info">
-                Bu platform kar amacı gütmeden imece usulu bilgi paylaşımı için geliştirildi, hiçbir kurum ve kuruluşla
-                ilişiği yoktur. <br>
-                Gerektiğinde yetkili merci ve kurumlara bilgi sağlanabilir ve işbirliği yapılabilir.
-            </p>
-            <p class="copy">
-                Deprem İmece Platformu © 2023
-            </p>
-        </div>
+      <div class="container">
+        <nav class="nav">
+          <ul>
+            <li>
+              <a href="">Yararlı Linkler</a>
+            </li>
+            <li>
+              <a href="">İletişim</a>
+            </li>
+          </ul>
+        </nav>
+        <p class="info">
+          Bu platform kar amacı gütmeden imece usulu bilgi paylaşımı için geliştirildi, hiçbir kurum ve kuruluşla
+          ilişiği yoktur. <br />
+          Gerektiğinde yetkili merci ve kurumlara bilgi sağlanabilir ve işbirliği yapılabilir.
+        </p>
+        <p class="copy">Deprem İmece Platformu © 2023</p>
+      </div>
     </footer>
     <script src="../assets/js/app.js?v=1"></script>
-</body>
-
+  </body>
 </html>
