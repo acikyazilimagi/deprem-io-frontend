@@ -108,7 +108,7 @@
                 <input type="email" class="form-control" id="email" name="fields-email" placeholder="Email">
               </div>
               <div class="form-col">
-                <label for="telefon">Telefon:</label>
+                <label for="telefon">* Telefon (5XX XXX XX XX):</label>
                 <input type="tel" class="form-control" id="telefon" name="telefon" placeholder="Telefon">
               </div>
             </div>
@@ -206,14 +206,17 @@
                 placeholder="* Yardımın Hakkında Bilgi">
             </div>
 
+            <p class="aydinlatma">
+              6698 sayılı KVKK kapsamında “Uygulamamıza depremzede ya da depremzede yakını olarak kaydolan
+              kullanıcılardan ad, soyadı, iletişim bilgisi, log kaydı ve depremzedenin sisteme girilen ve kendileri
+              tarafından alenileştirilmiş konum verilerini topluyoruz.” Veri işleme hukuki sebeplerimizi, amaçlarımızı
+              görmek ve haklarınızı öğrenmek <a href="../legal/hukuki-kvkk.html">Aydınlatma Metnini</a>
+              ziyaret etmek ister misiniz?
+            </p>
             <div class="form-row">
               <label for="kvkk" class="checkbox">
-                <input type="checkbox" id="kvkk" name="fields-kvkk" required>
-                * Form dolduran kişiden hukuki beyan: Enkaz, yıkım, yardım ve destek ihtiyaçları
-                konusunda verdiğim bilgilerin doğru ve teyit edilmiş olduğunu, bilgi kirliliği ve yanlış
-                uygulamalara yol açmamak için gerekli tüm önlem ve tedbirleri aldığımı, vermiş olduğum
-                bilgilerde meydana gelen değişiklik ve güncellemeleri bildireceğimi kabul ve beyan
-                ederim.
+                <input type="checkbox" id="kvkk" name="fields-kvkk" required />
+                * Okudum ve aydınlandım
               </label>
             </div>
             <div>
@@ -244,8 +247,7 @@
             <a href="/legal/gizlilik-sozlesmesi.html">Gizlilik Sözleşmesi</a>
           </li>
           <li>
-            <a href="/legal/aydinlatma-ve-acik-riza-metni.html">Aydınlatma Metni</a>
-          </li>
+            <a href="/legal/hukuki-kvkk.html">Aydınlatma Metni</a>
         </ul>
       </nav>
       <p class="info-title">Kişisel Verilerin İşlenmesine İlişkin Aydınlatma:</p>
@@ -292,7 +294,7 @@
       if (phoneNum && (phoneNum.length !== 10 || phoneNum.charAt(0) !== "5")) {
         Swal.fire({
           title: 'Hata!',
-          text: 'Geçerli bir telefon numarası giriniz ya da boş bırakınız !',
+          text: 'Geçerli bir telefon numarası giriniz !',
           icon: 'error',
           confirmButtonText: 'Tamam'
         });
@@ -339,57 +341,7 @@
         }
       };
       return false;
-    }
 
-    if (phoneNum.length !== 10 || phoneNum.charAt(0) !== '5') {
-      Swal.fire({
-        title: 'Hata!',
-        text: 'Geçerli bir telefon numarası giriniz ya da boş bırakınız !',
-        icon: 'error',
-        confirmButtonText: 'Tamam',
-      });
-      return false;
-    } else {
-      form.telefon.value = phoneNum;
-    }
-
-    var formData = new FormData(form);
-
-    //open the request
-    xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/yardimet');
-    xhr.setRequestHeader('Content-Type', 'application/json');
-
-    //send the form data
-    xhr.send(JSON.stringify(Object.fromEntries(formData)));
-
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === XMLHttpRequest.DONE) {
-        var status = xhr.status;
-        var responseBody = JSON.parse(xhr.responseText) || {};
-
-        // The request has been completed successfully
-        if (status === 0 || (status >= 200 && status < 400)) {
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: responseBody.message || 'Yardım talebiniz başarıyla alındı',
-            showConfirmButton: false,
-            timer: 2500,
-          }).then(function () {
-            window.location.href = '/yardim-saglayanlar/yolcu-tasima.html';
-          });
-
-          form.reset();
-        } else {
-          Swal.fire({
-            title: 'Hata!',
-            text: responseBody.error || 'Hata Oluştu Tekrar deneyiniz !',
-            icon: 'error',
-            confirmButtonText: 'Tamam',
-          });
-        }
-      }
-      return false;
     };
   </script>
 </body>
