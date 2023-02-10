@@ -441,6 +441,7 @@ section {
   padding: 10px 20px;
   font-weight: bold;
   color: rgba(69, 100, 252, 0.5);
+  -webkit-appearance: none;
 }
 
 .form input:hover,
@@ -813,7 +814,7 @@ section {
   text-decoration: underline;
 }
 
-.whiteLink{
+.whiteLink {
   color: white;
 }
 
