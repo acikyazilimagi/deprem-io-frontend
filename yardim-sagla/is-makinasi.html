@@ -139,8 +139,8 @@
                   <input type="email" class="form-control" id="email" name="email" placeholder="Email" />
                 </div>
                 <div class="form-col">
-                  <label for="telefon">* Telefon:</label>
-                  <input type="tel" class="form-control" id="telefon" name="telefon" placeholder="* Telefon" />
+                  <label for="telefon">* Telefon (5XX XXX XX XX):</label>
+                  <input type="tel" class="form-control" id="telefon" required name="telefon" placeholder="* Telefon" />
                 </div>
               </div>
               <div class="form-col">
@@ -257,7 +257,7 @@
         if (phoneNum && (phoneNum.length !== 10 || phoneNum.charAt(0) !== '5')) {
           Swal.fire({
             title: 'Hata!',
-            text: 'Geçerli bir telefon numarası giriniz ya da boş bırakınız !',
+            text: 'Geçerli bir telefon numarası giriniz!',
             icon: 'error',
             confirmButtonText: 'Tamam',
           });
