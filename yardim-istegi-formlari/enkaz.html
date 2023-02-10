@@ -259,6 +259,17 @@
             form.onsubmit = function (event) {
                 var xhr = new XMLHttpRequest();
                 var formData = new FormData(form);
+
+                if(form.telefon.value.length < 10 && form.telefon.value.length > 0) {
+                    Swal.fire({
+                        title: 'Hata!',
+                        text: 'Geçerli bir telefon numarası giriniz ya da boş bırakınız !',
+                        icon: 'error',
+                        confirmButtonText: 'Tamam'
+                    });
+                    return false;
+                }
+
                 //open the request
                 xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/yardim')
                 xhr.setRequestHeader("Content-Type", "application/json");
