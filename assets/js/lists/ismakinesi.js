@@ -219,9 +219,9 @@ function getRowHtml(item) {
             </div>
         </div>
         <div class="list-col btn-detail-wrap">
-            <a href="#" class="btn-detail">
-                Detaya Git
-            </a>
+        <a href="../../../yardim-detay/detay.html?id=${item._id}&type=yardimet/" class="btn-detail">
+        Detaya Git
+       </a>
         </div>
     </div>
     <div class="list-row">
