@@ -94,7 +94,7 @@
                             </svg>
                             Geri
                         </a>
-                        <a href="/yardim-istekleri/enkaz-harita.html" class="map-view-button">
+                        <!--<a href="/yardim-istekleri/enkaz-harita.html" class="map-view-button">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="rgba(71, 101, 255, 1)" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -102,7 +102,7 @@
                                 </path>
                             </svg>
                             Harita Görünümü
-                        </a>
+                        </a>-->
                     </div>
                     <div class="list-head-main">
                         <h1>Isınma İhtiyacı Olanlar</h1>
@@ -141,33 +141,35 @@
                         </div>
                     </div>
                     <div class="list-head-filters">
-                        <form action="/" method="GET" class="form">
+                        <form action="" class="form">
                             <div class="filters">
-                                <div class="filter">
-                                    <input type="text" class="form-control" id="isim" name="isim"
-                                        placeholder="* İsim & Soyisim" required>
+                                <div class="form-col" style="display: none;">
+                                    <input type="text" class="form-control" id="filter-help-type" name="yardimDurumu" value="isinma">
                                 </div>
                                 <div class="filter">
-                                    <select name="" id="filter-help-type" class="form-control">
+                                    <input type="text" class="form-control" id="filter-help-q" name="isim" placeholder="* İsim & Soyisim">
+                                </div>
+                                <div class="filter">
+                                    <select name="" id="filter-help-status" class="form-control">
                                         <option value="">Yardım Durumu</option>
-                                        <option value="enkaz">Yardım Bekleniyor</option>
-                                        <option value="gida">Yardım Edildi</option>
-                                        <option value="ilac">Yetersiz Bilgi</option>
+                                        <option value="bekleniyor">Bekleniyor</option>
+                                        <option value="yolda">Yolda</option>
+                                        <option value="yapildi">Yapıldı</option>
                                     </select>
                                 </div>
                                 <div class="filter">
-                                    <select name="" id="filter-help-type" class="form-control">
-                                        <option value="">Aciliyet</option>
-                                        <option value="enkaz">Kritik</option>
-                                        <option value="gida">Orta</option>
-                                        <option value="ilac">Normal</option>
+                                    <select name="" id="filter-help-emergence" class="form-control">
+                                        <option value="">Aciliyet Durumu</option>
+                                        <option value="kritik">Kritik</option>
+                                        <option value="orta">Orta</option>
+                                        <option value="normal">Normal</option>
                                     </select>
                                 </div>
                                 <div class="filter">
-                                    <select name="" id="filter-help-type" class="form-control">
+                                    <select name="" id="filter-help-vehicle" class="form-control">
                                         <option value="">Araç Durumu</option>
-                                        <option value="enkaz">Aracım Var</option>
-                                        <option value="gida">Aracım Yok</option>
+                                        <option value="var">Aracım Var</option>
+                                        <option value="yok">Aracım Yok</option>
                                     </select>
                                 </div>
                             </div>
@@ -195,132 +197,6 @@
                     </span>
                 </div>
                 <div class="list">
-                    <div class="list-item">
-                        <div class="list-row">
-                            <div class="list-col">
-                                <div class="list-col">
-                                    <span class="status status-waiting">
-                                        <i></i> Yardım Bekleniyor - <span class="emergency">Kritik</span>
-                                    </span>
-                                </div>
-                                <div class="list-col">
-                                    <span>
-                                        Muhammed Tahir Hocur
-                                    </span>
-                                </div>
-                                <div class="list-col">
-                                    <span>
-                                        +905555555555
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="list-col btn-detail-wrap">
-                                <a href="#" class="btn-detail">
-                                    Detaya Git
-                                </a>
-                            </div>
-                        </div>
-                        <div class="list-row">
-                            <div class="list-col">
-                                <div class="list-col">
-                                    <span class="icon-line">
-                                        <i class="icon icon-pin blue"></i>
-                                        Alitaşı, 02030 Adıyaman Merkez/Adıyaman, Türkiye
-                                    </span>
-                                </div>
-                                <div class="list-col">
-                                    <span class="icon-line">
-                                        <i class="icon icon-alarm blue"></i>
-                                        Çrş 8 Şubat, 2023 - 18:15:56 (-38 Dk Önce)
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="list-row">
-                            <div class="list-col">
-                                <div class="list-col">
-                                    <span class="status status-ok">
-                                        <i></i> Yardım Edildi - <span class="emergency">Orta</span>
-                                    </span>
-                                </div>
-                                <div class="list-col">
-                                    <span>
-                                        Muhammed Tahir Hocur
-                                    </span>
-                                </div>
-                                <div class="list-col">
-                                    <span>
-                                        +905555555555
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="list-col btn-detail-wrap">
-                                <a href="#" class="btn-detail">
-                                    Detaya Git
-                                </a>
-                            </div>
-                        </div>
-                        <div class="list-row">
-                            <div class="list-col">
-                                <div class="list-col">
-                                    <span class="icon-line">
-                                        <i class="icon icon-pin blue"></i>
-                                        Alitaşı, 02030 Adıyaman Merkez/Adıyaman, Türkiye
-                                    </span>
-                                </div>
-                                <div class="list-col">
-                                    <span class="icon-line">
-                                        <i class="icon icon-alarm blue"></i>
-                                        Çrş 8 Şubat, 2023 - 18:15:56 (-38 Dk Önce)
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="list-row">
-                            <div class="list-col">
-                                <div class="list-col">
-                                    <span class="status status-unknown">
-                                        <i></i> Yetersiz Bilgi - <span class="emergency">Orta</span>
-                                    </span>
-                                </div>
-                                <div class="list-col">
-                                    <span>
-                                        Muhammed Tahir Hocur
-                                    </span>
-                                </div>
-                                <div class="list-col">
-                                    <span>
-                                        +905555555555
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="list-col btn-detail-wrap">
-                                <a href="#" class="btn-detail">
-                                    Detaya Git
-                                </a>
-                            </div>
-                        </div>
-                        <div class="list-row">
-                            <div class="list-col">
-                                <div class="list-col">
-                                    <span class="icon-line">
-                                        <i class="icon icon-pin blue"></i>
-                                        Alitaşı, 02030 Adıyaman Merkez/Adıyaman, Türkiye
-                                    </span>
-                                </div>
-                                <div class="list-col">
-                                    <span class="icon-line">
-                                        <i class="icon icon-alarm blue"></i>
-                                        Çrş 8 Şubat, 2023 - 18:15:56 (-38 Dk Önce)
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </section>
         </div>

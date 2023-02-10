@@ -88,32 +88,12 @@
 
                     <form id="isMakinasiForm">
                         <input type="text" name="yardimTipi" value="isMakinasi" style="display: none;" readonly>
+                        <input type="text" name="yardimDurumu" value="bekleniyor" style="display: none;" readonly>
+                        <input type="text" name="hedefSehir" value="Adana" style="display: none;" readonly>
+
                         <div class="form-row form-col-3">
-                            <div class="form-col" style="display: none;">
-                                <input type="text" class="form-control" id="yardimTipi" name="yardimTipi" value="ulaşım">
-                            </div>
-                            <div class="form-col" style="display: none;">
-                                <input type="text" class="form-control" id="acilDurum" name="acilDurum" value="orta">
-                            </div>
-                            <div class="form-col" style="display: none;">
-                                <input type="text" class="form-control" id="acilDurum" name="yardimDurumu" value="bekleniyor">
-                            </div>
-                            <div class="form-col" style="display: none;">
-                                <input type="text" class="form-control" id="hedefSehir" name="hedefSehir" value="Ankara">
-                            </div>
-                            <div class="form-col" style="display: none;">
-                                <input type="text" class="form-control" id="adres" name="adres" value="adres">
-                            </div>
-
-
-
-
-
-
-
-
                             <div class="form-col">
-                                <label for="isim">* İsim & Soyisim:</label>
+                                <label for="adSoyad">* İsim & Soyisim:</label>
                                 <input type="text" class="form-control" id="adSoyad" name="adSoyad"
                                     placeholder="* İsim & Soyisim" required>
                             </div>
@@ -122,34 +102,25 @@
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                             </div>
                             <div class="form-col">
-                                <label for="telefon">Telefon:</label>
+                                <label for="telefon">* Telefon:</label>
                                 <input type="tel" class="form-control" id="telefon" name="telefon"
-                                    placeholder="Telefon">
-                            </div>
-                            <div class="form-col" style="display: none;">
-                                <input type="text" class="form-control" id="acilDurum" name="acilDurum" value="orta">
-                            </div>
-                            <div class="form-col" style="display: none;">
-                                <input type="text" class="form-control" id="hedefSehir" name="hedefSehir" value="orta">
-                            </div>
-                            <div class="form-col" style="display: none;">
-                                <input type="text" class="form-control" id="sehir" name="sehir" value="orta">
-                            </div>
-                            <div class="form-col" style="display: none;">
-                                <input type="text" class="form-control" id="yardimTipi" name="yardimTipi" value="orta">
+                                    placeholder="* Telefon">
                             </div>
                         </div>
-                        <div class="form-row">
-                            <select name="" id="filter-help-type" class="form-control" name="sehir"required>
-                                <option class="dropdown-choice dropdown-placeholder" value="&quot;PLACEHOLDER_1427118222253&quot;"
-                                    style="color: var(--color_primary_default); display: none;">* Yardım Vereceğin Şehir</option>
-                                <option class="dropdown-choice" value="Adana">Adana</option>
-                                <option class="dropdown-choice" value="Adana">Adıyaman</option>
-                                <option class="dropdown-choice" value="Adana">Diyarbakır</option>
-                                <option class="dropdown-choice" value="Adana">Hatay</option>
-                                <option class="dropdown-choice" value="Adana">Kahramanmaraş</option>
-                                <option class="dropdown-choice" value="Adana">Kayseri</option>
-                                <option class="dropdown-choice" value="Adana">Mersin</option>
+                        <div class="form-col">
+                            <label for="sehir">* Şehir:</label>
+                            <select name="sehir" id="sehir" class="form-control" required>
+                                <option value="">* Seçiniz</option>
+                                <option value="Adana">Adana</option>
+                                <option value="Adıyaman">Adıyaman</option>
+                                <option value="Diyarbakır">Diyarbakır</option>
+                                <option value="Gaziantep">Gaziantep</option>
+                                <option value="Hatay">Hatay</option>
+                                <option value="Kahramanmaraş">Kahramanmaraş</option>
+                                <option value="Kilis">Kilis</option>
+                                <option value="Malatya">Malatya</option>
+                                <option value="Osmaniye">Osmaniye</option>
+                                <option value="Sanliurfa">Şanlıurfa</option>
                             </select>
                         </div>
                         <div class="form-row">
@@ -174,6 +145,7 @@
                             </button>
                         </div>
                     </form>
+
                 </div>
             </section>
         </div>
@@ -240,10 +212,33 @@
         var form = document.getElementById('isMakinasiForm');
         form.onsubmit = function (event) {
             var xhr = new XMLHttpRequest();
+
+            let phoneNum = form.telefon.value;
+            phoneNum = phoneNum.replace(/\s/g, '');
+
+            if (phoneNum.charAt(0) === "0") {
+                phoneNum = phoneNum.slice(1);
+            }
+
+            if (phoneNum.length !== 10 || phoneNum.charAt(0) !== "5") {
+                Swal.fire({
+                    title: 'Hata!',
+                    text: 'Geçerli bir telefon numarası giriniz ya da boş bırakınız !',
+                    icon: 'error',
+                    confirmButtonText: 'Tamam'
+                });
+                return false;
+            } else {
+                form.telefon.value = phoneNum;
+            }
+
             var formData = new FormData(form);
+
             //open the request
             xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/yardimet')
             xhr.setRequestHeader("Content-Type", "application/json");
+
+            console.log(formData);
 
             //send the form data
             xhr.send(JSON.stringify(Object.fromEntries(formData)));
