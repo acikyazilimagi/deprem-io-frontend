@@ -114,7 +114,7 @@
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                             </div>
                             <div class="form-col">
-                                <label for="telefon">Telefon:</label>
+                                <label for="telefon">Telefon (5XX XXX XX XX): </label>
                                 <input type="tel" class="form-control" id="telefon" name="telefon"
                                     placeholder="Telefon">
                             </div>
@@ -258,9 +258,15 @@
         var form = document.getElementById('enkazForm');
             form.onsubmit = function (event) {
                 var xhr = new XMLHttpRequest();
-                var formData = new FormData(form);
+                    
+                let phoneNum = form.telefon.value;
+                phoneNum = phoneNum.replace(/\s/g, '');
 
-                if(form.telefon.value.length < 10 && form.telefon.value.length > 0) {
+                if(phoneNum.charAt(0) === "0") {
+                    phoneNum = phoneNum.slice(1);
+                }
+
+                if (phoneNum.length !== 10 || phoneNum.charAt(0) !== "5") {
                     Swal.fire({
                         title: 'Hata!',
                         text: 'Geçerli bir telefon numarası giriniz ya da boş bırakınız !',
@@ -268,7 +274,11 @@
                         confirmButtonText: 'Tamam'
                     });
                     return false;
+                } else {
+                    form.telefon.value = phoneNum;
                 }
+
+                var formData = new FormData(form);
 
                 //open the request
                 xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/yardim')
