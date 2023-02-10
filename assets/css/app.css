@@ -863,9 +863,7 @@ section {
 }
 
 .share-menu-wrapper li {
-    <<<<<<< HEAD margin: 0 !important;
-    =======margin: 0 !important;
-    >>>>>>>d0bc10e (add detail page for yardim-istekleri types)
+    margin: 0 !important;
 }
 
 .alert-gray {
@@ -1077,6 +1075,6 @@ footer>div>nav>ul>li {
     color: rgba(71, 101, 255, 1);
 }
 
-.arabaDurum, .yardimDurum{
+.arabaDurum, .yardimDurum {
     display: flex !important;
 }
