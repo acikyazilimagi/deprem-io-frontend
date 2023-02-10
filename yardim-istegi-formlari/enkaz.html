@@ -318,34 +318,6 @@
       var form = document.getElementById('enkazForm');
       form.onsubmit = function (event) {
         var xhr = new XMLHttpRequest();
-
-        let phoneNum = form.telefon.value;
-        phoneNum = phoneNum.replace(/\s/g, '');
-
-        if (phoneNum && (phoneNum.length !== 10 || phoneNum.charAt(0) !== '5')) {
-          Swal.fire({
-            title: 'Hata!',
-            text: 'Geçerli bir telefon numarası giriniz ya da boş bırakınız !',
-            icon: 'error',
-            confirmButtonText: 'Tamam',
-          });
-          return false;
-        } else {
-          form.telefon.value = phoneNum;
-        }
-
-        if (phoneNum.length !== 10 || phoneNum.charAt(0) !== '5') {
-          Swal.fire({
-            title: 'Hata!',
-            text: 'Geçerli bir telefon numarası giriniz ya da boş bırakınız !',
-            icon: 'error',
-            confirmButtonText: 'Tamam',
-          });
-          return false;
-        } else {
-          form.telefon.value = phoneNum;
-        }
-
         var formData = new FormData(form);
 
         //open the request
