@@ -62,7 +62,8 @@ function getItem() {
 
   // get items
   getData(API_URL + type + id).then((item) => {
-    console.log(item);
+    const yardimKayitlari = item.yardimKaydi;
+    item = item.results;
     const acilDurum = item.acilDurum;
     const yardimDurum = item.yardimDurumu;
 
@@ -124,8 +125,8 @@ function getItem() {
     // clear listWrapper html
     listWrapper.innerHTML = "";
 
-    item.yardimKaydi.forEach(function (item) {
-      listWrapper.innerHTML += getRowHtml(item);
+    yardimKayitlari.forEach(function (el) {
+      listWrapper.innerHTML += getRowHtml(el);
     });
   });
 }
