@@ -808,6 +808,10 @@ section {
   text-decoration: underline;
 }
 
+.whiteLink{
+  color: white;
+}
+
 .icon {
   width: 15px;
   height: 15px;
