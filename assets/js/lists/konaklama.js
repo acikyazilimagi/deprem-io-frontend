@@ -1,5 +1,5 @@
-//const API_URL = "https://deprem-27jjydhzba-ew.a.run.app/";
 const API_URL = "https://deprem-27jjydhzba-ew.a.run.app/";
+//const API_URL = "http://localhost:8080/";
 
 const filterButton = document.querySelector("#filter-button");
 const filterHelpType = document.querySelector("#filter-help-type");
@@ -90,9 +90,8 @@ function getRows(page, limit) {
     });
 }
 
-function getFilteredRows(page, limit) {
+function getFilteredRows(page, limit = 10) {
   page = page || 1;
-  limit = limit || 10;
 
   var totalPage = 0;
   var helpType = filterHelpType.value;
@@ -203,8 +202,8 @@ function getRowHtml(item) {
             <div class="list-col">
                 <span class="status ${classColor}">
                     <i></i> ${
-                      item.yardimTipi
-                    } - <span class="emergency">${durumMessage}</span>
+    item.yardimTipi
+  } - <span class="emergency">${durumMessage}</span>
                 </span>
             </div>
             <div class="list-col">

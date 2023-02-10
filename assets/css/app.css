@@ -351,6 +351,37 @@ section {
   margin-right: 5px;
 }
 
+.plus-button {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgba(71, 101, 255, 1);
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.plus-button svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgba(71, 101, 255, 1);
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.back-button svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
 .form {
   color: rgba(213, 217, 236, 0.48);
   font-size: 0.875rem;
@@ -837,6 +868,21 @@ section {
   margin-bottom: 30px;
 }
 
+.alert-gray{
+    margin-top: 30px;
+    margin-bottom: 30px;
+} 
+
+.warning-link {
+    color: rgba(71, 101, 255, 1);
+     text-decoration: none; 
+     padding: 5px; 
+     border-radius: 5px;
+}
+.warning-link:hover {
+    transition: background-color 0.5s ease;
+    background-color:  rgba(71, 101, 255, 0.1);
+}
 .aid-link {
   display: flex;
   text-decoration: none !important;
@@ -882,4 +928,15 @@ section {
   footer > div > nav > ul > li {
     padding: 10px;
   }
+}
+
+.warning-link {
+    color: rgba(71, 101, 255, 1);
+     text-decoration: none; 
+     padding: 5px; 
+     border-radius: 5px;
+}
+.warning-link:hover {
+    transition: background-color 0.5s ease;
+    background-color:  rgba(71, 101, 255, 0.1);
 }
