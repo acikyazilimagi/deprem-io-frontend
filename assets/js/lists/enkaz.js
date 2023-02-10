@@ -1,12 +1,13 @@
 //const API_URL = "https://deprem-27jjydhzba-ew.a.run.app/";
 const API_URL = "https://deprem-27jjydhzba-ew.a.run.app/";
+//const API_URL = "http://localhost:8080/";
 
 const filterButton = document.querySelector("#filter-button");
 const filterHelpType = document.querySelector("#filter-help-type");
 const filterHelpQ = document.querySelector("#filter-help-q");
 const filterHelpStatus = document.querySelector("#filter-help-status");
 const filterHelpEmergence = document.querySelector("#filter-help-emergence");
-const filterVehicle = document.querySelector("#filter-vehicle");
+const filterVehicle = document.querySelector("#filter-help-vehicle");
 
 const paginationPrevButton = document.querySelector("#pagination-prev");
 const paginationNextButton = document.querySelector("#pagination-next");
@@ -211,7 +212,9 @@ function getRowHtml(item) {
             </div>
         </div>
         <div class="list-col btn-detail-wrap">
-            <a href="../../../yardim-detay/detay.html?id=${item._id}&type=yardim/" class="btn-detail">
+            <a href="../../../yardim-detay/detay.html?id=${
+              item._id
+            }&type=yardim/" class="btn-detail">
                 Detaya Git
             </a>
         </div>
