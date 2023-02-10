@@ -220,7 +220,7 @@
                 phoneNum = phoneNum.slice(1);
             }
 
-            if (phoneNum.length !== 10 || phoneNum.charAt(0) !== "5") {
+            if (phoneNum && (phoneNum.length !== 10 || phoneNum.charAt(0) !== "5")) {
                 Swal.fire({
                     title: 'Hata!',
                     text: 'Geçerli bir telefon numarası giriniz ya da boş bırakınız !',
