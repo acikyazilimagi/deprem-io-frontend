@@ -276,9 +276,15 @@
         var form = document.getElementById('gidaForm');
         form.onsubmit = function (event) {
             var xhr = new XMLHttpRequest();
-            var formData = new FormData(form);
 
-            if (form.telefon.value.length < 10 && form.telefon.value.length > 0) {
+            let phoneNum = form.telefon.value;
+            phoneNum = phoneNum.replace(/\s/g, '');
+
+            if (phoneNum.charAt(0) === "0") {
+                phoneNum = phoneNum.slice(1);
+            }
+
+            if (phoneNum.length !== 10 || phoneNum.charAt(0) !== "5") {
                 Swal.fire({
                     title: 'Hata!',
                     text: 'Geçerli bir telefon numarası giriniz ya da boş bırakınız !',
@@ -286,7 +292,11 @@
                     confirmButtonText: 'Tamam'
                 });
                 return false;
+            } else {
+                form.telefon.value = phoneNum;
             }
+
+            var formData = new FormData(form);
 
             //open the request
             xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/yardim')
