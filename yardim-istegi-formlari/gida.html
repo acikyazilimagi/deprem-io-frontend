@@ -98,45 +98,143 @@
     </header>
 
     <main>
-      <div class="container">
-        <section>
-          <a href="/" class="back-button">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="rgba(71, 101, 255, 1)"
-              aria-hidden="true"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
-            </svg>
-            Geri
-          </a>
-          <h1>Gıda İhtiyaç Formu</h1>
-          <div class="form">
-            <div style="background-color: #2c2e3c4d; padding: 10px; border-radius: 10px">
-              <div style="display: inline-flex; align-items: center; justify-content: space-between">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="rgba(255, 181, 70, 1)"
-                  style="width: 30px; height: 30px; flex-shrink: 0"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"
-                  />
-                </svg>
-                <small style="margin-left: 10px; color: white">
-                  Eğer bu yardım talebini daha önce gönderdiysen lütfen tekrar gönderme. Kayıtlarda kopya bilgi olması
-                  kurtarma operasyonlarını olumsuz etkiler.
-                </small>
-                <div>
-                  <a href="/yardim-istekleri/gida.html" class="warning-link">Mevcut&nbsp;Kayıtlar</a>
+        <div class="container">
+            <section>
+                <a href="/" class="back-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="rgba(71, 101, 255, 1)" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18">
+                        </path>
+                    </svg>
+                    Geri
+                </a>
+                <h1>Gıda İhtiyaç Formu</h1>
+                <div class="form">
+                    <div style="background-color: #2C2E3C4D;  padding: 10px; border-radius: 10px;">
+                        <div style="display: inline-flex; align-items: center; justify-content: space-between;">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="rgba(255, 181, 70, 1)" style="width: 30px; height: 30px; flex-shrink: 0;"> 
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/>
+                          </svg>
+                            <small style="margin-left: 10px; color: white;">
+                                Eğer bu yardım talebini daha önce gönderdiysen lütfen tekrar gönderme. 
+                                Kayıtlarda kopya bilgi olması kurtarma operasyonlarını olumsuz etkiler.
+                            </small>
+                            <div>
+                                <a href="/yardim-istekleri/gida.html" class="warning-link">Mevcut&nbsp;Kayıtlar</a>
+                            </div>
+                        </div>
+                      </div>                      
+                    <br>
+                    <small>* İle başlayan alanlar zorunludur.</small>
+
+                    <form id="gidaForm">
+                        <input type="text" name="yardimTipi" value="gida" style="display: none;" readonly>
+                        <input type="text" name="yardimDurumu" value="bekleniyor" style="display: none;" readonly>
+                        <div class="form-row form-col-3">
+                            <div class="form-col">
+                                <label for="adSoyad">* İsim & Soyisim:</label>
+                                <input type="text" class="form-control required-field" id="adSoyad" name="adSoyad"
+                                    placeholder="* İsim & Soyisim" required>
+                            </div>
+                            <div class="form-col">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                            </div>
+                            <div class="form-col">
+                                <label for="telefon">Telefon:</label>
+                                <input type="tel" class="form-control" id="telefon" name="telefon"
+                                    placeholder="Telefon">
+                            </div>
+                        </div>
+                        <div class="form-row form-col-3" id="yedekTelefonlar" style="align-items: center;">
+                            <a href="javascript: void 0" id="ekTelefonLinki" onclick="addExtraPhone()" class="plus-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16" id="IconChangeColor">
+                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" id="plusIcon" fill="#4765ff" />
+                                </svg>
+                                Başka Telefon Ekle
+                            </a>
+                        </div>
+                        <div class="form-row">
+                            <label for="kisiSayisi">Kişi Sayısı:</label>
+                            <input type="text" class="form-control" id="kisiSayisi" name="kisiSayisi"
+                                placeholder="Kişi Sayısı">
+                        </div>
+                        <div class="form-row">
+                            <label for="adres">* Adres:</label>
+                            <input type="text" class="form-control required-field" id="adres" name="adres" placeholder="* Adres"
+                                required>
+                        </div>
+                        <div class="form-row">
+                            <label for="adres-tarifi">Adres Tarifi:</label>
+                            <input type="text" class="form-control" id="adres-tarifi" name="adresTarifi"
+                                placeholder="Adres Tarifi">
+                        </div>
+                        <div class="form-row form-col-auto">
+                            <div class="form-col" style="width: 100px;">
+                                <div class="form-row">
+                                    <label>
+                                        Aciliyet:
+                                    </label>
+                                </div>
+                                <div class="form-row">
+                                    <label for="kritik">
+                                        <input type="radio" id="kritik" name="acilDurum" value="kritik">
+                                        Kritik
+                                    </label>
+                                </div>
+                                <div class="form-row">
+                                    <label for="orta">
+                                        <input type="radio" id="orta" name="acilDurum" value="orta" checked>
+                                        Orta
+                                    </label>
+                                </div>
+                                <div class="form-row">
+                                    <label for="normal">
+                                        <input type="radio" id="normal" name="acilDurum" value="normal">
+                                        Normal
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-col">
+                                <label for="fizikiDurum">* Fiziki Durum Hakkında Bilgi:</label>
+                                <textarea class="form-control required-field" name="fizikiDurum" id="fizikiDurum" cols="30" rows="4"
+                                    placeholder="* Fiziki Durum Hakkında Bilgi" required></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label for="tweetLink">Tweet Linki:</label>
+                            <input type="text" class="form-control" id="tweetLink" name="tweetLink" placeholder="Tweet Linki">
+                        </div>
+                        <div class="form-col">
+                            <div class="form-row">
+                                <label for="arac-var">
+                                    <input type="radio" id="arac-var" name="fields-aracDurumu" value="var">
+                                    Aracım var, yardımı kendim teslim alabilirim.
+                                </label>
+                            </div>
+                            <div class="form-row">
+                                <label for="arac-yok">
+                                    <input type="radio" id="arac-yok" name="fields-aracDurumu" value="yok" checked>
+                                    Aracım yok, yardımın teslim edilmesi gerek.
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label for="kvkk" class="checkbox">
+                                <input type="checkbox" id="kvkk" name="fields-kvkk" required>
+                                * Form dolduran kişiden hukuki beyan: Enkaz, yıkım, yardım ve destek ihtiyaçları
+                                konusunda verdiğim bilgilerin doğru ve teyit edilmiş olduğunu, bilgi kirliliği ve yanlış
+                                uygulamalara yol açmamak için gerekli tüm önlem ve tedbirleri aldığımı, vermiş olduğum
+                                bilgilerde meydana gelen değişiklik ve güncellemeleri bildireceğimi kabul ve beyan
+                                ederim.
+                            </label>
+                        </div>
+                        <div>
+                            <button type="submit">
+                                Gönder
+                            </button>
+                        </div>
+                    </form>
                 </div>
               </div>
             </div>

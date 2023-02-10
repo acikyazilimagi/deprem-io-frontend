@@ -117,10 +117,65 @@
           <div class="form">
             <small>* İle başlayan alanlar zorunludur.</small>
 
-            <form id="isMakinasiForm">
-              <input type="text" name="yardimTipi" value="isMakinasi" style="display: none" readonly />
-              <input type="text" name="yardimDurumu" value="bekleniyor" style="display: none" readonly />
-              <input type="text" name="hedefSehir" value="Adana" style="display: none" readonly />
+                    <form id="isMakinasiForm">
+                        <input type="text" name="yardimTipi" value="isMakinasi" style="display: none;" readonly>
+                        <input type="text" name="yardimDurumu" value="bekleniyor" style="display: none;" readonly>
+                        <input type="text" name="hedefSehir" value="Adana" style="display: none;" readonly>
+
+                        <div class="form-row form-col-3">
+                            <div class="form-col">
+                                <label for="adSoyad">* İsim & Soyisim:</label>
+                                <input type="text" class="form-control" id="adSoyad" name="adSoyad"
+                                    placeholder="* İsim & Soyisim" required>
+                            </div>
+                            <div class="form-col">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email" name="fields-email" placeholder="Email">
+                            </div>
+                            <div class="form-col">
+                                <label for="telefon">* Telefon:</label>
+                                <input type="tel" class="form-control" id="telefon" name="telefon"
+                                    placeholder="* Telefon">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="sehir">* Şehir:</label>
+                            <select name="sehir" id="sehir" class="form-control" required>
+                                <option value="">* Seçiniz</option>
+                                <option value="Adana">Adana</option>
+                                <option value="Adıyaman">Adıyaman</option>
+                                <option value="Diyarbakır">Diyarbakır</option>
+                                <option value="Gaziantep">Gaziantep</option>
+                                <option value="Hatay">Hatay</option>
+                                <option value="Kahramanmaraş">Kahramanmaraş</option>
+                                <option value="Kilis">Kilis</option>
+                                <option value="Malatya">Malatya</option>
+                                <option value="Osmaniye">Osmaniye</option>
+                                <option value="Sanliurfa">Şanlıurfa</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <label for="yardim-bilgi">* Yardımın Hakkında Bilgi:</label>
+                            <input type="text" class="form-control" id="yardim-bilgi" name="aciklama"
+                                placeholder="* Yardımın Hakkında Bilgi">
+                        </div>
+
+                        <div class="form-row">
+                            <label for="kvkk" class="checkbox">
+                                <input type="checkbox" id="kvkk" name="fields-kvkk" required>
+                                * Form dolduran kişiden hukuki beyan: Enkaz, yıkım, yardım ve destek ihtiyaçları
+                                konusunda verdiğim bilgilerin doğru ve teyit edilmiş olduğunu, bilgi kirliliği ve yanlış
+                                uygulamalara yol açmamak için gerekli tüm önlem ve tedbirleri aldığımı, vermiş olduğum
+                                bilgilerde meydana gelen değişiklik ve güncellemeleri bildireceğimi kabul ve beyan
+                                ederim.
+                            </label>
+                        </div>
+                        <div>
+                            <button type="submit">
+                                Gönder
+                            </button>
+                        </div>
+                    </form>
 
               <div class="form-row form-col-3">
                 <div class="form-col">
