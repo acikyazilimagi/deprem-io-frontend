@@ -460,7 +460,11 @@ section {
 }
 
 .form .checkbox {
-    font-size: 0.875rem;
+    font-size: 0.80rem;
+}
+
+.aydinlatma a {
+    color: rgba(213, 217, 236, 0.48);
 }
 
 .form button {
@@ -1077,4 +1081,8 @@ footer>div>nav>ul>li {
 
 .arabaDurum, .yardimDurum {
     display: flex !important;
+}
+
+.kvkk li {
+    margin-bottom: 20px;
 }
