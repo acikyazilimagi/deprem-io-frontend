@@ -25,6 +25,7 @@ const hedefSehir = document.getElementById("hedefSehir");
 
 const updatedDate = document.getElementById("updatedDate");
 const createdDate = document.getElementById("createdDate");
+const yardimKayitId = document.getElementById("yardimKayitId");
 
 const alert = "rgba(255, 181, 70, 1)";
 const blue = "rgba(71, 101, 255, 1)";
@@ -38,9 +39,7 @@ function ready(fn) {
   }
 }
 
-ready(function () {
-  getItem();
-});
+ready(getItem);
 
 function getItem() {
   const params = new Proxy(new URLSearchParams(window.location.search), {
@@ -63,6 +62,7 @@ function getItem() {
 
   // get items
   getData(API_URL + type + id).then((item) => {
+    console.log(item);
     const acilDurum = item.acilDurum;
     const yardimDurum = item.yardimDurumu;
 
@@ -117,6 +117,16 @@ function getItem() {
 
     updatedDate.innerHTML = "Son Güncelleme " + parseTime(item.updatedAt);
     createdDate.innerHTML = "Oluşturulma Tarihi " + parseTime(item.createdAt);
+    yardimKayitId.value = id;
+
+    var listWrapper = document.querySelector(".list");
+
+    // clear listWrapper html
+    listWrapper.innerHTML = "";
+
+    item.yardimKaydi.forEach(function (item) {
+      listWrapper.innerHTML += getRowHtml(item);
+    });
   });
 }
 
@@ -164,4 +174,42 @@ function parseTime(input) {
   }
 
   return `${day}.${month}.${year} ${hour}:${minute}`;
+}
+
+function getRowHtml(item) {
+  return `<div class="list-item">
+    <div class="list-row">
+        <div class="list-col">
+           
+            <div class="list-col">
+                <span >
+                    ${item.adSoyad}
+                </span>
+            </div>
+            <div class="list-col">
+                <span  >
+                   ${item.email} 
+                </span>
+           </div>
+            
+            <div class="list-col">
+                <span >
+                    ${item.telefon}
+                </span>
+            </div>
+        </div>
+        
+    </div>
+    <div class="list-row">
+        <div class="list-col">
+            <div class="list-col">
+               
+                <span class="icon-line">
+                ${item.aciklama}
+                </span>
+            </div>
+          
+        </div>
+    </div>
+</div>`;
 }

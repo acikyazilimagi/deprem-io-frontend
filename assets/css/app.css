@@ -1077,6 +1077,6 @@ footer>div>nav>ul>li {
     color: rgba(71, 101, 255, 1);
 }
 
-.arabaDurum {
+.arabaDurum, .yardimDurum{
     display: flex !important;
 }

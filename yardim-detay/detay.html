@@ -263,6 +263,85 @@
 
                 </div>
             </section>
+            <section>
+                <h1>Yardım Kaydı Oluştur</h1>
+                <div class="form">
+                    <small>Eğer bu duruma yardım ettiysen ya da hakkında bilgi vermek istiyorsan detaylarını kaydet. *
+                        İle başlayan alanlar zorunludur.</small>
+
+                    <form id="yardimKayitForm">
+                        <input id="yardimKayitId" type="hidden" name="postId" value="" readonly>
+                        <div class="form-row form-col-3">
+                            <div class="form-col">
+                                <label for="adSoyad">* İsim & Soyisim:</label>
+                                <input type="text" class="form-control" id="adSoyad" name="adSoyad"
+                                    placeholder="* İsim & Soyisim" required>
+                            </div>
+                            <div class="form-col">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                            </div>
+                            <div class="form-col">
+                                <label for="telefon">Telefon:</label>
+                                <input type="tel" class="form-control" id="telefon" name="telefon"
+                                    placeholder="Telefon">
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <label for="aciklama">* Yardımın Hakkında Bilgi:</label>
+                            <input type="text" class="form-control" id="aciklama" name="aciklama"
+                                placeholder="* Yardımın Hakkında Bilgi">
+                        </div>
+                        <p>Son Durumu Seç
+                        </p>
+                        <div class="yardimDurum form-row">
+                            <div class="acilDurum-item">
+                                <input type="radio" id="yardim-bekleniyor" name="sonDurum" value="yardim-bekleniyor">
+                                <label style="text-transform: capitalize;" for="yardim-bekleniyor">Yardım
+                                    Bekleniyor</label>
+                            </div>
+                            <div class="acilDurum-item">
+                                <input type="radio" id="yardim-edildi" name="sonDurum" value="yardim-edildi">
+                                <label style="text-transform: capitalize;" for="yardim-edildi">Yardım Edildi</label>
+                            </div>
+                            <div class="acilDurum-item">
+                                <input type="radio" id="yetersiz-bilgi" name="sonDurum" value="yetersiz-bilgi">
+                                <label style="text-transform: capitalize;" for="yetersiz-bilgi">
+                                    Yetersiz Bilgi</label>
+                            </div>
+                            <div class="acilDurum-item">
+                                <input type="radio" id="yardim-edilemedi" name="sonDurum" value="yardim-edilemedi">
+                                <label style="text-transform: capitalize;" for="yardim-edilemedi">Yardım
+                                    Edilemedi</label>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="kvkk" class="checkbox">
+                                <input type="checkbox" id="kvkk" name="fields-kvkk" required>
+                                * Form dolduran kişiden hukuki beyan: Enkaz, yıkım, yardım ve destek ihtiyaçları
+                                konusunda verdiğim bilgilerin doğru ve teyit edilmiş olduğunu, bilgi kirliliği ve yanlış
+                                uygulamalara yol açmamak için gerekli tüm önlem ve tedbirleri aldığımı, vermiş olduğum
+                                bilgilerde meydana gelen değişiklik ve güncellemeleri bildireceğimi kabul ve beyan
+                                ederim.
+                            </label>
+                        </div>
+                        <div>
+                            <button type="submit">
+                                Kaydet
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <section>
+                <div class="list">
+
+                </div>
+            </section>
         </div>
     </main>
 
@@ -325,6 +404,49 @@
     <script type="text/javascript" src="../assets/js/requests/detail.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css" rel="stylesheet">
+    <script>
+        var form = document.getElementById('yardimKayitForm');
+        form.onsubmit = function (event) {
+            var xhr = new XMLHttpRequest();
+            var formData = new FormData(form);
+            //open the request
+            xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/ekleYardimKaydi')
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            //send the form data
+            xhr.send(JSON.stringify(Object.fromEntries(formData)));
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    var status = xhr.status;
+                    var responseBody = (JSON.parse(xhr.responseText) || {});
+
+                    // The request has been completed successfully
+                    if (status === 0 || (status >= 200 && status < 400)) {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: responseBody.message || 'Yardım talebiniz başarıyla alındı',
+                            showConfirmButton: false,
+                            timer: 2500
+                        });
+
+                        form.reset();
+                    } else {
+                        Swal.fire({
+                            title: 'Hata!',
+                            text: responseBody.error || 'Hata Oluştu Tekrar deneyiniz !',
+                            icon: 'error',
+                            confirmButtonText: 'Tamam'
+                        });
+                    }
+                }
+            };
+
+            return false;
+        }
+    </script>
+
 </body>
 
 </html>
