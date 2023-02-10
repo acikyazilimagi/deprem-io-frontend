@@ -1,227 +1,444 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Deprem İmece Platformu</title>
-    <link rel="stylesheet" href="assets/css/app.css?v=1">
-</head>
+    <link rel="stylesheet" href="assets/css/app.css?v=1" />
+  </head>
 
-<body>
+  <body>
     <header>
-        <div class="container">
-            <div class="logo">
-                <img src="assets/images/logo.svg" alt="Deprem İmece Platformu" width="150">
-            </div>
-            <nav class="nav">
-                <ul>
-                    <li>
-                        <div class="share-button-wrapper">
-                            <div class="share-title">Paylaş</div>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="rgba(44, 46, 60, 1)" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"></path>
-                            </svg>
-                            <div class="share-menu-wrapper">
-                                <ul>
-                                    <li>
-                                        <a target="_blank" href="https://www.addtoany.com/add_to/email?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote=">
-                                            <img src="assets/images/share/mail.svg" alt="deprem-io-mail">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank" rel="nofollow noopener" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeprem.io&t=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&quote=', 'newwindow', 'width=300,height=250'); return false;">
-                                            <img src="assets/images/share/facebook.svg" alt="deprem-io-facebook">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank" onclick="window.open('https://twitter.com/intent/tweet?text=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io%20https%3A%2F%2Fdeprem.io&related=AddToAny,micropat', 'newwindow', 'width=300,height=250'); return false;">
-                                            <img src="assets/images/share/twitter.svg" alt="deprem-io-twitter">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank" onclick="window.open('https://www.addtoany.com/add_to/linkedin?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote=', 'newwindow', 'width=300,height=250'); return false;">
-                                            <img src="assets/images/share/linkedin.svg" alt="deprem-io-linkedin">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank" onclick="window.open('https://www.addtoany.com/add_to/tumblr?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote=', 'newwindow', 'width=300,height=250'); return false;">
-                                            <img src="assets/images/share/tumblr.svg" alt="deprem-io-tumblr">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank" href="https://www.reddit.com/submit?url=https%3A%2F%2Fdeprem.io&title=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io">
-                                            <img src="assets/images/share/reddit.svg" alt="deprem-io-reddit">
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="/yararli-linkler.html">Yararlı Linkler</a>
-                    </li>
-                    <li>
-                        <a href="/iletisim.html">İletişim</a>
-                    </li>
-                </ul>
-            </nav>
+      <div class="container">
+        <div class="logo">
+          <img src="assets/images/logo.svg" alt="Deprem İmece Platformu" width="150" />
         </div>
+        <nav class="nav">
+          <ul>
+            <li>
+              <div class="share-button-wrapper">
+                <div class="share-title">Paylaş</div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="rgba(44, 46, 60, 1)"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <div class="share-menu-wrapper">
+                  <ul>
+                    <li>
+                      <a
+                        target="_blank"
+                        href="https://www.addtoany.com/add_to/email?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote="
+                      >
+                        <img src="assets/images/share/mail.svg" alt="deprem-io-mail" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        target="_blank"
+                        rel="nofollow noopener"
+                        onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdeprem.io&t=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&quote=', 'newwindow', 'width=300,height=250'); return false;"
+                      >
+                        <img src="assets/images/share/facebook.svg" alt="deprem-io-facebook" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        target="_blank"
+                        onclick="window.open('https://twitter.com/intent/tweet?text=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io%20https%3A%2F%2Fdeprem.io&related=AddToAny,micropat', 'newwindow', 'width=300,height=250'); return false;"
+                      >
+                        <img src="assets/images/share/twitter.svg" alt="deprem-io-twitter" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        target="_blank"
+                        onclick="window.open('https://www.addtoany.com/add_to/linkedin?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote=', 'newwindow', 'width=300,height=250'); return false;"
+                      >
+                        <img src="assets/images/share/linkedin.svg" alt="deprem-io-linkedin" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        target="_blank"
+                        onclick="window.open('https://www.addtoany.com/add_to/tumblr?linkurl=https%3A%2F%2Fdeprem.io&linkname=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io&linknote=', 'newwindow', 'width=300,height=250'); return false;"
+                      >
+                        <img src="assets/images/share/tumblr.svg" alt="deprem-io-tumblr" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        target="_blank"
+                        href="https://www.reddit.com/submit?url=https%3A%2F%2Fdeprem.io&title=Yard%C4%B1m%20iste%20%26%20yard%C4%B1m%20sa%C4%9Fla.%20Deprem%20%C4%B0mece%20Platformu%20-%20deprem.io"
+                      >
+                        <img src="assets/images/share/reddit.svg" alt="deprem-io-reddit" />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="/yararli-linkler.html">Yararlı Linkler</a>
+            </li>
+            <li>
+              <a href="/iletisim.html">İletişim</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
-        <div class="container">
-            <section>
-                <h1>Yardım Al</h1>
-                <div class="buttons">
-                    <a href="/yardim-istegi-formlari/enkaz.html" class="button important" title="Depremzede Bildirim Formu">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="rgba(255, 87, 97, 1)" aria-hidden="true">  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z"></path></svg>
-                        Ben / Tanıdığım Enkazda
-                    </a>
-                    <a href="/yardim-istegi-formlari/gida.html" class="button important" title="Gıda İhtiyaç Formu">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="rgba(185,69,224,1)" aria-hidden="true">  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg>
-                        Gıdaya İhtiyacım Var
-                    </a>
-                    <a href="/yardim-istegi-formlari/isinma.html" class="button important" title="Isınma İhtiyaç Formu">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="rgba(255, 181, 70, 1)" aria-hidden="true">  <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"></path>  <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z"></path></svg>
-                        Isınmaya İhtiyacım Var
-                    </a>
-                </div>
-            </section>
-            <section>
-                <h1>Yardım Sağla</h1>
-                <div class="buttons">
-                    <a href="/yardim-sagla/konaklama.html" class="button whiteLink" title="Konaklama Sağlayabilirim">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="rgba(89, 217, 117, 1)" aria-hidden="true">  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path></svg>
-                        Konaklama Sağlayabilirim
-                    </a>
-                    <a href="/yardim-sagla/is-makinasi.html" class="button whiteLink" title="İş Makinası Kullanabilirim">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="rgba(89, 217, 117, 1)" aria-hidden="true">  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"></path></svg>
-                        İş Makinası Kullanabilirim
-                    </a>
-                    <a href="/yardim-sagla/yolcu-tasima.html" class="button whiteLink" title="Yolcu Taşıyabilirim">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="rgba(89, 217, 117, 1)" aria-hidden="true">  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"></path></svg>
-                        Yolcu Taşıyabilirim
-                    </a>
-                    <a href="/yardim-sagla/bagis.html" class="button whiteLink" title="Kurumlara Bağış Yap">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="rgba(89, 217, 117, 1)" aria-hidden="true">  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"></path></svg>
-                        Kurumlara Bağış Yap
-                    </a>
-                </div>
-            </section>
-            <section>
-                <h2>Yardım Listeleri</h2>
-                <div class="buttons">
-                    <a href="/yardim-istekleri/enkaz.html" class="button whiteLink" title="Enkaz Altında Olanlar">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="rgba(255, 87, 97, 1)" aria-hidden="true">  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z"></path></svg>
-                        Enkaz Altında Olanlar
-                    </a>
-                    <a href="/yardim-istekleri/gida.html" class="button whiteLink" title="Gıda İhtiyacı Olanlar">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="rgba(185,69,224,1)" aria-hidden="true">  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg>
-                        Gıda İhtiyacı Olanlar
-                    </a>
-                    <a href="/yardim-istekleri/isinma.html" class="button whiteLink" title="Isınma İhtiyacı Olanlar">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="rgba(255, 181, 70, 1)" aria-hidden="true">  <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"></path>  <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z"></path></svg>
-                        Isınma İhtiyacı Olanlar
-                    </a>
-                    <a href="https://evimmusait.com/" target="_blank" class="button whiteLink" title="Konaklama Sağlayanlar">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="rgba(89, 217, 117, 1)" aria-hidden="true">  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path></svg>
-                        Evim Müsait
-                    </a>
-                    <a href="/yardim-saglayanlar/konaklama.html"
-                        class="button whiteLink" title="Konaklama Sağlayanlar">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="rgba(71, 101, 255, 1)" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z">
-                            </path>
-                        </svg>
-                        Konaklama Sağlayanlar
-                    </a>
-                    <a href="https://gisibb.maps.arcgis.com/apps/MapSeries/index.html?appid=b49d96adc42e439cbab407b4a27c30d8" target="_blank" class="button whiteLink" title="Konaklama Sağlayanlar">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="rgba(89, 217, 117, 1)" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21">
-                            </path>
-                        </svg>
-                        Ücretsiz Oteller
-                    </a>
-                    <a href="/yardim-saglayanlar/is-makinasi.html" class="button whiteLink" title="İş Makinası Kullanabilenler">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="rgba(89, 217, 117, 1)" aria-hidden="true">  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"></path></svg>
-                        İş Makinası Kullanabilenler
-                    </a>
-                    <a href="/yardim-saglayanlar/yolcu-tasima.html" class="button whiteLink" title="Yolcu Taşıyabilenler">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="rgba(89, 217, 117, 1)" aria-hidden="true">  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"></path></svg>
-                        Yolcu Taşıyabilenler
-                    </a>
-                </div>
-            </section>
-            <section>
-                <h2>Yardım Haritaları</h2>
-                <div class="cards">
-                    <a href="#" class="card" title="Deprem.io">
-                        <div class="card-img">
-                            <img src="assets/images/map-depremio.jpg" alt="Deprem.io Harita" loading="lazy">
-                        </div>
-                        <div class="card-title">
-                            Deprem.io
-                        </div>
-                    </a>
-                    <a href="https://afetharita.com/" class="card" target="_blank" title="Afet Harita">
-                        <div class="card-img">
-                            <img src="assets/images/map-afetharita.jpg" alt="Afet Harita" loading="lazy">
-                        </div>
-                        <div class="card-title">
-                            Afet Harita
-                        </div>
-                    </a>
-                    <a href="https://depremenkaz.xyz/" class="card" target="_blank" title="Deprem Enkaz">
-                        <div class="card-img">
-                            <img src="assets/images/map-depremenkaz.jpg" alt="Deprem Enkaz" loading="lazy">
-                        </div>
-                        <div class="card-title">
-                            Deprem Enkaz
-                        </div>
-                    </a>
-                </div>
-            </section>
-        </div>
+      <div class="container">
+        <section>
+          <h1>Yardım Al</h1>
+          <div class="buttons">
+            <a href="/yardim-istegi-formlari/enkaz.html" class="button important" title="Depremzede Bildirim Formu">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="rgba(255, 87, 97, 1)"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z"
+                ></path>
+              </svg>
+              Ben / Tanıdığım Enkazda
+            </a>
+            <a href="/yardim-istegi-formlari/gida.html" class="button important" title="Gıda İhtiyaç Formu">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="rgba(185,69,224,1)"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"
+                ></path>
+              </svg>
+              Gıdaya İhtiyacım Var
+            </a>
+            <a href="/yardim-istegi-formlari/isinma.html" class="button important" title="Isınma İhtiyaç Formu">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="rgba(255, 181, 70, 1)"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z"
+                ></path>
+              </svg>
+              Isınmaya İhtiyacım Var
+            </a>
+          </div>
+        </section>
+        <section>
+          <h1>Yardım Sağla</h1>
+          <div class="buttons">
+            <a href="/yardim-sagla/konaklama.html" class="button whiteLink" title="Konaklama Sağlayabilirim">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="rgba(89, 217, 117, 1)"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                ></path>
+              </svg>
+              Konaklama Sağlayabilirim
+            </a>
+            <a href="/yardim-sagla/is-makinasi.html" class="button whiteLink" title="İş Makinası Kullanabilirim">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="rgba(89, 217, 117, 1)"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"
+                ></path>
+              </svg>
+              İş Makinası Kullanabilirim
+            </a>
+            <a href="/yardim-sagla/yolcu-tasima.html" class="button whiteLink" title="Yolcu Taşıyabilirim">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="rgba(89, 217, 117, 1)"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"
+                ></path>
+              </svg>
+              Yolcu Taşıyabilirim
+            </a>
+            <a href="/yardim-sagla/bagis.html" class="button whiteLink" title="Kurumlara Bağış Yap">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="rgba(89, 217, 117, 1)"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"
+                ></path>
+              </svg>
+              Kurumlara Bağış Yap
+            </a>
+          </div>
+        </section>
+        <section>
+          <h2>Yardım Listeleri</h2>
+          <div class="buttons">
+            <a href="/yardim-istekleri/enkaz.html" class="button whiteLink" title="Enkaz Altında Olanlar">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="rgba(255, 87, 97, 1)"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z"
+                ></path>
+              </svg>
+              Enkaz Altında Olanlar
+            </a>
+            <a href="/yardim-istekleri/gida.html" class="button whiteLink" title="Gıda İhtiyacı Olanlar">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="rgba(185,69,224,1)"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"
+                ></path>
+              </svg>
+              Gıda İhtiyacı Olanlar
+            </a>
+            <a href="/yardim-istekleri/isinma.html" class="button whiteLink" title="Isınma İhtiyacı Olanlar">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="rgba(255, 181, 70, 1)"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z"
+                ></path>
+              </svg>
+              Isınma İhtiyacı Olanlar
+            </a>
+            <a href="https://evimmusait.com/" target="_blank" class="button whiteLink" title="Konaklama Sağlayanlar">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="rgba(89, 217, 117, 1)"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                ></path>
+              </svg>
+              Evim Müsait
+            </a>
+            <a href="/yardim-saglayanlar/konaklama.html" class="button whiteLink" title="Konaklama Sağlayanlar">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="rgba(71, 101, 255, 1)"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"
+                ></path>
+              </svg>
+              Konaklama Sağlayanlar
+            </a>
+            <a
+              href="https://gisibb.maps.arcgis.com/apps/MapSeries/index.html?appid=b49d96adc42e439cbab407b4a27c30d8"
+              target="_blank"
+              class="button whiteLink"
+              title="Konaklama Sağlayanlar"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="rgba(89, 217, 117, 1)"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"
+                ></path>
+              </svg>
+              Ücretsiz Oteller
+            </a>
+            <a href="/yardim-saglayanlar/is-makinasi.html" class="button whiteLink" title="İş Makinası Kullanabilenler">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="rgba(89, 217, 117, 1)"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"
+                ></path>
+              </svg>
+              İş Makinası Kullanabilenler
+            </a>
+            <a href="/yardim-saglayanlar/yolcu-tasima.html" class="button whiteLink" title="Yolcu Taşıyabilenler">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="rgba(89, 217, 117, 1)"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"
+                ></path>
+              </svg>
+              Yolcu Taşıyabilenler
+            </a>
+          </div>
+        </section>
+        <section>
+          <h2>Yardım Haritaları</h2>
+          <div class="cards">
+            <a href="#" class="card" title="Deprem.io">
+              <div class="card-img">
+                <img src="assets/images/map-depremio.jpg" alt="Deprem.io Harita" loading="lazy" />
+              </div>
+              <div class="card-title">Deprem.io</div>
+            </a>
+            <a href="https://afetharita.com/" class="card" target="_blank" title="Afet Harita">
+              <div class="card-img">
+                <img src="assets/images/map-afetharita.jpg" alt="Afet Harita" loading="lazy" />
+              </div>
+              <div class="card-title">Afet Harita</div>
+            </a>
+            <a href="https://depremenkaz.xyz/" class="card" target="_blank" title="Deprem Enkaz">
+              <div class="card-img">
+                <img src="assets/images/map-depremenkaz.jpg" alt="Deprem Enkaz" loading="lazy" />
+              </div>
+              <div class="card-title">Deprem Enkaz</div>
+            </a>
+          </div>
+        </section>
+      </div>
     </main>
 
     <footer>
-        <div class="container">
-            <nav class="nav">
-                <ul>
-                    <li>
-                        <a href="">Yararlı Linkler</a>
-                    </li>
-                    <li>
-                        <a href="">İletişim</a>
-                    </li>
-                    <li>
-                        <a href="/legal/cerez-politikasi.html">Çerez Politikası</a>
-                    </li>
-                    <li>
-                        <a href="/legal/gizlilik-sozlesmesi.html">Gizlilik Sözleşmesi</a>
-                    </li>
-                    <li>
-                        <a href="/legal/aydinlatma-ve-acik-riza-metni.html">Aydınlatma Metni</a>
-                    </li> 
-                </ul>
-            </nav>
-            <p class="info">
-                Bu platform kar amacı gütmeden imece usulu bilgi paylaşımı için geliştirildi, hiçbir kurum ve kuruluşla
-                ilişiği yoktur. <br>
-                Gerektiğinde yetkili merci ve kurumlara bilgi sağlanabilir ve işbirliği yapılabilir.
-            </p>
-            <p class="copy">
-                Deprem İmece Platformu © 2023
-            </p>
-        </div>
+      <div class="container">
+        <nav class="nav">
+          <ul>
+            <li>
+              <a href="">Yararlı Linkler</a>
+            </li>
+            <li>
+              <a href="">İletişim</a>
+            </li>
+            <li>
+              <a href="/legal/cerez-politikasi.html">Çerez Politikası</a>
+            </li>
+            <li>
+              <a href="/legal/gizlilik-sozlesmesi.html">Gizlilik Sözleşmesi</a>
+            </li>
+            <li>
+              <a href="/legal/aydinlatma-ve-acik-riza-metni.html">Aydınlatma Metni</a>
+            </li>
+          </ul>
+        </nav>
+        <p class="info">
+          Bu platform kar amacı gütmeden imece usulu bilgi paylaşımı için geliştirildi, hiçbir kurum ve kuruluşla
+          ilişiği yoktur. <br />
+          Gerektiğinde yetkili merci ve kurumlara bilgi sağlanabilir ve işbirliği yapılabilir.
+        </p>
+        <p class="copy">Deprem İmece Platformu © 2023</p>
+      </div>
     </footer>
     <script src="assets/js/app.js?v=1"></script>
-</body>
-
+  </body>
 </html>
