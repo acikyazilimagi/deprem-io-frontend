@@ -322,8 +322,16 @@
         let phoneNum = form.telefon.value;
         phoneNum = phoneNum.replace(/\s/g, '');
 
-        if (phoneNum.charAt(0) === '0') {
-          phoneNum = phoneNum.slice(1);
+        if (phoneNum && (phoneNum.length !== 10 || phoneNum.charAt(0) !== '5')) {
+          Swal.fire({
+            title: 'Hata!',
+            text: 'Geçerli bir telefon numarası giriniz ya da boş bırakınız !',
+            icon: 'error',
+            confirmButtonText: 'Tamam',
+          });
+          return false;
+        } else {
+          form.telefon.value = phoneNum;
         }
 
         if (phoneNum.length !== 10 || phoneNum.charAt(0) !== '5') {

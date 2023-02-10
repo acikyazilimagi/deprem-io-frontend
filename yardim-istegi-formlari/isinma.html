@@ -341,55 +341,14 @@
           phoneNum = phoneNum.slice(1);
         }
 
-        if (phoneNum.length !== 10 || phoneNum.charAt(0) !== '5') {
-          Swal.fire({
-            title: 'Hata!',
-            text: 'Geçerli bir telefon numarası giriniz ya da boş bırakınız !',
-            icon: 'error',
-            confirmButtonText: 'Tamam',
-          });
-          return false;
-        } else {
-          form.telefon.value = phoneNum;
-        }
-
-        var formData = new FormData(form);
-
-        //open the request
-        xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/yardim');
-        xhr.setRequestHeader('Content-Type', 'application/json');
-
-        // prepare the data
-        const postData = Object.fromEntries(formData);
-        postData.yedekTelefonlar = [];
-        Object.keys(postData).forEach((key) => {
-          if (key.includes('yedekTelefon_')) {
-            postData.yedekTelefonlar.push(postData[key]);
-            delete postData[key];
-          }
-        });
-
-        //send the form data
-        xhr.send(JSON.stringify(postData));
-
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === XMLHttpRequest.DONE) {
-            var status = xhr.status;
-            var responseBody = JSON.parse(xhr.responseText) || {};
-
-            // The request has been completed successfully
-            if (status === 0 || (status >= 200 && status < 400)) {
-              Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: responseBody.message || 'Yardım talebiniz başarıyla alındı',
-                showConfirmButton: false,
-                timer: 2500,
-              }).then(function () {
-                window.location.href = '/yardim-istekleri/isinma.html';
-              });
-
-              form.reset();
+            if (phoneNum && (phoneNum.length !== 10 || phoneNum.charAt(0) !== "5")) {
+                Swal.fire({
+                    title: 'Hata!',
+                    text: 'Geçerli bir telefon numarası giriniz ya da boş bırakınız !',
+                    icon: 'error',
+                    confirmButtonText: 'Tamam'
+                });
+                return false;
             } else {
               Swal.fire({
                 title: 'Hata!',
