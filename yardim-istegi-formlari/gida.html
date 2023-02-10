@@ -334,28 +334,9 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css" rel="stylesheet" />
     <script>
       var form = document.getElementById('gidaForm');
+
       form.onsubmit = function (event) {
         var xhr = new XMLHttpRequest();
-
-        let phoneNum = form.telefon.value;
-        phoneNum = phoneNum.replace(/\s/g, '');
-
-        if (phoneNum.charAt(0) === '0') {
-          phoneNum = phoneNum.slice(1);
-        }
-
-        if (phoneNum.length !== 10 || phoneNum.charAt(0) !== '5') {
-          Swal.fire({
-            title: 'Hata!',
-            text: 'Geçerli bir telefon numarası giriniz ya da boş bırakınız !',
-            icon: 'error',
-            confirmButtonText: 'Tamam',
-          });
-          return false;
-        } else {
-          form.telefon.value = phoneNum;
-        }
-
         var formData = new FormData(form);
 
         //open the request

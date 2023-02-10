@@ -1,13 +1,13 @@
-var API_URL = "https://deprem-27jjydhzba-ew.a.run.app/";
+var API_URL = 'https://deprem-27jjydhzba-ew.a.run.app/';
 
-var form = document.getElementById("enkazForm");
+var form = document.getElementById('enkazForm');
 console.log(form);
 form.onsubmit = function (event) {
   var xhr = new XMLHttpRequest();
   var formData = new FormData(form);
   //open the request
-  xhr.open("POST", API_URL + "yardim");
-  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.open('POST', API_URL + 'yardim');
+  xhr.setRequestHeader('Content-Type', 'application/json');
 
   //send the form data
   xhr.send(JSON.stringify(Object.fromEntries(formData)));
@@ -20,22 +20,22 @@ form.onsubmit = function (event) {
       // The request has been completed successfully
       if (status === 0 || (status >= 200 && status < 400)) {
         Swal.fire({
-          position: "center",
-          icon: "success",
-          title: responseBody.message || "Yardım talebiniz başarıyla alındı!",
+          position: 'center',
+          icon: 'success',
+          title: responseBody.message || 'Yardım talebiniz başarıyla alındı!',
           showConfirmButton: false,
           timer: 2500,
         }).then(function () {
-          window.location.href = "/";
+          window.location.href = '/';
         });
 
         form.reset();
       } else {
         Swal.fire({
-          title: "Hata!",
-          text: responseBody.error || "Hata Oluştu Tekrar deneyiniz !",
-          icon: "error",
-          confirmButtonText: "Tamam",
+          title: 'Hata!',
+          text: responseBody.error || 'Hata Oluştu Tekrar deneyiniz !',
+          icon: 'error',
+          confirmButtonText: 'Tamam',
         });
       }
     }

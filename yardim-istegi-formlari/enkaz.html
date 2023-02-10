@@ -232,7 +232,7 @@
                 <div class="form-col">
                   <label for="fizikiDurum" class="redHeader">* Fiziki Durum Hakkında Bilgi:</label>
                   <textarea
-                    class="form-control required-field"
+                    class="form-control"
                     name="fizikiDurum"
                     id="fizikiDurum"
                     cols="30"
@@ -319,123 +319,188 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css" rel="stylesheet" />
     <script>
-      var form = document.getElementById('enkazForm');
-      form.onsubmit = function (event) {
-        var xhr = new XMLHttpRequest();
+            var form = document.getElementById('enkazForm');
+            form.onsubmit = function (event) {
+              var xhr = new XMLHttpRequest();
+      <<<<<<< HEAD
 
-        let phoneNum = form.telefon.value;
-        phoneNum = phoneNum.replace(/\s/g, '');
+              let phoneNum = form.telefon.value;
+              phoneNum = phoneNum.replace(/\s/g, '');
 
-        if (phoneNum.charAt(0) === '0') {
-          phoneNum = phoneNum.slice(1);
-        }
+              if (phoneNum.charAt(0) === '0') {
+                phoneNum = phoneNum.slice(1);
+              }
 
-        if (phoneNum.length !== 10 || phoneNum.charAt(0) !== '5') {
-          Swal.fire({
-            title: 'Hata!',
-            text: 'Geçerli bir telefon numarası giriniz ya da boş bırakınız !',
-            icon: 'error',
-            confirmButtonText: 'Tamam',
-          });
-          return false;
-        } else {
-          form.telefon.value = phoneNum;
-        }
+              if (phoneNum.length !== 10 || phoneNum.charAt(0) !== '5') {
+                Swal.fire({
+                  title: 'Hata!',
+                  text: 'Geçerli bir telefon numarası giriniz ya da boş bırakınız !',
+                  icon: 'error',
+                  confirmButtonText: 'Tamam',
+                });
+                return false;
+              } else {
+                form.telefon.value = phoneNum;
+              }
 
-        var formData = new FormData(form);
+              var formData = new FormData(form);
 
-        //open the request
-        xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/yardim');
-        xhr.setRequestHeader('Content-Type', 'application/json');
+              //open the request
+              xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/yardim');
+              xhr.setRequestHeader('Content-Type', 'application/json');
 
-        // prepare the data
-        const postData = Object.fromEntries(formData);
-        postData.yedekTelefonlar = [];
-        Object.keys(postData).forEach((key) => {
-          if (key.includes('yedekTelefon_')) {
-            postData.yedekTelefonlar.push(postData[key]);
-            delete postData[key];
-          }
-        });
-        return false;
-      };
+              // prepare the data
+              const postData = Object.fromEntries(formData);
+              postData.yedekTelefonlar = [];
+              Object.keys(postData).forEach((key) => {
+                if (key.includes('yedekTelefon_')) {
+                  postData.yedekTelefonlar.push(postData[key]);
+                  delete postData[key];
+                }
+              });
+              return false;
+            };
 
-      //open the request
-      xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/yardim');
-      xhr.setRequestHeader('Content-Type', 'application/json');
+            //open the request
+            xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/yardim');
+            xhr.setRequestHeader('Content-Type', 'application/json');
 
-      // prepare the data
-      const postData = Object.fromEntries(formData);
-      postData.yedekTelefonlar = [];
-      Object.keys(postData).forEach((key) => {
-        if (key.includes('yedekTelefon_')) {
-          postData.yedekTelefonlar.push(postData[key]);
-          delete postData[key];
-        }
-      });
-
-      //send the form data
-      xhr.send(JSON.stringify(postData));
-
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-          var status = xhr.status;
-          var responseBody = JSON.parse(xhr.responseText) || {};
-
-          // The request has been completed successfully
-          if (status === 0 || (status >= 200 && status < 400)) {
-            Swal.fire({
-              position: 'center',
-              icon: 'success',
-              title: responseBody.message || 'Yardım talebiniz başarıyla alındı',
-              showConfirmButton: false,
-              timer: 2500,
-            }).then(function () {
-              window.location.href = '/yardim-istekleri/enkaz.html';
+            // prepare the data
+            const postData = Object.fromEntries(formData);
+            postData.yedekTelefonlar = [];
+            Object.keys(postData).forEach((key) => {
+              if (key.includes('yedekTelefon_')) {
+                postData.yedekTelefonlar.push(postData[key]);
+                delete postData[key];
+              }
             });
 
-            form.reset();
-          } else {
-            Swal.fire({
-              title: 'Hata!',
-              text: responseBody.error || 'Hata Oluştu Tekrar deneyiniz !',
-              icon: 'error',
-              confirmButtonText: 'Tamam',
-            });
-          }
-        }
-      };
+            //send the form data
+            xhr.send(JSON.stringify(postData));
 
-      return false;
+            xhr.onreadystatechange = function () {
+              if (xhr.readyState === XMLHttpRequest.DONE) {
+                var status = xhr.status;
+                var responseBody = JSON.parse(xhr.responseText) || {};
 
-      let extraPhoneCount = 0;
-      function addExtraPhone() {
-        ++extraPhoneCount;
-        const lnkEl = document.getElementById('ekTelefonLinki');
+                // The request has been completed successfully
+                if (status === 0 || (status >= 200 && status < 400)) {
+                  Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: responseBody.message || 'Yardım talebiniz başarıyla alındı',
+                    showConfirmButton: false,
+                    timer: 2500,
+                  }).then(function () {
+                    window.location.href = '/yardim-istekleri/enkaz.html';
+                  });
 
-        if (extraPhoneCount === 3) {
-          lnkEl.style.display = 'none';
-        } else if (extraPhoneCount > 3) {
-          return;
-        }
+                  form.reset();
+                } else {
+                  Swal.fire({
+                    title: 'Hata!',
+                    text: responseBody.error || 'Hata Oluştu Tekrar deneyiniz !',
+                    icon: 'error',
+                    confirmButtonText: 'Tamam',
+                  });
+                }
+              }
+            };
 
-        const div = document.createElement('div');
-        const inputId = 'yedekTelefon_' + extraPhoneCount;
-        div.className = 'form-col';
-        div.innerHTML =
-          '<label for="' +
-          inputId +
-          '">Telefon (' +
-          (extraPhoneCount + 1) +
-          '):</label>' +
-          '<input type="tel" class="form-control" id="' +
-          inputId +
-          '" name="' +
-          inputId +
-          '" placeholder="Telefon">';
-        document.getElementById('yedekTelefonlar').insertBefore(div, lnkEl);
-        document.getElementById(inputId).focus();
-      }
+            return false;
+
+            let extraPhoneCount = 0;
+            function addExtraPhone() {
+              ++extraPhoneCount;
+              const lnkEl = document.getElementById('ekTelefonLinki');
+
+              if (extraPhoneCount === 3) {
+                lnkEl.style.display = 'none';
+              } else if (extraPhoneCount > 3) {
+                return;
+              }
+
+      =======
+              var formData = new FormData(form);
+
+              //open the request
+              xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/yardim');
+              xhr.setRequestHeader('Content-Type', 'application/json');
+
+              // prepare the data
+              const postData = Object.fromEntries(formData);
+              postData.yedekTelefonlar = [];
+              Object.keys(postData).forEach((key) => {
+                if (key.includes('yedekTelefon_')) {
+                  postData.yedekTelefonlar.push(postData[key]);
+                  delete postData[key];
+                }
+              });
+
+              //send the form data
+              xhr.send(JSON.stringify(postData));
+
+              xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                  var status = xhr.status;
+                  var responseBody = JSON.parse(xhr.responseText) || {};
+
+                  // The request has been completed successfully
+                  if (status === 0 || (status >= 200 && status < 400)) {
+                    Swal.fire({
+                      position: 'center',
+                      icon: 'success',
+                      title: responseBody.message || 'Yardım talebiniz başarıyla alındı',
+                      showConfirmButton: false,
+                      timer: 2500,
+                    }).then(function () {
+                      window.location.href = '/yardim-istekleri/enkaz.html';
+                    });
+
+                    form.reset();
+                  } else {
+                    Swal.fire({
+                      title: 'Hata!',
+                      text: responseBody.error || 'Hata Oluştu Tekrar deneyiniz !',
+                      icon: 'error',
+                      confirmButtonText: 'Tamam',
+                    });
+                  }
+                }
+              };
+
+              return false;
+            };
+
+            let extraPhoneCount = 0;
+            function addExtraPhone() {
+              ++extraPhoneCount;
+              const lnkEl = document.getElementById('ekTelefonLinki');
+
+              if (extraPhoneCount === 3) {
+                lnkEl.style.display = 'none';
+              } else if (extraPhoneCount > 3) {
+                return;
+              }
+
+      >>>>>>> main
+              const div = document.createElement('div');
+              const inputId = 'yedekTelefon_' + extraPhoneCount;
+              div.className = 'form-col';
+              div.innerHTML =
+                '<label for="' +
+                inputId +
+                '">Telefon (' +
+                (extraPhoneCount + 1) +
+                '):</label>' +
+                '<input type="tel" class="form-control" id="' +
+                inputId +
+                '" name="' +
+                inputId +
+                '" placeholder="Telefon">';
+              document.getElementById('yedekTelefonlar').insertBefore(div, lnkEl);
+              document.getElementById(inputId).focus();
+            }
     </script>
   </body>
 </html>
