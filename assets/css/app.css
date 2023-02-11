@@ -302,6 +302,7 @@ section {
   text-decoration: none;
   flex: 1 1 100%;
   transition: all 0.3s ease;
+  max-width: 475px;
 }
 
 .cards .card:hover {
