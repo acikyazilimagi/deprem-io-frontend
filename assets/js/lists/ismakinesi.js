@@ -195,7 +195,7 @@ function getRowHtml(item) {
     durumMessage = 'Yardım Yapıldı';
   }
   let value = '';
-  if (item.yardimTipi === 'yolcuTasima') {
+  if (item.yardimTipi === 'yolcuTasima' || item.yardimTipi === 'gidaSaglama') {
     value = item.sehir + ' -> ' + item.hedefSehir;
   } else value = item.sehir;
 

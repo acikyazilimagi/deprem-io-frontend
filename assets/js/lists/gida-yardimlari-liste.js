@@ -1,7 +1,12 @@
+//const API_URL = "https://deprem-27jjydhzba-ew.a.run.app/";
 const API_URL = 'https://deprem-27jjydhzba-ew.a.run.app/';
 
 const filterButton = document.querySelector('#filter-button');
-const filterTargetCity = document.querySelector('#filter-hedef-sehir');
+const filterHelpType = document.querySelector('#filter-help-type');
+const filterHelpQ = document.querySelector('#filter-help-q');
+const filterHelpStatus = document.querySelector('#filter-help-status');
+const filterLocation = document.querySelector('#filter-help-location');
+const filterDest = document.querySelector('#filter-help-dest');
 
 const paginationPrevButton = document.querySelector('#pagination-prev');
 const paginationNextButton = document.querySelector('#pagination-next');
@@ -23,7 +28,7 @@ ready(function () {
 filterButton.addEventListener('click', function (e) {
   e.preventDefault();
 
-  getRows();
+  getFilteredRows();
 });
 
 paginationNextButton.addEventListener('click', function (e) {
@@ -55,14 +60,13 @@ function getRows(page, limit) {
   limit = limit || 10;
 
   var totalPage = 0;
-  var targetCity = filterTargetCity.value;
+  var helpType = filterHelpType.value;
 
   // get items
   getData(API_URL + 'yardimet', [
     { key: 'page', value: page },
     { key: 'limit', value: limit },
-    { key: 'yardimTipi', value: 'gidaSaglama' },
-    { key: 'hedefSehir', value: targetCity },
+    { key: 'yardimTipi', value: helpType },
   ])
     .then((items) => {
       // update total page value
@@ -74,6 +78,54 @@ function getRows(page, limit) {
       listWrapper.innerHTML = '';
 
       items.data.forEach(function (item) {
+        listWrapper.innerHTML += getRowHtml(item);
+      });
+    })
+    .finally(() => {
+      // update pagination info in html
+      paginationCurrentPage.innerHTML = page;
+      paginationTotalPage.innerHTML = totalPage;
+    });
+}
+
+function getFilteredRows(page, limit) {
+  page = page || 1;
+  limit = limit || 10;
+
+  var totalPage = 0;
+  var helpType = filterHelpType.value;
+  var helpQ = filterHelpQ.value;
+  var helpStatus = filterHelpStatus.value;
+  var location = '';
+  var dest = '';
+
+  if (filterLocation) {
+    location = filterLocation.value;
+  }
+
+  if (filterDest) {
+    dest = filterDest.value;
+  }
+
+  console.log(dest);
+
+  // get items
+  getData(API_URL + 'ara-yardimet/', [
+    { key: 'q', value: helpQ },
+    { key: 'yardimDurumu', value: helpStatus },
+    { key: 'yardimTipi', value: helpType },
+    { key: 'sehir', value: location },
+    { key: 'hedefSehir', value: dest },
+  ])
+    .then((items) => {
+      console.log(items);
+      // update total page value
+      totalPage = items.totalPage;
+      var listWrapper = document.querySelector('.list');
+      // clear listWrapper html
+      listWrapper.innerHTML = '';
+
+      items.forEach(function (item) {
         listWrapper.innerHTML += getRowHtml(item);
       });
     })
@@ -131,12 +183,29 @@ function getData(url, params) {
 }
 
 function getRowHtml(item) {
+  var classColor;
+  var durumMessage;
+  if (item.yardimDurumu === 'bekleniyor') {
+    classColor = 'status-ok';
+    durumMessage = 'Yardıma Hazır';
+  } else if (item.yardimDurumu === 'yolda') {
+    classColor = 'status-waiting';
+  } else if (item.yardimDurumu === 'yapildi') {
+    classColor = 'status-unknown';
+    durumMessage = 'Yardım Yapıldı';
+  }
+  let value = '';
+  if (item.yardimTipi === 'yolcuTasima' || item.yardimTipi === 'gidaSaglama') {
+    value = item.sehir + ' -> ' + item.hedefSehir;
+    console.log(value)
+  } else value = item.sehir;
+
   return `<div class="list-item">
     <div class="list-row">
         <div class="list-col">
             <div class="list-col">
-                <span class="status status-waiting" style="text-transform: capitalize;">
-                    <i></i>Yardım ${item.yardimDurumu} 
+                <span class="status ${classColor}">
+                    <i></i> ${item.yardimTipi} - <span class="emergency">${durumMessage}</span>
                 </span>
             </div>
             <div class="list-col">
@@ -144,7 +213,6 @@ function getRowHtml(item) {
                     ${item.adSoyad}
                 </span>
             </div>
-            
             <div class="list-col">
                 <span >
                     ${item.telefon}
@@ -152,9 +220,9 @@ function getRowHtml(item) {
             </div>
         </div>
         <div class="list-col btn-detail-wrap">
-            <a href="#" class="btn-detail">
-                Detaya Git
-            </a>
+        <a href="../../../yardim-detay/detay.html?id=${item._id}&type=yardimet/" class="btn-detail">
+        Detaya Git
+       </a>
         </div>
     </div>
     <div class="list-row">
@@ -162,11 +230,7 @@ function getRowHtml(item) {
             <div class="list-col">
                 <span class="icon-line">
                     <i class="icon icon-pin blue"></i>
-                    ${item.hedefSehir} - ${item.fields.adres} ${item.adres.length > 20 ? '...' : ''}
-                </span>
-                <span class="icon-line">
-                <svg style="margin-right: 4px;" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill='rgba(71, 101, 255)' viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>               
-                ${item.aciklama}
+                    ${value} 
                 </span>
             </div>
             <div class="list-col">
@@ -175,6 +239,14 @@ function getRowHtml(item) {
                     ${parseTime(item.updatedAt)}
                 </span>
             </div>
+            <div class="list-col">
+                <span class="icon-line">
+                #${item._id}
+                </span>
+            </div>
+        </div>
+        <div class="list-col btn-detail-wrap" style="visibility: hidden;">
+        Detaya Git
         </div>
     </div>
 </div>`;
