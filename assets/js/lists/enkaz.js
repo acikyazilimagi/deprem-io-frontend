@@ -139,9 +139,12 @@ function getFilteredRows(page, limit) {
       // clear listWrapper html
       listWrapper.innerHTML = '';
 
+      let count = 0;
       items.forEach(function (item) {
         listWrapper.innerHTML += getRowHtml(item);
+        count++;
       });
+      filteredCount.innerHTML = count;
     })
     .finally(() => {
       // update pagination info in html
