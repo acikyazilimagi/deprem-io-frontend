@@ -8,7 +8,7 @@ const tel = document.getElementById('telefon');
 const kisiSayisi = document.getElementById('kisiSayisi').getElementsByTagName('input')[0];
 const adres = document.getElementById('adres');
 const adresTarifi = document.getElementById('adresTarifi').getElementsByTagName('input')[0];
-const googleMapLink = document.getElementById('googleMap').getElementsByTagName('a')[0];
+const googleMapsLink = document.querySelector('#google-maps-link');
 const aciklama = document.getElementById('aciklama').getElementsByTagName('textarea')[0];
 const tweeterLink = document.getElementById('tweetLink').getElementsByTagName('input')[0];
 
@@ -119,9 +119,10 @@ function getItem() {
     kisiSayisi.value = item.kisiSayisi ? item.kisiSayisi : '';
     adres.value = item.adres ? item.adres : '';
     adresTarifi.value = item.adresTarifi ? item.adresTarifi : '';
-    googleMapLink.href = item.googleMapLink ? item.googleMapLink : '';
     aciklama.value = item.aciklama ? item.aciklama : '';
     tweeterLink.value = item.tweetLink ? item.tweetLink : '';
+
+    googleMapsLink.setAttribute('href', item.adres ? `https://www.google.com/maps?q=${item.adres}` : '');
 
     if (sehir) {
       sehir.value = item.sehir ? item.sehir : '';
