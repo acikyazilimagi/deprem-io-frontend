@@ -1,0 +1,65 @@
+body[data-theme='light'] {
+    background-color: #fff;
+}
+
+body[data-theme='light'] * {
+    color: #000 !important
+}
+
+body[data-theme='light'] .button {
+    background-color: #fff !important;
+}
+
+body[data-theme='light'] svg {
+    background-color: #fff !important;
+}
+
+body[data-theme='light'] .card {
+    background-color: #fff !important;
+    border: 1px solid rgba(155, 159, 179, 0.2);
+}
+
+body[data-theme='dark'] {
+    background-color: #000;
+}
+
+body[data-theme='dark'] * {
+    color: #fff !important
+}
+
+body[data-theme='dark'] .button {
+    background-color: #000 !important;
+}
+
+body[data-theme='dark'] svg {
+    background-color: #000 !important;
+}
+
+body[data-theme='dark'] .card {
+    background-color: #000 !important;
+    border: 1px solid rgba(155, 159, 179, 0.2);
+}
+
+.moon_icon {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+}
+
+.moon_icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.sun_icon {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+}
+
+.sun_icon svg {
+    width: 32px;
+    height: 32px;
+}
