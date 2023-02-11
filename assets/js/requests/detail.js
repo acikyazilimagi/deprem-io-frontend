@@ -104,7 +104,7 @@ function getItem() {
     if (item.yardimTipi === 'yolcuTasima') {
       document.getElementById('addressField').style.display = 'none';
       document.getElementById('cityField').style.display = 'grid';
-    } else if (item.yardimTipi === 'isMakinasi') {
+    } else if (item.yardimTipi === 'isMakinasi' || item.yardimTipi === 'konaklama') {
       document.getElementById('addressField').style.display = 'none';
       const cityField = document.getElementById('cityField');
       document.getElementById('hedefSehir').style.display = 'none';
