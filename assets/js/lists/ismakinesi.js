@@ -103,6 +103,8 @@ function getFilteredRows(page, limit) {
     location = filterLocation.value;
   }
 
+  console.log(location);
+
   if (filterDest) {
     dest = filterDest.value;
   }
