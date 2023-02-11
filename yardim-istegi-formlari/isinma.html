@@ -194,6 +194,7 @@
                   value="1"
                   min="1"
                   max="1024"
+                  onkeydown="javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'"
                   maxlength="4"
                   class="form-control"
                   id="kisiSayisi"

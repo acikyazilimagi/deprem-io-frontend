@@ -191,6 +191,7 @@
                 <label for="kisiSayisi">Kişi Sayısı:</label>
                 <input
                   type="number"
+                  onkeydown="javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'"
                   value="1"
                   min="1"
                   max="1024"
