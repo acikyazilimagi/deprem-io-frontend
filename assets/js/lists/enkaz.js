@@ -13,6 +13,9 @@ const paginationPrevButton = document.querySelector('#pagination-prev');
 const paginationNextButton = document.querySelector('#pagination-next');
 const paginationCurrentPage = document.querySelector('#pagination-current-page');
 const paginationTotalPage = document.querySelector('#pagination-total-page');
+const filteredCount = document.querySelector('#list-info-filtered');
+
+const enkazForm = document.querySelector('#enkaz-form');
 
 function ready(fn) {
   if (document.readyState !== 'loading') {
@@ -27,6 +30,12 @@ ready(function () {
 });
 
 filterButton.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  getFilteredRows();
+});
+
+enkazForm.addEventListener('submit', function (e) {
   e.preventDefault();
 
   getFilteredRows();
