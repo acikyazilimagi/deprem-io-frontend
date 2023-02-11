@@ -148,6 +148,7 @@
                     name="adSoyad"
                     placeholder="* İsim & Soyisim"
                     required
+                    oninvalid="this.setCustomValidity('Lütfen bu alanı doldurun.')"
                   />
                 </div>
                 <div class="form-col">
@@ -255,7 +256,9 @@
                   id="yardim-bilgi"
                   name="aciklama"
                   placeholder="* Yardımın Hakkında Bilgi"
-                required/>
+                  required
+                  oninvalid="this.setCustomValidity('Lütfen bu alanı doldurun.')"
+                />
               </div>
 
               <p class="aydinlatma">
