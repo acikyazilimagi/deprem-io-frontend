@@ -13,6 +13,7 @@ const paginationPrevButton = document.querySelector('#pagination-prev');
 const paginationNextButton = document.querySelector('#pagination-next');
 const paginationCurrentPage = document.querySelector('#pagination-current-page');
 const paginationTotalPage = document.querySelector('#pagination-total-page');
+const filteredCount = document.querySelector('#list-info-filtered');
 
 function ready(fn) {
   if (document.readyState !== 'loading') {

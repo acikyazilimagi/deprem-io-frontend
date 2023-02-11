@@ -107,7 +107,7 @@ function getFilteredRows(page, limit) {
     dest = filterDest.value;
   }
 
-  console.log(dest);
+  console.log('DEST:  ', dest);
 
   // get items
   getData(API_URL + 'ara-yardimet/', [
@@ -197,7 +197,7 @@ function getRowHtml(item) {
   let value = '';
   if (item.yardimTipi === 'yolcuTasima' || item.yardimTipi === 'gidaSaglama') {
     value = item.sehir + ' -> ' + item.hedefSehir;
-    console.log(value)
+    console.log(value);
   } else value = item.sehir;
 
   return `<div class="list-item">
