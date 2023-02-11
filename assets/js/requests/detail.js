@@ -1,31 +1,19 @@
 const API_URL = 'https://deprem-27jjydhzba-ew.a.run.app/';
 
-const title = document.getElementById("title");
-const status = document.getElementById("status");
-const adSoyad = document.getElementById("adSoyad");
-const email = document.getElementById("email");
-const tel = document.getElementById("telefon");
-const kisiSayisi = document
-  .getElementById("kisiSayisi")
-  .getElementsByTagName("input")[0];
-const adres = document.getElementById("adres");
-const adresTarifi = document
-  .getElementById("adresTarifi")
-  .getElementsByTagName("input")[0];
-const googleMapLink = document
-  .getElementById("googleMap")
-  .getElementsByTagName("a")[0];
-const aciklama = document
-  .getElementById("aciklama")
-  .getElementsByTagName("textarea")[0];
-const tweeterLink = document
-  .getElementById("tweetLink")
-  .getElementsByTagName("input")[0];
+const title = document.getElementById('title');
+const status = document.getElementById('status');
+const adSoyad = document.getElementById('adSoyad');
+const email = document.getElementById('email');
+const tel = document.getElementById('telefon');
+const kisiSayisi = document.getElementById('kisiSayisi').getElementsByTagName('input')[0];
+const adres = document.getElementById('adres');
+const adresTarifi = document.getElementById('adresTarifi').getElementsByTagName('input')[0];
+const googleMapLink = document.getElementById('googleMap').getElementsByTagName('a')[0];
+const aciklama = document.getElementById('aciklama').getElementsByTagName('textarea')[0];
+const tweeterLink = document.getElementById('tweetLink').getElementsByTagName('input')[0];
 
-const sehir = document.getElementById("sehir");
-const hedefSehir = document
-  .getElementById("hedefSehir")
-  .getElementsByTagName("input")[0];
+const sehir = document.getElementById('sehir');
+const hedefSehir = document.getElementById('hedefSehir').getElementsByTagName('input')[0];
 
 const updatedDate = document.getElementById('updatedDate');
 const createdDate = document.getElementById('createdDate');
@@ -51,23 +39,19 @@ function getItem() {
   });
   let type = params.type;
   const id = params.id;
-  if (type === "yardimet/") {
-    document.getElementById("kisiSayisi").style.display = "none";
-    document.getElementById("googleMap").style.display = "none";
-    document
-      .getElementsByClassName("acilDurumRadioWrapper")[0]
-      .setAttribute("style", "display:none !important");
-    document.getElementById("adresTarifi").style.display = "none";
-    document
-      .getElementsByClassName("arabaDurum")[0]
-      .setAttribute("style", "display:none !important");
-    document.getElementById("tweetLink").style.display = "none";
+  if (type === 'yardimet/') {
+    document.getElementById('kisiSayisi').style.display = 'none';
+    document.getElementById('googleMap').style.display = 'none';
+    document.getElementsByClassName('acilDurumRadioWrapper')[0].setAttribute('style', 'display:none !important');
+    document.getElementById('adresTarifi').style.display = 'none';
+    document.getElementsByClassName('arabaDurum')[0].setAttribute('style', 'display:none !important');
+    document.getElementById('tweetLink').style.display = 'none';
   }
 
   // get items
   getData(API_URL + type + id).then((item) => {
     const yardimKayitlari = item.yardimKaydi;
-    if (type === "yardim/") {
+    if (type === 'yardim/') {
       item = item.results;
       item.aciklama = item.fizikiDurum;
     } else {
@@ -76,6 +60,20 @@ function getItem() {
 
     const acilDurum = item.acilDurum;
     const yardimDurum = item.yardimDurumu;
+    const aracDurum = item.fields.aracDurumu;
+    console.log(aracDurum);
+    status.getElementsByTagName('p')[0].innerHTML = yardimDurum + ' - ' + acilDurum;
+
+    if (aracDurum === 'var') {
+      document.getElementById('araciVar').checked = true;
+      document.getElementById('araciYok').disabled = true;
+    } else if (aracDurum === 'yok') {
+      document.getElementById('araciVar').disabled = true;
+      document.getElementById('araciYok').checked = true;
+    } else {
+      document.getElementById('araciVar').disabled = true;
+      document.getElementById('araciYok').disabled = true;
+    }
 
     status.getElementsByTagName('p')[0].innerHTML = yardimDurum + ' - ' + acilDurum;
     if (acilDurum === 'kritik') {
@@ -103,15 +101,15 @@ function getItem() {
       status.getElementsByTagName('span')[0].style.backgroundColor = blue;
       status.getElementsByTagName('p')[0].style.color = blue;
     }
-    if (item.yardimTipi === "yolcuTasima") {
-      document.getElementById("addressField").style.display = "none";
-      document.getElementById("cityField").style.display = "grid";
-    } else if (item.yardimTipi === "isMakinasi") {
-      document.getElementById("addressField").style.display = "none";
-      const cityField = document.getElementById("cityField");
-      document.getElementById("hedefSehir").style.display = "none";
-      cityField.classList.remove("form-col-2");
-      cityField.style.display = "grid";
+    if (item.yardimTipi === 'yolcuTasima') {
+      document.getElementById('addressField').style.display = 'none';
+      document.getElementById('cityField').style.display = 'grid';
+    } else if (item.yardimTipi === 'isMakinasi') {
+      document.getElementById('addressField').style.display = 'none';
+      const cityField = document.getElementById('cityField');
+      document.getElementById('hedefSehir').style.display = 'none';
+      cityField.classList.remove('form-col-2');
+      cityField.style.display = 'grid';
     }
 
     title.innerHTML = item.yardimTipi + ' Yardımı Detay';
