@@ -691,7 +691,7 @@ section {
 .list-item {
   display: flex;
   flex-direction: column;
-  background: rgba(44, 46, 60, 0.3);
+  box-shadow: 0 1px 5px -2px rgba(52, 59, 111, 0.25);
   border-radius: 10px;
   padding: 10px;
   gap: 10px;
