@@ -592,9 +592,10 @@ section {
 
 .list-head .list-head-filters {
   padding: 10px;
-  background: rgba(44, 46, 60, 0.15);
+  background: rgba(255, 255, 255);
   border-radius: 10px;
   margin-bottom: 20px;
+  box-shadow: 0 5px 12px -2px rgba(0, 0, 0, 0.15);
 }
 
 .list-head .list-head-filters .form {
