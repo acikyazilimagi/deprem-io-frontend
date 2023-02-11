@@ -39,7 +39,7 @@ function getItem() {
   });
   let type = params.type;
   const id = params.id;
-  if (type === 'yardimet/') {
+  if (type === 'yardimet') {
     document.getElementById('kisiSayisi').style.display = 'none';
     document.getElementById('googleMap').style.display = 'none';
     document.getElementsByClassName('acilDurumRadioWrapper')[0].setAttribute('style', 'display:none !important');
@@ -49,9 +49,9 @@ function getItem() {
   }
 
   // get items
-  getData(API_URL + type + id).then((item) => {
-    const yardimKayitlari = item.yardimKaydi;
-    if (type === 'yardim/') {
+  getData(API_URL + type + '/' + id).then((item) => {
+    const yardimKayitlari = item.yardimKaydi ?? [];
+    if (type === 'yardim') {
       item = item.results;
       item.aciklama = item.fizikiDurum;
     } else {
@@ -61,8 +61,12 @@ function getItem() {
     const acilDurum = item.acilDurum;
     const yardimDurum = item.yardimDurumu;
     const aracDurum = item.fields.aracDurumu;
-    console.log(aracDurum);
-    status.getElementsByTagName('p')[0].innerHTML = yardimDurum + ' - ' + acilDurum;
+
+    if (type==='yardim') {
+      status.getElementsByTagName('p')[0].innerHTML = yardimDurum + ' - ' + acilDurum;
+    } else {
+      status.getElementsByTagName('p')[0].innerHTML = yardimDurum;
+    }
 
     if (aracDurum === 'var') {
       document.getElementById('araciVar').checked = true;
@@ -75,7 +79,6 @@ function getItem() {
       document.getElementById('araciYok').disabled = true;
     }
 
-    status.getElementsByTagName('p')[0].innerHTML = yardimDurum + ' - ' + acilDurum;
     if (acilDurum === 'kritik') {
       document.getElementById('kritik').checked = true;
       document.getElementById('orta').disabled = true;

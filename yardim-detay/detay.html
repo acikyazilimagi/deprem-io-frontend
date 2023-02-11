@@ -497,11 +497,28 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css" rel="stylesheet" />
     <script>
       var form = document.getElementById('yardimKayitForm');
+      // get id from url and append postId to formData
+      var urlParams = new URLSearchParams(window.location.search);
+      var id = urlParams.get('id');
+      var type = urlParams.get('type');
+
+      var apiUrl = 'https://deprem-27jjydhzba-ew.a.run.app/';
+
+      if (type == 'yardim') {
+        apiUrl += 'ekleYardimKaydi';
+      } else {
+        apiUrl += 'ekleYardimEtKaydi';
+      }
+
       form.onsubmit = function (event) {
         var xhr = new XMLHttpRequest();
         var formData = new FormData(form);
+
+        //append postId to formData
+        formData.append('postId', id);
+
         //open the request
-        xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/ekleYardimEtKaydi');
+        xhr.open('POST', apiUrl);
         xhr.setRequestHeader('Content-Type', 'application/json');
 
         //send the form data
