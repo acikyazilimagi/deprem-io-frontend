@@ -124,7 +124,7 @@
           <div class="form">
             <small>* İle başlayan alanlar zorunludur.</small>
 
-            <form id="konaklamaForm">
+            <form id="form">
               <input type="text" name="yardimTipi" value="konaklama" style="display: none" readonly />
               <input type="text" name="yardimDurumu" value="bekleniyor" style="display: none" readonly />
 
@@ -303,9 +303,10 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css" rel="stylesheet" />
+    <script src="../assets/js/requests/formSubmission.js"></script>
     <script>
       var form = document.getElementById('form');
-      form.onsubmit = (event) => submission(event, 'yardimet', '/yardim-saglayanlar/gida-yardimlari-liste.html');
+      form.onsubmit = (event) => submission(event, 'yardimet', '/yardim-saglayanlar/konaklama.html');
       let extraPhoneCount = 0;
     </script>
     <script src="../assets/js/app.js?v=1"></script>
