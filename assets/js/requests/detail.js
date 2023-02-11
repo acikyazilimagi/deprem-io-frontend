@@ -64,17 +64,6 @@ function getItem() {
     console.log(aracDurum);
     status.getElementsByTagName('p')[0].innerHTML = yardimDurum + ' - ' + acilDurum;
 
-    if (aracDurum === 'var') {
-      document.getElementById('araciVar').checked = true;
-      document.getElementById('araciYok').disabled = true;
-    } else if (aracDurum === 'yok') {
-      document.getElementById('araciVar').disabled = true;
-      document.getElementById('araciYok').checked = true;
-    } else {
-      document.getElementById('araciVar').disabled = true;
-      document.getElementById('araciYok').disabled = true;
-    }
-
     status.getElementsByTagName('p')[0].innerHTML = yardimDurum + ' - ' + acilDurum;
     if (acilDurum === 'kritik') {
       document.getElementById('kritik').checked = true;
