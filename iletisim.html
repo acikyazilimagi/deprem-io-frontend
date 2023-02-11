@@ -162,7 +162,7 @@
               </p>
             </div>
 
-            <form id="iletisimForm">
+            <form id="form">
               <div class="form-col">
                 <label for="adSoyad">* İsim & Soyisim:</label>
                 <input
@@ -264,7 +264,11 @@
       </div>
     </footer>
     <script src="assets/js/app.js?v=1"></script>
-    <script src="assets/js/requests/iletisim.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
+    <script src="../assets/js/requests/formSubmission.js"></script>
+    <script>
+      var form = document.getElementById('form');
+      form.onsubmit = (event) => submission(event, "iletisim");
+    </script>
   </body>
 </html>
