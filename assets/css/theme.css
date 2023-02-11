@@ -23,6 +23,10 @@ body[data-theme='dark'] {
   background-color: #000;
 }
 
+body[data-theme='dark'] .list-head-filters {
+  background-color: rgba(44, 46, 60, 0.15);
+}
+
 body[data-theme='dark'] * {
   color: #fff !important;
 }
