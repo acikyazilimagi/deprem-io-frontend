@@ -44,7 +44,7 @@ function getItem() {
     document.getElementById('googleMap').style.display = 'none';
     document.getElementsByClassName('acilDurumRadioWrapper')[0].setAttribute('style', 'display:none !important');
     document.getElementById('adresTarifi').style.display = 'none';
-    document.getElementsByClassName('arabaDurum')[0].setAttribute('style', 'display:none !important');
+    document.getElementsByClassName('arabaDurum')[0]?.setAttribute('style', 'display:none !important');
     document.getElementById('tweetLink').style.display = 'none';
   }
 
