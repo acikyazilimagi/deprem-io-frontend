@@ -301,80 +301,13 @@
         <p>Deprem İmece Platformu © 2023</p>
       </div>
     </footer>
-    <script src="/assets/js/app.js?v=1"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css" rel="stylesheet" />
     <script>
-      var form = document.getElementById('konaklamaForm');
-      form.onsubmit = function (event) {
-        var xhr = new XMLHttpRequest();
-
-        let phoneNum = form.telefon.value;
-        phoneNum = phoneNum.replace(/\s/g, '');
-
-        if (phoneNum.charAt(0) === '0') {
-          phoneNum = phoneNum.slice(1);
-        }
-
-        if (phoneNum && (phoneNum.length !== 10 || phoneNum.charAt(0) !== '5')) {
-          Swal.fire({
-            title: 'Hata!',
-            text: 'Geçerli bir telefon numarası giriniz ya da boş bırakınız !',
-            icon: 'error',
-            confirmButtonText: 'Tamam',
-          });
-          return false;
-        } else {
-          form.telefon.value = phoneNum;
-        }
-
-        var formData = new FormData(form);
-
-        //open the request
-        xhr.open('POST', 'https://deprem-27jjydhzba-ew.a.run.app/yardimet');
-        xhr.setRequestHeader('Content-Type', 'application/json');
-
-        //send the form data
-        xhr.send(JSON.stringify(Object.fromEntries(formData)));
-
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === XMLHttpRequest.DONE) {
-            var status = xhr.status;
-            var responseBody = JSON.parse(xhr.responseText) || {};
-
-            // The request has been completed successfully
-            if (status === 0 || (status >= 200 && status < 400)) {
-              Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: responseBody.message || 'Yardım talebiniz başarıyla alındı',
-                showConfirmButton: false,
-                timer: 2500,
-              });
-
-              form.reset();
-            } else {
-              Swal.fire({
-                title: 'Hata!',
-                text: responseBody.error || 'Hata Oluştu Tekrar deneyiniz !',
-                icon: 'error',
-                confirmButtonText: 'Tamam',
-              });
-            }
-          }
-        };
-
-        if (phoneNum && (phoneNum.length !== 10 || phoneNum.charAt(0) !== '5')) {
-          Swal.fire({
-            title: 'Hata!',
-            text: 'Geçerli bir telefon numarası giriniz !',
-            icon: 'error',
-            confirmButtonText: 'Tamam',
-          });
-        }
-
-        return false;
-      };
+      var form = document.getElementById('form');
+      form.onsubmit = (event) => submission(event, 'yardimet', '/yardim-saglayanlar/gida-yardimlari-liste.html');
+      let extraPhoneCount = 0;
     </script>
+    <script src="../assets/js/app.js?v=1"></script>
   </body>
 </html>
