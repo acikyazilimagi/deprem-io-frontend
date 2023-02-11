@@ -141,7 +141,9 @@
             </div>
             <div class="form-row">
               <label for="kisiSayisi">Kişi Sayısı:</label>
-              <input type="text" class="form-control" id="kisiSayisi" name="kisiSayisi" placeholder="Kişi Sayısı">
+              <input type="number" value="1" min="1" max="1024"
+                onkeydown="javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'"
+                maxlength="4" class="form-control" id="kisiSayisi" name="kisiSayisi" placeholder="Kişi Sayısı" />
             </div>
             <div class="form-row">
               <label for="adres">* Adres:</label>

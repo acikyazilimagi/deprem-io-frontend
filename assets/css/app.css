@@ -441,6 +441,7 @@ section {
   padding: 10px 20px;
   font-weight: bold;
   color: rgba(69, 100, 252, 0.5);
+  -webkit-appearance: none;
 }
 
 .form input:hover,
@@ -813,7 +814,7 @@ section {
   text-decoration: underline;
 }
 
-.whiteLink{
+.whiteLink {
   color: white;
 }
 
@@ -1082,3 +1083,19 @@ footer > div > nav > ul > li {
   margin-bottom: 20px;
   font-size: 15px;
 }
+
+/* <-- Hiding counter spinner --> */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/*  <-- Hiding counter spinner --> */
