@@ -1,7 +1,6 @@
 var API_URL = 'https://deprem-27jjydhzba-ew.a.run.app/';
 
 var form = document.getElementById('enkazForm');
-console.log(form);
 form.onsubmit = function (event) {
   var xhr = new XMLHttpRequest();
   var formData = new FormData(form);
