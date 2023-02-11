@@ -10,6 +10,10 @@ body[data-theme='light'] .button {
   background-color: #fff !important;
 }
 
+body[data-theme='light'] .important {
+  color: rgba(71, 101, 255, 1) !important;
+}
+
 body[data-theme='light'] svg {
   background-color: #fff !important;
 }
