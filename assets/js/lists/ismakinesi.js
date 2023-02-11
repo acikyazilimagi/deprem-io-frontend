@@ -194,6 +194,10 @@ function getRowHtml(item) {
     classColor = 'status-unknown';
     durumMessage = 'Yardım Yapıldı';
   }
+  let value = '';
+  if (item.yardimTipi === 'yolcuTasima') {
+    value = item.sehir + ' -> ' + item.hedefSehir;
+  } else value = item.sehir;
 
   return `<div class="list-item">
     <div class="list-row">
@@ -225,7 +229,7 @@ function getRowHtml(item) {
             <div class="list-col">
                 <span class="icon-line">
                     <i class="icon icon-pin blue"></i>
-                    ${item.adres} - ${item.adresTarifi}
+                    ${value} 
                 </span>
             </div>
             <div class="list-col">
@@ -234,6 +238,14 @@ function getRowHtml(item) {
                     ${parseTime(item.updatedAt)}
                 </span>
             </div>
+            <div class="list-col">
+                <span class="icon-line">
+                #${item._id}
+                </span>
+            </div>
+        </div>
+        <div class="list-col btn-detail-wrap" style="visibility: hidden;">
+        Detaya Git
         </div>
     </div>
 </div>`;

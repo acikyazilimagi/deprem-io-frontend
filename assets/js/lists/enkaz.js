@@ -233,6 +233,9 @@ function getRowHtml(item) {
                 </span>
             </div>
         </div>
+        <div class="list-col btn-detail-wrap" style="visibility: hidden;">
+        Detaya Git
+        </div>
     </div>
 </div>`;
 }
