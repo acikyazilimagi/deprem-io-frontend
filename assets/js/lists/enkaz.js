@@ -1,25 +1,24 @@
 //const API_URL = "https://deprem-27jjydhzba-ew.a.run.app/";
-const API_URL = "https://deprem-27jjydhzba-ew.a.run.app/";
+const API_URL = 'https://deprem-27jjydhzba-ew.a.run.app/';
+//const API_URL = "http://localhost:8080/";
 
-const filterButton = document.querySelector("#filter-button");
-const filterHelpType = document.querySelector("#filter-help-type");
-const filterHelpQ = document.querySelector("#filter-help-q");
-const filterHelpStatus = document.querySelector("#filter-help-status");
-const filterHelpEmergence = document.querySelector("#filter-help-emergence");
-const filterVehicle = document.querySelector("#filter-vehicle");
+const filterButton = document.querySelector('#filter-button');
+const filterHelpType = document.querySelector('#filter-help-type');
+const filterHelpQ = document.querySelector('#filter-help-q');
+const filterHelpStatus = document.querySelector('#filter-help-status');
+const filterHelpEmergence = document.querySelector('#filter-help-emergence');
+const filterVehicle = document.querySelector('#filter-help-vehicle');
 
-const paginationPrevButton = document.querySelector("#pagination-prev");
-const paginationNextButton = document.querySelector("#pagination-next");
-const paginationCurrentPage = document.querySelector(
-  "#pagination-current-page"
-);
-const paginationTotalPage = document.querySelector("#pagination-total-page");
+const paginationPrevButton = document.querySelector('#pagination-prev');
+const paginationNextButton = document.querySelector('#pagination-next');
+const paginationCurrentPage = document.querySelector('#pagination-current-page');
+const paginationTotalPage = document.querySelector('#pagination-total-page');
 
 function ready(fn) {
-  if (document.readyState !== "loading") {
+  if (document.readyState !== 'loading') {
     fn();
   } else {
-    document.addEventListener("DOMContentLoaded", fn);
+    document.addEventListener('DOMContentLoaded', fn);
   }
 }
 
@@ -27,13 +26,13 @@ ready(function () {
   getRows();
 });
 
-filterButton.addEventListener("click", function (e) {
+filterButton.addEventListener('click', function (e) {
   e.preventDefault();
 
   getFilteredRows();
 });
 
-paginationNextButton.addEventListener("click", function (e) {
+paginationNextButton.addEventListener('click', function (e) {
   e.preventDefault();
 
   var currentPage = parseInt(paginationCurrentPage.innerHTML);
@@ -45,7 +44,7 @@ paginationNextButton.addEventListener("click", function (e) {
   getRows(currentPage + 1);
 });
 
-paginationPrevButton.addEventListener("click", function (e) {
+paginationPrevButton.addEventListener('click', function (e) {
   e.preventDefault();
 
   var currentPage = parseInt(paginationCurrentPage.innerHTML);
@@ -65,19 +64,19 @@ function getRows(page, limit) {
   var helpType = filterHelpType.value;
 
   // get items
-  getData(API_URL + "yardim", [
-    { key: "page", value: page },
-    { key: "limit", value: limit },
-    { key: "yardimTipi", value: helpType },
+  getData(API_URL + 'yardim', [
+    { key: 'page', value: page },
+    { key: 'limit', value: limit },
+    { key: 'yardimTipi', value: helpType },
   ])
     .then((items) => {
       // update total page value
       totalPage = items.totalPage;
-      console.log("STARTED");
-      var listWrapper = document.querySelector(".list");
-      console.log("STARTED");
+      console.log('STARTED');
+      var listWrapper = document.querySelector('.list');
+      console.log('STARTED');
       // clear listWrapper html
-      listWrapper.innerHTML = "";
+      listWrapper.innerHTML = '';
 
       items.data.forEach(function (item) {
         listWrapper.innerHTML += getRowHtml(item);
@@ -99,27 +98,27 @@ function getFilteredRows(page, limit) {
   var helpQ = filterHelpQ.value;
   var helpStatus = filterHelpStatus.value;
   var helpEmergence = filterHelpEmergence.value;
-  var helpVehicle = "";
+  var helpVehicle = '';
 
   if (filterVehicle) {
     helpVehicle = filterVehicle.value;
   }
 
   // get items
-  getData(API_URL + "ara-yardim/", [
-    { key: "q", value: helpQ },
-    { key: "yardimDurumu", value: helpStatus },
-    { key: "yardimTipi", value: helpType },
-    { key: "acilDurum", value: helpEmergence },
-    { key: "aracDurumu", value: helpVehicle },
+  getData(API_URL + 'ara-yardim/', [
+    { key: 'q', value: helpQ },
+    { key: 'yardimDurumu', value: helpStatus },
+    { key: 'yardimTipi', value: helpType },
+    { key: 'acilDurum', value: helpEmergence },
+    { key: 'aracDurumu', value: helpVehicle },
   ])
     .then((items) => {
       console.log(items);
       // update total page value
       totalPage = items.totalPage;
-      var listWrapper = document.querySelector(".list");
+      var listWrapper = document.querySelector('.list');
       // clear listWrapper html
-      listWrapper.innerHTML = "";
+      listWrapper.innerHTML = '';
 
       items.forEach(function (item) {
         listWrapper.innerHTML += getRowHtml(item);
@@ -138,14 +137,14 @@ function parseTime(input) {
   const month = date.getMonth() + 1;
   const day = date.getDate();
   const hour = date.getHours();
-  const minute = date.getMinutes().toString().padStart(2, "0");
+  const minute = date.getMinutes().toString().padStart(2, '0');
 
   const minutesAgo = Math.floor((new Date() - date) / 1000 / 60);
   const daysAgo = Math.floor(minutesAgo / 60 / 24);
 
   if (minutesAgo < 60) {
     if (minutesAgo < 1) {
-      return "az önce";
+      return 'az önce';
     }
     return `${minutesAgo} dakika önce`;
   } else if (daysAgo < 1) {
@@ -157,16 +156,16 @@ function parseTime(input) {
 
 function getData(url, params) {
   if (params) {
-    url += "?";
+    url += '?';
     params.forEach((param) => {
       url += `${param.key}=${param.value}&`;
     });
   }
 
   return fetch(url, {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
   })
     .then((response) => response.json())
@@ -174,19 +173,19 @@ function getData(url, params) {
       return data;
     })
     .catch((error) => {
-      console.error("Error:", error);
+      console.error('Error:', error);
     });
 }
 
 function getRowHtml(item) {
   let classColor;
 
-  if (item.yardimDurumu === "bekleniyor") {
-    classColor = "status-waiting";
-  } else if (item.yardimDurumu === "yolda") {
-    classColor = "status-unknown";
-  } else if (item.yardimDurumu === "yapildi") {
-    classColor = "status-ok";
+  if (item.yardimDurumu === 'bekleniyor') {
+    classColor = 'status-waiting';
+  } else if (item.yardimDurumu === 'yolda') {
+    classColor = 'status-unknown';
+  } else if (item.yardimDurumu === 'yapildi') {
+    classColor = 'status-ok';
   }
 
   return `<div class="list-item">
@@ -194,9 +193,7 @@ function getRowHtml(item) {
         <div class="list-col">
             <div class="list-col">
                 <span class="status ${classColor}">
-                    <i></i> ${item.yardimTipi} - <span class="emergency">${
-    item.acilDurum
-  }</span>
+                    <i></i> ${item.yardimTipi} - <span class="emergency">${item.acilDurum}</span>
                 </span>
             </div>
             <div class="list-col">
@@ -235,6 +232,9 @@ function getRowHtml(item) {
                     #${item._id}
                 </span>
             </div>
+        </div>
+        <div class="list-col btn-detail-wrap" style="visibility: hidden;">
+        Detaya Git
         </div>
     </div>
 </div>`;
