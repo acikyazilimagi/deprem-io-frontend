@@ -15,7 +15,10 @@ const paginationCurrentPage = document.querySelector('#pagination-current-page')
 const paginationTotalPage = document.querySelector('#pagination-total-page');
 const filteredCount = document.querySelector('#list-info-filtered');
 
-const enkazForm = document.querySelector('#enkaz-form');
+const refreshButton = document.querySelector('#refresh-button');
+const form = document.querySelector('#form');
+
+let isFiltered = false;
 
 function ready(fn) {
   if (document.readyState !== 'loading') {
@@ -35,10 +38,17 @@ filterButton.addEventListener('click', function (e) {
   getFilteredRows();
 });
 
-enkazForm.addEventListener('submit', function (e) {
+form.addEventListener('submit', function (e) {
   e.preventDefault();
 
   getFilteredRows();
+});
+
+refreshButton.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  if (!isFiltered && filterHelpQ.value.trim() === '') getRows();
+  else getFilteredRows();
 });
 
 paginationNextButton.addEventListener('click', function (e) {
