@@ -14,6 +14,8 @@ const paginationNextButton = document.querySelector('#pagination-next');
 const paginationCurrentPage = document.querySelector('#pagination-current-page');
 const paginationTotalPage = document.querySelector('#pagination-total-page');
 
+const filteredCountText = document.querySelector('#list-info-filtered');
+
 function ready(fn) {
   if (document.readyState !== 'loading') {
     fn();
@@ -114,6 +116,7 @@ function getFilteredRows(page, limit) {
   ])
     .then((items) => {
       console.log(items);
+      filteredCountText.textContent = items.length;
       // update total page value
       totalPage = items.totalPage;
       var listWrapper = document.querySelector('.list');
