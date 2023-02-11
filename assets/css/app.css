@@ -1086,6 +1086,17 @@ footer > div > nav > ul > li {
   font-size: 15px;
 }
 
+.mevcutKayitlarButon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+
+  background-color: rgba(71, 101, 255, 0.15);
+  border-radius: 10px;
+}
+
 /* <-- Hiding counter spinner --> */
 
 /* Chrome, Safari, Edge, Opera */
