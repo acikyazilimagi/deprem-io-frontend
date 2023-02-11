@@ -51,8 +51,8 @@ function getItem() {
   // get items
   getData(API_URL + type + id).then((item) => {
     const yardimKayitlari = item.yardimKaydi;
+    item = item.results;
     if (type === 'yardim/') {
-      item = item.results;
       item.aciklama = item.fizikiDurum;
     } else {
       item.email = item.fields.email;
