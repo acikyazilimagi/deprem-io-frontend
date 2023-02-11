@@ -224,7 +224,7 @@ function getRowHtml(item) {
             <div class="list-col">
                 <span class="icon-line">
                     <i class="icon icon-pin blue"></i>
-                    ${item.adres} - ${item.adresTarifi}
+                    ${item.adres} - ${item.adresTarifi} ${item.adresTarifi.length > 20 ? '...' : ''}
                 </span>
             </div>
             <div class="list-col">
