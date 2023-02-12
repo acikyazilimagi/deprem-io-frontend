@@ -105,6 +105,8 @@ function getRows(page, limit) {
 }
 
 function getFilteredRows(page, limit) {
+  if (filterHelpQ.value.trim() === '') return; // Empty inputta filtreleme yapma
+
   page = page || 1;
   limit = limit || 10;
 
