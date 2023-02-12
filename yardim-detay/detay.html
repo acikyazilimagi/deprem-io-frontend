@@ -416,7 +416,7 @@
                 />
               </div>
               <p>Son Durumu Seç</p>
-              <div class="yardimDurum form-row">
+              <div class="cond-render form-row" id="yardimObjectForm" style="display: flex;">
                 <div class="acilDurum-item">
                   <input type="radio" id="yardim-bekleniyor" name="sonDurum" value="yardim-bekleniyor" />
                   <label style="text-transform: capitalize" for="yardim-bekleniyor">Yardım Bekleniyor</label>
@@ -432,6 +432,17 @@
                 <div class="acilDurum-item">
                   <input type="radio" id="yardim-edilemedi" name="sonDurum" value="yardim-edilemedi" />
                   <label style="text-transform: capitalize" for="yardim-edilemedi">Yardım Edilemedi</label>
+                </div>
+              </div>
+
+              <div class="form-row cond-render" id="yardimEtObjectForm" style="display: flex;">
+                <div class="acilDurum-item">
+                  <input type="radio" id="bekleniyor" name="sonDurum" value="bekleniyor" />
+                  <label style="text-transform: capitalize" for="bekleniyor">Yardıma Hazır</label>
+                </div>
+                <div class="acilDurum-item">
+                  <input type="radio" id="yapildi" name="sonDurum" value="yapildi" />
+                  <label style="text-transform: capitalize" for="yapildi">Yardım Etti</label>
                 </div>
               </div>
 

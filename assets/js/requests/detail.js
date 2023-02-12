@@ -137,8 +137,12 @@ function getItem() {
     let endpoint = '';
     if (type == 'gidaSaglama' || type === 'yolcuTasima' || type === 'isMakinasi' || type === 'konaklama') {
       endpoint = 'ekleYardimEtKaydi';
+      document.getElementById('yardimObjectForm').classList.add('cond-render');
+      document.getElementById('yardimEtObjectForm').classList.remove('cond-render');
     } else {
       endpoint = 'ekleYardimKaydi';
+      document.getElementById('yardimObjectForm').classList.remove('cond-render');
+      document.getElementById('yardimEtObjectForm').classList.add('cond-render');
     }
 
     var form = document.getElementById('form');
