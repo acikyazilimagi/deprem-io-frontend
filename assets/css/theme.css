@@ -43,6 +43,10 @@ body[data-theme='dark'] .button {
   background-color: #000 !important;
 }
 
+body[data-theme='dark'] .swal2-title {
+  color: #000 !important;
+}
+
 body[data-theme='dark'] svg {
   background-color: #000 !important;
 }
