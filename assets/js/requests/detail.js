@@ -133,7 +133,7 @@ function getItem() {
   });
 }
 
-function getData(url, params) {
+async function getData(url, params) {
   if (params) {
     url += '?';
     params.forEach((param) => {
@@ -141,19 +141,18 @@ function getData(url, params) {
     });
   }
 
-  return fetch(url, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      return data;
-    })
-    .catch((error) => {
-      console.error('Error:', error);
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error:', error);
+  }
 }
 
 function parseTime(input) {
