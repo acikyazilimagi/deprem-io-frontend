@@ -1,4 +1,4 @@
-var API_URL = 'https://deprem-27jjydhzba-ew.a.run.app/';
+var API_URL = 'depremio-api-1497025856.eu-central-1.elb.amazonaws.com/';
 
 function submission(event, param , redirect) {
   var formData = new FormData(form);
