@@ -56,7 +56,17 @@ function getItem() {
     const acilDurum = item.acilDurum;
     const yardimDurum = item.yardimDurumu;
     const aracDurum = item.fields.aracDurumu ? item.fields.aracDurumu : '';
-    
+
+    if (aracDurum) {
+      var element = document.getElementById('aracDurum');
+      element.classList.remove('cond-render');
+      if (aracDurum === 'var') {
+        document.getElementById('aracDurumVar').checked = true;
+      } else if (aracDurum === 'yok') {
+        document.getElementById('aracDurumYok').checked = true;
+      }
+    }
+
     status.getElementsByTagName('p')[0].innerHTML = yardimDurum + ' - ' + acilDurum;
 
     status.getElementsByTagName('p')[0].innerHTML = yardimDurum + ' - ' + acilDurum;
@@ -135,7 +145,7 @@ function getItem() {
     form.onsubmit = (event) => submission(event, endpoint, window.location.href);
 
     yardimKayitlari.forEach(function (el) {
-    listWrapper.innerHTML += getRowHtml(el);
+      listWrapper.innerHTML += getRowHtml(el);
     });
   });
 }
@@ -198,6 +208,12 @@ function getRowHtml(item) {
             <div class="list-col">
                 <span  >
                    ${item.email} 
+                </span>
+           </div>
+
+           <div class="list-col">
+                <span  >
+                   ${item.sonDurum} 
                 </span>
            </div>
             
