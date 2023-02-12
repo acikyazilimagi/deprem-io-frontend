@@ -1,4 +1,3 @@
-//const API_URL = "https://deprem-27jjydhzba-ew.a.run.app/";
 const API_URL = 'https://deprem-27jjydhzba-ew.a.run.app/';
 
 const filterButton = document.querySelector('#filter-button');
@@ -107,8 +106,6 @@ function getFilteredRows(page, limit) {
     dest = filterDest.value;
   }
 
-  console.log(dest);
-
   // get items
   getData(API_URL + 'ara-yardimet/', [
     { key: 'q', value: helpQ },
@@ -118,7 +115,6 @@ function getFilteredRows(page, limit) {
     { key: 'hedefSehir', value: dest },
   ])
     .then((items) => {
-      console.log(items);
       // update total page value
       totalPage = items.totalPage;
       var listWrapper = document.querySelector('.list');
@@ -197,7 +193,6 @@ function getRowHtml(item) {
   let value = '';
   if (item.yardimTipi === 'yolcuTasima' || item.yardimTipi === 'gidaSaglama') {
     value = item.sehir + ' -> ' + item.hedefSehir;
-    console.log(value)
   } else value = item.sehir;
 
   return `<div class="list-item">

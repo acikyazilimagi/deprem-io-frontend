@@ -75,3 +75,8 @@ body[data-theme='dark'] .card {
   width: 32px;
   height: 32px;
 }
+
+body[data-theme='light'] [type='submit'],
+.list-head .list-head-main .cat-filters .active {
+  color: #fff !important;
+}

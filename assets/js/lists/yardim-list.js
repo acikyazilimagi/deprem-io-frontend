@@ -1,17 +1,22 @@
 const API_URL = 'https://deprem-27jjydhzba-ew.a.run.app/';
-//const API_URL = "http://localhost:8080/";
 
 const filterButton = document.querySelector('#filter-button');
 const filterHelpType = document.querySelector('#filter-help-type');
 const filterHelpQ = document.querySelector('#filter-help-q');
 const filterHelpStatus = document.querySelector('#filter-help-status');
-const filterLocation = document.querySelector('#filter-help-location');
-const filterDest = document.querySelector('#filter-help-dest');
+const filterHelpEmergence = document.querySelector('#filter-help-emergence');
+const filterVehicle = document.querySelector('#filter-help-vehicle');
 
 const paginationPrevButton = document.querySelector('#pagination-prev');
 const paginationNextButton = document.querySelector('#pagination-next');
 const paginationCurrentPage = document.querySelector('#pagination-current-page');
 const paginationTotalPage = document.querySelector('#pagination-total-page');
+const filteredCount = document.querySelector('#list-info-filtered');
+
+const refreshButton = document.querySelector('#refresh-button');
+const form = document.querySelector('#form');
+
+let isFiltered = false;
 
 function ready(fn) {
   if (document.readyState !== 'loading') {
@@ -29,6 +34,19 @@ filterButton.addEventListener('click', function (e) {
   e.preventDefault();
 
   getFilteredRows();
+});
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  getFilteredRows();
+});
+
+refreshButton.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  if (!isFiltered && filterHelpQ.value.trim() === '') getRows();
+  else getFilteredRows();
 });
 
 paginationNextButton.addEventListener('click', function (e) {
@@ -63,7 +81,7 @@ function getRows(page, limit) {
   var helpType = filterHelpType.value;
 
   // get items
-  getData(API_URL + 'yardimet', [
+  getData(API_URL + 'yardim', [
     { key: 'page', value: page },
     { key: 'limit', value: limit },
     { key: 'yardimTipi', value: helpType },
@@ -71,9 +89,7 @@ function getRows(page, limit) {
     .then((items) => {
       // update total page value
       totalPage = items.totalPage;
-
       var listWrapper = document.querySelector('.list');
-
       // clear listWrapper html
       listWrapper.innerHTML = '';
 
@@ -88,36 +104,30 @@ function getRows(page, limit) {
     });
 }
 
-function getFilteredRows(page, limit = 10) {
+function getFilteredRows(page, limit) {
   page = page || 1;
+  limit = limit || 10;
 
   var totalPage = 0;
   var helpType = filterHelpType.value;
   var helpQ = filterHelpQ.value;
   var helpStatus = filterHelpStatus.value;
-  var location = '';
-  var dest = '';
+  var helpEmergence = filterHelpEmergence.value;
+  var helpVehicle = '';
 
-  if (filterLocation) {
-    location = filterLocation.value;
+  if (filterVehicle) {
+    helpVehicle = filterVehicle.value;
   }
-
-  if (filterDest) {
-    dest = filterDest.value;
-  }
-
-  console.log(dest);
 
   // get items
-  getData(API_URL + 'ara-yardimet/', [
+  getData(API_URL + 'ara-yardim/', [
     { key: 'q', value: helpQ },
     { key: 'yardimDurumu', value: helpStatus },
     { key: 'yardimTipi', value: helpType },
-    { key: 'sehir', value: location },
-    { key: 'hedefSehir', value: dest },
+    { key: 'acilDurum', value: helpEmergence },
+    { key: 'aracDurumu', value: helpVehicle },
   ])
     .then((items) => {
-      console.log(items);
       // update total page value
       totalPage = items.totalPage;
       var listWrapper = document.querySelector('.list');
@@ -182,16 +192,14 @@ function getData(url, params) {
 }
 
 function getRowHtml(item) {
-  var classColor;
-  var durumMessage;
+  let classColor;
+
   if (item.yardimDurumu === 'bekleniyor') {
-    classColor = 'status-ok';
-    durumMessage = 'Yardıma Hazır';
-  } else if (item.yardimDurumu === 'yolda') {
     classColor = 'status-waiting';
-  } else if (item.yardimDurumu === 'yapildi') {
+  } else if (item.yardimDurumu === 'yolda') {
     classColor = 'status-unknown';
-    durumMessage = 'Yardım Yapıldı';
+  } else if (item.yardimDurumu === 'yapildi') {
+    classColor = 'status-ok';
   }
 
   return `<div class="list-item">
@@ -199,7 +207,7 @@ function getRowHtml(item) {
         <div class="list-col">
             <div class="list-col">
                 <span class="status ${classColor}">
-                    <i></i> ${item.yardimTipi} - <span class="emergency">${durumMessage}</span>
+                    <i></i> ${item.yardimTipi} - <span class="emergency">${item.acilDurum}</span>
                 </span>
             </div>
             <div class="list-col">
@@ -214,7 +222,7 @@ function getRowHtml(item) {
             </div>
         </div>
         <div class="list-col btn-detail-wrap">
-            <a href="#" class="btn-detail">
+            <a href="../../../yardim-detay/detay.html?id=${item._id}&type=yardim/" class="btn-detail">
                 Detaya Git
             </a>
         </div>
@@ -224,7 +232,9 @@ function getRowHtml(item) {
             <div class="list-col">
                 <span class="icon-line">
                     <i class="icon icon-pin blue"></i>
-                    ${item.adres} - ${item.adresTarifi} ${item.adresTarifi.length > 20 ? '...' : ''}
+                    ${item.adres.slice(0, 20)} - ${item.adresTarifi.slice(0, 20)} ${
+    item.adresTarifi.length > 20 ? '...' : ''
+  }
                 </span>
             </div>
             <div class="list-col">
@@ -233,6 +243,14 @@ function getRowHtml(item) {
                     ${parseTime(item.updatedAt)}
                 </span>
             </div>
+            <div class="list-col">
+                <span class="icon-line">
+                    #${item._id}
+                </span>
+            </div>
+        </div>
+        <div class="list-col btn-detail-wrap" style="visibility: hidden;">
+        Detaya Git
         </div>
     </div>
 </div>`;

@@ -162,7 +162,7 @@
               </p>
             </div>
 
-            <form id="iletisimForm">
+            <form id="form">
               <div class="form-col">
                 <label for="adSoyad">* İsim & Soyisim:</label>
                 <input
@@ -179,8 +179,8 @@
                 <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="email" name="email" placeholder="Email" />
               </div>
               <div class="form-col">
-                <label for="telefon">Telefon:</label>
-                <input type="tel" class="form-control" id="telefon" name="telefon" placeholder="Telefon" />
+                <label for="telefon">* Telefon (5XX XXX XX XX):</label>
+                <input type="tel" class="form-control" id="telefon" name="telefon" placeholder="Telefon" required/>
               </div>
               <div class="form-col">
                 <label for="mesaj">* Mesaj:</label>
@@ -264,7 +264,11 @@
       </div>
     </footer>
     <script src="assets/js/app.js?v=1"></script>
-    <script src="assets/js/requests/iletisim.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
+    <script src="../assets/js/requests/formSubmission.js"></script>
+    <script>
+      var form = document.getElementById('form');
+      form.onsubmit = (event) => submission(event, "iletisim");
+    </script>
   </body>
 </html>

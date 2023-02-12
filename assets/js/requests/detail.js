@@ -1,5 +1,3 @@
-const API_URL = 'https://deprem-27jjydhzba-ew.a.run.app/';
-
 const title = document.getElementById('title');
 const status = document.getElementById('status');
 const adSoyad = document.getElementById('adSoyad');
@@ -8,9 +6,8 @@ const tel = document.getElementById('telefon');
 const kisiSayisi = document.getElementById('kisiSayisi').getElementsByTagName('input')[0];
 const adres = document.getElementById('adres');
 const adresTarifi = document.getElementById('adresTarifi').getElementsByTagName('input')[0];
-const googleMapLink = document.getElementById('googleMap').getElementsByTagName('a')[0];
-const aciklama = document.getElementById('aciklama').getElementsByTagName('textarea')[0];
-const tweeterLink = document.getElementById('tweetLink').getElementsByTagName('input')[0];
+const googleMapsLink = document.querySelector('#google-maps-link');
+const tweeterLink = document.getElementById('tweetLink').getElementsByTagName('a')[0];
 
 const sehir = document.getElementById('sehir');
 const hedefSehir = document.getElementById('hedefSehir').getElementsByTagName('input')[0];
@@ -18,6 +15,8 @@ const hedefSehir = document.getElementById('hedefSehir').getElementsByTagName('i
 const updatedDate = document.getElementById('updatedDate');
 const createdDate = document.getElementById('createdDate');
 const yardimKayitId = document.getElementById('yardimKayitId');
+
+let type = '';
 
 const alert = 'rgba(255, 181, 70, 1)';
 const blue = 'rgba(71, 101, 255, 1)';
@@ -44,7 +43,7 @@ function getItem() {
     document.getElementById('googleMap').style.display = 'none';
     document.getElementsByClassName('acilDurumRadioWrapper')[0].setAttribute('style', 'display:none !important');
     document.getElementById('adresTarifi').style.display = 'none';
-    document.getElementsByClassName('arabaDurum')[0].setAttribute('style', 'display:none !important');
+    document.getElementsByClassName('arabaDurum')[0]?.setAttribute('style', 'display:none !important');
     document.getElementById('tweetLink').style.display = 'none';
   }
 
@@ -52,28 +51,32 @@ function getItem() {
   getData(API_URL + type + id).then((item) => {
     const yardimKayitlari = item.yardimKaydi;
     item = item.results;
-    if (type === 'yardim/') {
-      item.aciklama = item.fizikiDurum;
-    } else {
-      item.email = item.fields.email;
-    }
 
     const acilDurum = item.acilDurum;
     const yardimDurum = item.yardimDurumu;
-    const aracDurum = item.fields.aracDurumu;
-    console.log(aracDurum);
-    status.getElementsByTagName('p')[0].innerHTML = yardimDurum + ' - ' + acilDurum;
+    const aracDurum = item.fields.aracDurumu ? item.fields.aracDurumu : '';
+    const fizikDurum = item.fizikiDurum ? item.fizikiDurum : '';
+    const aciklama = item.aciklama || '';
 
-    if (aracDurum === 'var') {
-      document.getElementById('araciVar').checked = true;
-      document.getElementById('araciYok').disabled = true;
-    } else if (aracDurum === 'yok') {
-      document.getElementById('araciVar').disabled = true;
-      document.getElementById('araciYok').checked = true;
-    } else {
-      document.getElementById('araciVar').disabled = true;
-      document.getElementById('araciYok').disabled = true;
+    if (aracDurum) {
+      var element = document.getElementById('aracDurum');
+      element.classList.remove('cond-render');
+      if (aracDurum === 'var') {
+        document.getElementById('aracDurumVar').checked = true;
+      } else if (aracDurum === 'yok') {
+        document.getElementById('aracDurumYok').checked = true;
+      }
     }
+
+    if (fizikDurum) {
+      document.getElementById('aciklamaValue').value = fizikDurum;
+    }
+
+    if (aciklama) {
+      document.getElementById('aciklamaValue').value = aciklama;
+    }
+
+    status.getElementsByTagName('p')[0].innerHTML = yardimDurum + ' - ' + acilDurum;
 
     status.getElementsByTagName('p')[0].innerHTML = yardimDurum + ' - ' + acilDurum;
     if (acilDurum === 'kritik') {
@@ -113,15 +116,17 @@ function getItem() {
     }
 
     title.innerHTML = item.yardimTipi + ' Yardımı Detay';
+    type = item.yardimTipi;
     adSoyad.value = item.adSoyad ? item.adSoyad : '';
     email.value = item.email ? item.email : '';
     tel.value = item.telefon ? item.telefon : '';
     kisiSayisi.value = item.kisiSayisi ? item.kisiSayisi : '';
     adres.value = item.adres ? item.adres : '';
     adresTarifi.value = item.adresTarifi ? item.adresTarifi : '';
-    googleMapLink.href = item.googleMapLink ? item.googleMapLink : '';
-    aciklama.value = item.aciklama ? item.aciklama : '';
-    tweeterLink.value = item.tweetLink ? item.tweetLink : '';
+    tweeterLink.href = item.tweetLink ? item.tweetLink : '';
+    tweeterLink.innerText = item.tweetLink ? item.tweetLink : '';
+
+    googleMapsLink.setAttribute('href', item.adres ? `https://www.google.com/maps?q=${item.adres}` : '');
 
     if (sehir) {
       sehir.value = item.sehir ? item.sehir : '';
@@ -137,13 +142,27 @@ function getItem() {
     // clear listWrapper html
     listWrapper.innerHTML = '';
 
+    let endpoint = '';
+    if (type == 'gidaSaglama' || type === 'yolcuTasima' || type === 'isMakinasi' || type === 'konaklama') {
+      endpoint = 'ekleYardimEtKaydi';
+      document.getElementById('yardimObjectForm').classList.add('cond-render');
+      document.getElementById('yardimEtObjectForm').classList.remove('cond-render');
+    } else {
+      endpoint = 'ekleYardimKaydi';
+      document.getElementById('yardimObjectForm').classList.remove('cond-render');
+      document.getElementById('yardimEtObjectForm').classList.add('cond-render');
+    }
+
+    var form = document.getElementById('form');
+    form.onsubmit = (event) => submission(event, endpoint, window.location.href);
+
     yardimKayitlari.forEach(function (el) {
       listWrapper.innerHTML += getRowHtml(el);
     });
   });
 }
 
-function getData(url, params) {
+async function getData(url, params) {
   if (params) {
     url += '?';
     params.forEach((param) => {
@@ -151,19 +170,18 @@ function getData(url, params) {
     });
   }
 
-  return fetch(url, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      return data;
-    })
-    .catch((error) => {
-      console.error('Error:', error);
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error:', error);
+  }
 }
 
 function parseTime(input) {
@@ -202,6 +220,12 @@ function getRowHtml(item) {
             <div class="list-col">
                 <span  >
                    ${item.email} 
+                </span>
+           </div>
+
+           <div class="list-col">
+                <span  >
+                   ${item.sonDurum} 
                 </span>
            </div>
             
