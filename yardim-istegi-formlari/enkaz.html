@@ -133,7 +133,7 @@
           </a>
           <h1>Depremzede Bildirim Formu</h1>
           <div class="form">
-            <div style="background-color: #2c2e3c4d; padding: 10px; border-radius: 10px">
+            <div class="warningBox">
               <div style="display: inline-flex; align-items: center; justify-content: space-between">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -352,7 +352,7 @@
     <script src="../assets/js/requests/formSubmission.js"></script>
     <script>
       var form = document.getElementById('form');
-      form.onsubmit = (event) => submission(event , "yardim", '/yardim-istekleri/enkaz.html');
+      form.onsubmit = (event) => submission(event, 'yardim', '/yardim-istekleri/enkaz.html');
       let extraPhoneCount = 0;
     </script>
   </body>
