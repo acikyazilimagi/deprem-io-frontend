@@ -1,4 +1,4 @@
-const API_URL = 'https://deprem-27jjydhzba-ew.a.run.app/';
+const API_URL = 'http://localhost:8080/';
 
 const filterButton = document.querySelector('#filter-button');
 const filterHelpType = document.querySelector('#filter-help-type');
@@ -117,6 +117,8 @@ function getFilteredRows(page, limit) {
     { key: 'yardimTipi', value: helpType },
     { key: 'sehir', value: location },
     { key: 'hedefSehir', value: dest },
+    { key: 'page', value: page },
+    { key: 'limit', value: limit },
   ])
     .then((items) => {
       console.log(items);
@@ -126,7 +128,7 @@ function getFilteredRows(page, limit) {
       // clear listWrapper html
       listWrapper.innerHTML = '';
 
-      items.forEach(function (item) {
+      items.data.forEach(function (item) {
         listWrapper.innerHTML += getRowHtml(item);
       });
     })
