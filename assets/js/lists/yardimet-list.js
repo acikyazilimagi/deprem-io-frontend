@@ -102,13 +102,9 @@ function getFilteredRows(page, limit) {
     location = filterLocation.value;
   }
 
-  console.log(location);
-
   if (filterDest) {
     dest = filterDest.value;
   }
-
-  console.log(dest);
 
   // get items
   getData(API_URL + 'ara-yardimet/', [
@@ -119,7 +115,6 @@ function getFilteredRows(page, limit) {
     { key: 'hedefSehir', value: dest },
   ])
     .then((items) => {
-      console.log(items);
       // update total page value
       totalPage = items.totalPage;
       var listWrapper = document.querySelector('.list');
