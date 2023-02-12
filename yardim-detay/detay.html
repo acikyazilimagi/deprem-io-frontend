@@ -307,37 +307,45 @@
 
               <div class="acilDurumRadioWrapper form-row">
                 <div class="acilDurum-item">
-                  <input type="radio" id="kritik" name="fav_language" value="kritik" disabled/>
+                  <input type="radio" id="kritik" name="fav_language" value="kritik" disabled />
                   <label style="text-transform: capitalize" for="kritik">kritik</label>
                 </div>
                 <div class="acilDurum-item">
-                  <input type="radio" id="orta" name="fav_language" value="orta" disabled/>
+                  <input type="radio" id="orta" name="fav_language" value="orta" disabled />
                   <label style="text-transform: capitalize" for="orta">orta</label>
                 </div>
                 <div class="acilDurum-item">
-                  <input type="radio" id="normal" name="fav_language" value="normal" disabled/>
+                  <input type="radio" id="normal" name="fav_language" value="normal" disabled />
                   <label style="text-transform: capitalize" for="normal">normal</label>
                 </div>
               </div>
 
               <div class="cond-render form-row" id="aracDurum" style="display: flex">
-                <div class="acilDurum-item" >
-                  <input type="radio" id="aracDurumVar"  disabled/>
+                <div class="acilDurum-item">
+                  <input type="radio" id="aracDurumVar" disabled />
                   <label style="text-transform: capitalize" for="aracDurumVar">Aracı Var</label>
                 </div>
                 <div class="acilDurum-item">
-                  <input type="radio" id="aracDurumYok"  disabled />
+                  <input type="radio" id="aracDurumYok" disabled />
                   <label style="text-transform: capitalize" for="aracDurumYok">Aracı Yok</label>
                 </div>
               </div>
 
               <div id="aciklama" class="form-row">
                 <div class="form-col">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="rgba(69,100,252,0.5)" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z">
-                    </path>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="rgba(69,100,252,0.5)"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+                    ></path>
                   </svg>
                   <textarea id="aciklamaValue" type="text" class="form-control" name="fizikDurum" readonly></textarea>
                 </div>
@@ -393,7 +401,14 @@
                 </div>
                 <div class="form-col">
                   <label for="telefon">* Telefon (5XX XXX XX XX)::</label>
-                  <input type="tel" class="form-control" id="telefon-kayit" name="telefon" placeholder="Telefon" required />
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="telefon-kayit"
+                    name="telefon"
+                    placeholder="* Telefon"
+                    required
+                  />
                 </div>
               </div>
 
@@ -408,7 +423,7 @@
                 />
               </div>
               <p>Son Durumu Seç</p>
-              <div class="cond-render form-row" id="yardimObjectForm" style="display: flex;">
+              <div class="cond-render form-row" id="yardimObjectForm" style="display: flex">
                 <div class="acilDurum-item">
                   <input type="radio" id="yardim-bekleniyor" name="sonDurum" value="yardim-bekleniyor" />
                   <label style="text-transform: capitalize" for="yardim-bekleniyor">Yardım Bekleniyor</label>
@@ -427,7 +442,7 @@
                 </div>
               </div>
 
-              <div class="form-row cond-render" id="yardimEtObjectForm" style="display: flex;">
+              <div class="form-row cond-render" id="yardimEtObjectForm" style="display: flex">
                 <div class="acilDurum-item">
                   <input type="radio" id="bekleniyor" name="sonDurum" value="bekleniyor" />
                   <label style="text-transform: capitalize" for="bekleniyor">Yardıma Hazır</label>
