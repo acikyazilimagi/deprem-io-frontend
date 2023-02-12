@@ -1116,3 +1116,37 @@ input[type='number'] {
 }
 
 /*  <-- Hiding counter spinner --> */
+
+.warningBox {
+  overflow: visible;
+  justify-content: flex-end;
+  row-gap: 10px;
+  column-gap: 10px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: transparent;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: transparent;
+  border-bottom-right-radius: 10px;
+  border-left-style: solid;
+  border-left-width: 2px;
+  border-left-color: rgba(255, 181, 70, 1);
+  border-bottom-left-radius: 10px;
+  box-shadow: 0 1px 5px -2px rgb(52 59 111 / 30%);
+  padding: 10px;
+  align-self: flex-start;
+  min-width: 0;
+  order: 3;
+  min-height: 0;
+  height: max-content;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-left: 0;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  z-index: 58;
+}
