@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8080/';
+const API_URL = 'https://deprem-27jjydhzba-ew.a.run.app/';
 
 const filterButton = document.querySelector('#filter-button');
 const filterHelpType = document.querySelector('#filter-help-type');
