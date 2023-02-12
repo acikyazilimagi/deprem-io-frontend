@@ -12,6 +12,11 @@ const paginationNextButton = document.querySelector('#pagination-next');
 const paginationCurrentPage = document.querySelector('#pagination-current-page');
 const paginationTotalPage = document.querySelector('#pagination-total-page');
 
+const refreshButton = document.querySelector('#refresh-button');
+const form = document.querySelector('#form');
+
+let isFiltered = false;
+
 function ready(fn) {
   if (document.readyState !== 'loading') {
     fn();
@@ -28,6 +33,19 @@ filterButton.addEventListener('click', function (e) {
   e.preventDefault();
 
   getFilteredRows();
+});
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  getFilteredRows();
+});
+
+refreshButton.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  if (!isFiltered && filterHelpQ.value.trim() === '') getRows();
+  else getFilteredRows();
 });
 
 paginationNextButton.addEventListener('click', function (e) {
@@ -88,6 +106,8 @@ function getRows(page, limit) {
 }
 
 function getFilteredRows(page, limit) {
+  if (filterHelpQ.value.trim() === '') return; // Empty inputta filtreleme yapma
+
   page = page || 1;
   limit = limit || 10;
 
