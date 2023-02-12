@@ -54,3 +54,12 @@ const App = {
 document.addEventListener('DOMContentLoaded', function () {
   App.init();
 });
+
+document.querySelectorAll('.back-button').forEach((backBtn) => {
+  backBtn.setAttribute('href', document.referrer);
+
+  backBtn.onclick = function () {
+    history.back();
+    return false;
+  };
+});
