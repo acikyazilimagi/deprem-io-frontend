@@ -79,15 +79,14 @@
                   />
                 </div>
                 <div class="form-col">
-                  <label for="email">* Email:</label>
+                  <label for="email">Email:</label>
                   <input
                     type="email"
                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
                     class="form-control"
                     id="email"
                     name="fields-email"
-                    placeholder="* Email"
-                    required
+                    placeholder="Email"
                   />
                 </div>
                 <div class="form-col">
@@ -154,7 +153,20 @@
                   required
                 />
               </div>
-
+              <div class="form-col">
+                <div class="form-row">
+                  <label for="arac-var">
+                    <input type="radio" id="arac-var" name="fields-aracDurumu" value="var" />
+                    Aracım var, yardımı kendim teslim alabilirim.
+                  </label>
+                </div>
+                <div class="form-row">
+                  <label for="arac-yok">
+                    <input type="radio" id="arac-yok" name="fields-aracDurumu" value="yok" checked />
+                    Aracım yok, yardımın teslim edilmesi gerek.
+                  </label>
+                </div>
+              </div>
               <p class="aydinlatma">
                 6698 sayılı KVKK kapsamında “Uygulamamıza depremzede ya da depremzede yakını olarak kaydolan
                 kullanıcılardan ad, soyadı, iletişim bilgisi, log kaydı ve depremzedenin sisteme girilen ve kendileri
