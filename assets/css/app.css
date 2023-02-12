@@ -436,7 +436,7 @@ section {
 
 .form .form-control {
   background: none;
-  border: 2px solid rgba(71, 101, 255, 0.15);
+  border: 2px solid rgb(71 101 255 / 37%);
   outline: none;
   border-radius: 10px;
   padding: 10px 20px;
