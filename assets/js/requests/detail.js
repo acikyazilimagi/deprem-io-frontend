@@ -51,6 +51,7 @@ function getItem() {
   getData(API_URL + type + id).then((item) => {
     const yardimKayitlari = item.yardimKaydi;
     item = item.results;
+    console.log(item);
 
     const acilDurum = item.acilDurum;
     const yardimDurum = item.yardimDurumu;
