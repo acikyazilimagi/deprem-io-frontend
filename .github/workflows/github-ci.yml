@@ -3,11 +3,7 @@ name: Deploy to AWS S3
 on:
   push:
     branches:
-      - main
-
-  workflow_dispatch:
-    branches:
-      - main
+      - prod
 
 jobs:
   deploy:
