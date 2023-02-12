@@ -150,6 +150,10 @@ body {
   padding: 0 15px;
 }
 
+.cond-render {
+  display: none !important;
+}
+
 header .logo {
   display: flex;
   align-items: center;
