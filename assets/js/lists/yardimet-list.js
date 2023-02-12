@@ -79,6 +79,7 @@ function getRows(page, limit) {
       items.data.forEach(function (item) {
         listWrapper.innerHTML += getRowHtml(item);
       });
+      filteredCount.innerHTML = items.totalItems;
     })
     .finally(() => {
       // update pagination info in html
@@ -124,6 +125,7 @@ function getFilteredRows(page, limit) {
       items.forEach(function (item) {
         listWrapper.innerHTML += getRowHtml(item);
       });
+      filteredCount.innerHTML = items.totalItems;
     })
     .finally(() => {
       // update pagination info in html
