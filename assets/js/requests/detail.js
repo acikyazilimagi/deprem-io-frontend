@@ -1,5 +1,3 @@
-const API_URL = 'https://deprem-27jjydhzba-ew.a.run.app/';
-
 const title = document.getElementById('title');
 const status = document.getElementById('status');
 const adSoyad = document.getElementById('adSoyad');
@@ -18,6 +16,8 @@ const hedefSehir = document.getElementById('hedefSehir').getElementsByTagName('i
 const updatedDate = document.getElementById('updatedDate');
 const createdDate = document.getElementById('createdDate');
 const yardimKayitId = document.getElementById('yardimKayitId');
+
+let type = '';
 
 const alert = 'rgba(255, 181, 70, 1)';
 const blue = 'rgba(71, 101, 255, 1)';
@@ -52,16 +52,11 @@ function getItem() {
   getData(API_URL + type + id).then((item) => {
     const yardimKayitlari = item.yardimKaydi;
     item = item.results;
-    if (type === 'yardim/') {
-      item.aciklama = item.fizikiDurum;
-    } else {
-      item.email = item.fields.email;
-    }
 
     const acilDurum = item.acilDurum;
     const yardimDurum = item.yardimDurumu;
-    const aracDurum = item.fields.aracDurumu;
-    console.log(aracDurum);
+    const aracDurum = item.fields.aracDurumu ? item.fields.aracDurumu : '';
+    
     status.getElementsByTagName('p')[0].innerHTML = yardimDurum + ' - ' + acilDurum;
 
     status.getElementsByTagName('p')[0].innerHTML = yardimDurum + ' - ' + acilDurum;
@@ -102,6 +97,7 @@ function getItem() {
     }
 
     title.innerHTML = item.yardimTipi + ' Yardımı Detay';
+    type = item.yardimTipi;
     adSoyad.value = item.adSoyad ? item.adSoyad : '';
     email.value = item.email ? item.email : '';
     tel.value = item.telefon ? item.telefon : '';
@@ -128,8 +124,18 @@ function getItem() {
     // clear listWrapper html
     listWrapper.innerHTML = '';
 
+    let endpoint = '';
+    if (type == 'gidaSaglama' || type === 'yolcuTasima' || type === 'isMakinasi' || type === 'konaklama') {
+      endpoint = 'ekleYardimEtKaydi';
+    } else {
+      endpoint = 'ekleYardimKaydi';
+    }
+
+    var form = document.getElementById('form');
+    form.onsubmit = (event) => submission(event, endpoint, window.location.href);
+
     yardimKayitlari.forEach(function (el) {
-      listWrapper.innerHTML += getRowHtml(el);
+    listWrapper.innerHTML += getRowHtml(el);
     });
   });
 }

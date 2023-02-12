@@ -128,7 +128,6 @@ function getFilteredRows(page, limit) {
     { key: 'aracDurumu', value: helpVehicle },
   ])
     .then((items) => {
-      console.log(items);
       // update total page value
       totalPage = items.totalPage;
       var listWrapper = document.querySelector('.list');

@@ -30,7 +30,7 @@ function submission(event, param , redirect) {
         Swal.fire({
           position: 'center',
           icon: 'success',
-          title: responseBody.message || 'Yardım talebiniz başarıyla alındı',
+          title: responseBody.message || 'Talebiniz başarıyla alındı',
           showConfirmButton: false,
           timer: 2500,
         }).then(function () {
