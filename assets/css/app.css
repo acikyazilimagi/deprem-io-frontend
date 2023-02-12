@@ -1066,6 +1066,10 @@ footer > div > nav > ul > li {
   font-size: 15px;
 }
 
+#googleMap {
+  display: none;
+}
+
 .googleButton {
   width: 100%;
   background-color: rgba(71, 101, 255, 0.15) !important;
