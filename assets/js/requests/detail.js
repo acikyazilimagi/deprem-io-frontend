@@ -7,7 +7,6 @@ const kisiSayisi = document.getElementById('kisiSayisi').getElementsByTagName('i
 const adres = document.getElementById('adres');
 const adresTarifi = document.getElementById('adresTarifi').getElementsByTagName('input')[0];
 const googleMapsLink = document.querySelector('#google-maps-link');
-const aciklama = document.getElementById('aciklama').getElementsByTagName('textarea')[0];
 const tweeterLink = document.getElementById('tweetLink').getElementsByTagName('a')[0];
 
 const sehir = document.getElementById('sehir');
@@ -56,6 +55,8 @@ function getItem() {
     const acilDurum = item.acilDurum;
     const yardimDurum = item.yardimDurumu;
     const aracDurum = item.fields.aracDurumu ? item.fields.aracDurumu : '';
+    const fizikDurum = item.fizikiDurum ? item.fizikiDurum : '';
+    const aciklama = item.aciklama || '';
 
     if (aracDurum) {
       var element = document.getElementById('aracDurum');
@@ -65,6 +66,14 @@ function getItem() {
       } else if (aracDurum === 'yok') {
         document.getElementById('aracDurumYok').checked = true;
       }
+    }
+
+    if (fizikDurum) {
+      document.getElementById('aciklamaValue').value = fizikDurum;
+    }
+
+    if (aciklama) {
+      document.getElementById('aciklamaValue').value = aciklama;
     }
 
     status.getElementsByTagName('p')[0].innerHTML = yardimDurum + ' - ' + acilDurum;
@@ -114,7 +123,6 @@ function getItem() {
     kisiSayisi.value = item.kisiSayisi ? item.kisiSayisi : '';
     adres.value = item.adres ? item.adres : '';
     adresTarifi.value = item.adresTarifi ? item.adresTarifi : '';
-    aciklama.value = item.aciklama ? item.aciklama : '';
     tweeterLink.href = item.tweetLink ? item.tweetLink : '';
     tweeterLink.innerText = item.tweetLink ? item.tweetLink : '';
 
