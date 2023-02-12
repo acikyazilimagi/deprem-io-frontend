@@ -1,4 +1,4 @@
-const API_URL = 'depremio-api-1497025856.eu-central-1.elb.amazonaws.com/';
+const API_URL = 'https://api.deprem.io/';
 
 const filterButton = document.querySelector('#filter-button');
 const filterHelpType = document.querySelector('#filter-help-type');
