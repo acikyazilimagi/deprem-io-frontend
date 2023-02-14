@@ -1154,3 +1154,8 @@ input[type='number'] {
   margin-bottom: 0;
   z-index: 58;
 }
+
+header .logo a img{
+  height: 40px;
+  width: 100%;
+}
