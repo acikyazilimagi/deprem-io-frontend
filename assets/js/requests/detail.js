@@ -8,6 +8,7 @@ const adres = document.getElementById('adres');
 const adresTarifi = document.getElementById('adresTarifi').getElementsByTagName('input')[0];
 const googleMapsLink = document.querySelector('#google-maps-link');
 const tweeterLink = document.getElementById('tweetLink').getElementsByTagName('a')[0];
+const googleMapLink = document.getElementById('googleMapLink').getElementsByTagName('a')[0];
 
 const sehir = document.getElementById('sehir');
 const hedefSehir = document.getElementById('hedefSehir').getElementsByTagName('input')[0];
@@ -126,6 +127,8 @@ function getItem() {
     adresTarifi.value = item.adresTarifi ? item.adresTarifi : '';
     tweeterLink.href = item.tweetLink ? item.tweetLink : '';
     tweeterLink.innerText = item.tweetLink ? item.tweetLink : '';
+    googleMapLink.href = item.googleMapLink ? item.googleMapLink : '';
+    googleMapLink.innerText = item.googleMapLink ? item.googleMapLink : '';
 
     googleMapsLink.setAttribute('href', item.adres ? `https://www.google.com/maps?q=${item.adres}` : '');
 
