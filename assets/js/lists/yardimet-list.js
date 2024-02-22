@@ -133,6 +133,8 @@ function getFilteredRows(page, limit) {
     { key: 'yardimTipi', value: helpType },
     { key: 'sehir', value: location },
     { key: 'hedefSehir', value: dest },
+    { key: 'page', value: page },
+    { key: 'limit', value: limit },
   ])
     .then((items) => {
       // update total page value
@@ -141,7 +143,7 @@ function getFilteredRows(page, limit) {
       // clear listWrapper html
       listWrapper.innerHTML = '';
 
-      items.forEach(function (item) {
+      items.data.forEach(function (item) {
         listWrapper.innerHTML += getRowHtml(item);
       });
     })
